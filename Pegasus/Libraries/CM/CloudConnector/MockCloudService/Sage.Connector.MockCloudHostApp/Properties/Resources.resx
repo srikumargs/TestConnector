@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="PaymentPayload" xml:space="preserve">
+    <value>{"Id":null,"Customer":{"Id":null,"ExternalId":"MTAwMQ2"},"AmountPaid":550.0,"TransactionDate":"2014-03-29T22:48:23.4796978Z","Type":2,"Reference":"Ref 1001","AuthorizationCode":"xyz","CreditCardLast4":"1234","ExpirationMonth":"05","ExpirationYear":"2015","Details":[{"Id":null,"Invoice":{"Id":null,"ExternalId":"SW52IDEwMDE1"},"AppliedAmount":550.0,"ExternalId":null,"ExternalReference":null,"EntityStatus":0}],"ExternalId":null,"ExternalReference":null,"EntityStatus":0}</value>
+    <comment>ExternalIds have been base 64 url encoded</comment>
+  </data>
+  <data name="ProcessStatementsPayload" xml:space="preserve">
+    <value>{"StatementDate":"2014-02-17T23:51:47.240622Z","CustomerReferences":[{"Id":"9576e315-d93c-49eb-b4ee-ec62fdbd337d","ExternalId":"MTAwMA2"},{"Id":"11a75953-61a5-4f86-957d-4fb1caf8dab0","ExternalId":"MTAwMQ2"},{"Id":"13a9dbc0-ddb3-4e74-a3ba-ee45366f9781","ExternalId":"MTAwMg2"},{"Id":"93a4ea28-c94e-4edf-888c-349691a95adc","ExternalId":"MTAwMw2"},{"Id":"b9b711ff-c1db-4319-b601-dab4a31dea98","ExternalId":"MTAwNA2"},{"Id":"20bc29eb-0ada-464b-9b2c-4c0aed4db111","ExternalId":"MTAwNQ2"},{"Id":"e6ca6c13-545d-487f-979b-73251c85d102","ExternalId":"MTAwNg2"},{"Id":"bc7d280f-51df-4ada-806c-6192be2be8be","ExternalId":"MTAwNw2"},{"Id":"6bd2ed88-40b7-4282-ba45-a433caf99c4e","ExternalId":"MTAwOA2"},{"Id":"923a1417-7c00-438b-9a3b-d2e5bdf4bc30","ExternalId":"MTAwOQ2"}]}</value>
+    <comment>External Ids have been base 64 url encoded</comment>
+  </data>
+  <data name="SalesDocumentPayload" xml:space="preserve">
+    <value>{"Details":[{"Id":"2bf197f2-1d0f-4b82-ba4e-a97b1a153731","Quantity":0.0,"Price":0.0,"InventoryItem":{"Id":"36872960-6dfe-4691-99d6-a39eecbc4e1a","ExternalId":"1000"},"ExternalId":null,"ExternalReference":null,"EntityStatus":0},{"Id":"70bf65a6-b196-478e-b708-b1c0eaa1419b","Quantity":1.0,"Price":0.0,"InventoryItem":{"Id":"13a9e09b-e015-49b0-a5e5-9510ac5d704e","ExternalId":"1001"},"ExternalId":null,"ExternalReference":null,"EntityStatus":0},{"Id":"811794a6-17f4-4462-be5e-5d77734da26d","Quantity":2.0,"Price":0.0,"InventoryItem":{"Id":"3f2da8d4-3bd6-4b39-a894-032d306438c9","ExternalId":"1002"},"ExternalId":null,"ExternalReference":null,"EntityStatus":0},{"Id":"a436728b-7e25-4d88-b627-6581642ee8e1","Quantity":3.0,"Price":0.0,"InventoryItem":{"Id":"ed231c9d-e673-4534-adf8-dedc8e2b2d2c","ExternalId":"1003"},"ExternalId":null,"ExternalReference":null,"EntityStatus":0},{"Id":"6cf030f0-afd2-4473-a7c8-4bb292ba5018","Quantity":4.0,"Price":0.0,"InventoryItem":{"Id":"59339162-3a67-4902-8987-c66ebf039ad0","ExternalId":"1004"},"ExternalId":null,"ExternalReference":null,"EntityStatus":0}],"Id":"d9f796c6-10e4-4e8d-848d-442a99050f35","Description":"QuoteToOrder Desc","DocumentNumber":0,"Customer":{"Id":"381cc095-7235-4fde-a811-04af4e1a9cbe","ExternalId":null},"ShippingAddress":{"Id":"1e0d5d56-a28e-43b6-84e9-07d6a0b4acc7","Name":"Irvine Office","Street1":"1234 Street 1","Street2":"Ste. 104","Street3":null,"Street4":null,"City":"Irvine","StateProvince":"CA","PostalCode":"92618","Phone":null,"Email":null,"Country":"USA","Contact":{"FirstName":"Karen","LastName":"Sellers","PhoneWork":"949.555.1212","EmailWork":"ks@sage.com"},"TaxScheduleId":null},"Tax":null,"SandH":null,"DocumentTotal":0.0,"SubTotal":0.0,"ExpiryDate":null,"SubmittedDate":"2014-02-14T19:08:38.5068144Z","DiscountPercent":null,"ExternalId":null,"ExternalReference":null,"EntityStatus":0}</value>
+    <comment>External Ids should be null for these sales document tests.</comment>
+  </data>
+  <data name="WorkOrderPayload" xml:space="preserve">
+    <value>{"Id":"f8a702f4-6bc1-4f60-b81a-9e080158dfc3","PONumber":"PO1234","Description":"WorkOrder Desc","Customer":{"Id":"e41656af-4364-4e6f-99a1-be3603749ecf","ExternalId":"MTAwMQ2"},"ServiceDate":"2014-03-02T23:01:26.9730674Z","ApprovedDate":"2014-02-20T23:01:26.9720671Z","Approver":{"FirstName":"contactFirst","LastName":"contactLast"},"Recipient":"Joe Recipient","Note":"Note for this work order to invoice","QuickCode":"WO","ServiceEndDate":"2014-01-31T23:01:26.9730674Z","CompletedDate":"2014-03-22T23:01:26.9730674Z","Contact":{"FirstName":"contactFirst","LastName":"contactLast"},"Location":{"Name":null,"Street1":"1234 Street 1","Street2":"Ste. 104","Street3":null,"Street4":null,"City":"Irvine","StateProvince":"CA","PostalCode":"92618","Phone":null,"Email":null,"Country":"USA"},"BillingEmail":"billing@email.com","Details":[{"Id":"825cceb6-f00e-48b0-b263-5f9d79c31888","Description":"detail 0","Quantity":0.0,"Rate":10.0,"Note":"Detail note","Taxable":true,"ServiceType":{"Id":"4553d6ea-992a-42c4-abdb-a78294a0effe","ExternalId":"MTAwMA2"},"ShortDescription":"dtl0","Total":500.0,"UnitOfMeasure":"hours","Discount":4.0,"IsRateOverridden":false},{"Id":"1e9cadb6-1471-41c7-82cf-92a679c51da1","Description":"detail 1","Quantity":1.0,"Rate":10.0,"Note":"Detail note","Taxable":true,"ServiceType":{"Id":"f6b023b3-d74a-4c58-aa67-25cd3d948c20","ExternalId":"MTAwMQ2"},"ShortDescription":"dtl1","Total":500.0,"UnitOfMeasure":"hours","Discount":4.0,"IsRateOverridden":false}],"Payment":{"PaymentMethod":1,"AmountPaid":100.0,"PaymentReference":"deposit 100","AuthorizationCode":"auth","CreditCardLast4":"1234","ExpirationMonth":"01","ExpirationYear":"2018"},"SubTotal":1000.0,"Total":1300.0,"Tax":10.0,"TaxSchedule":{"Id":"57702a31-3368-4bd7-8112-3fd73f2b863e","ExternalId":"MTE1"},"TaxCalcProvider":0}</value>
+    <comment>External Ids have been base 64 url encoded</comment>
+  </data>
+</root>

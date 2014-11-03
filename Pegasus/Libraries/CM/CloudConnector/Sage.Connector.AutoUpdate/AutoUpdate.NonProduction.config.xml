@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<AutoUpdate>
+  <!-- AU Staging - https://update.staging.sage.com/au/services/UpdateService -->
+  <!-- AU Production - https://update.sage.com/au/services/UpdateService -->
+  <!-- AU Local -file://<computerName>/AutoUpdate -->
+  <Packages>
+    <Package packageId ="Default">
+      <ServiceUri>https://update.staging.sage.com/au/services/UpdateService</ServiceUri>
+      <ProductId></ProductId>
+      <ProductVersion></ProductVersion>
+    </Package>
+    <Package packageId="ConnectorCore">
+      <ServiceUri></ServiceUri>
+      <ProductId></ProductId>
+      <ProductVersion></ProductVersion>
+      <ComponentBaseName></ComponentBaseName>
+    </Package>
+    <Package packageId="ProcessExecution">
+      <ServiceUri></ServiceUri>
+      <ProductId></ProductId>
+      <ProductVersion></ProductVersion>
+      <ComponentBaseName></ComponentBaseName>
+    </Package>
+    <Package packageId ="DiscoveryPlugins">
+      <ServiceUri></ServiceUri>
+      <ProductId></ProductId>
+      <ProductVersion></ProductVersion>
+      <!-- remove the override from component base name to use discovery without mock-->
+      <ComponentBaseName>DiscoveryPluginsWithMock.</ComponentBaseName>
+    </Package>
+    <Package packageId ="BackOfficePlugin.Mock">
+      <ServiceUri></ServiceUri>
+      <ProductId></ProductId>
+      <ProductVersion></ProductVersion>
+      <ComponentBaseName></ComponentBaseName>
+    </Package>
+    <Package packageId ="BackOfficePlugin.Sage100Erp">
+      <ServiceUri></ServiceUri>
+      <ProductId></ProductId>
+      <ProductVersion></ProductVersion>
+      <ComponentBaseName></ComponentBaseName>
+    </Package>
+    <Package packageId ="BackOfficePlugin.Sage300Erp">
+      <ServiceUri></ServiceUri>
+      <ProductId></ProductId>
+      <ProductVersion></ProductVersion>
+      <ComponentBaseName></ComponentBaseName>
+    </Package>
+    <Package packageId ="BackOfficePlugin.Sage50US">
+      <ServiceUri></ServiceUri>
+      <ProductId></ProductId>
+      <ProductVersion></ProductVersion>
+      <ComponentBaseName></ComponentBaseName>
+    </Package>
+  </Packages>
+  <PeroidicUpdate>
+    <!-- time spans days, hours, min, second, millisecond-->
+    <!-- example 0,0,30,0,0 means every 30min-->
+    <StartInterval></StartInterval>
+    <HeartbeatInterval></HeartbeatInterval>
+    <AutoUpdateQueryInterval></AutoUpdateQueryInterval>
+    <SuspendPeriodicUpdate></SuspendPeriodicUpdate>
+  </PeroidicUpdate>
+</AutoUpdate>

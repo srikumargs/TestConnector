@@ -1,0 +1,277 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:control="clr-namespace:SageConnect.Control;assembly=SageConnect.Control"
+        xmlns:viewModels1="clr-namespace:SageConnect.ViewModels;assembly=SageConnect.ViewModels"
+        xmlns:viewModels="clr-namespace:SageConnect.ViewModels"
+        xmlns:internal="clr-namespace:SageConnect.Internal"
+        x:Name="MainLogin" x:Class="SageConnect.MainWindow"
+        xmlns:resources="clr-namespace:SageConnect.Properties"
+        MinHeight="600" MinWidth="750"  Height="650" Width="750" ResizeMode="NoResize"  WindowStartupLocation="CenterScreen"  WindowStyle="None"   BorderThickness="1" >
+
+    <Grid x:Name="MainGrid" Height="650" Width="750" >
+
+
+        <Grid.DataContext>
+            <viewModels1:ConnectorUserLoginViewModel/>
+        </Grid.DataContext>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" x:Name="LoginFormColumnDefinition" />
+            <ColumnDefinition Width="0" x:Name="ConnectionColumnDefinition" />
+        </Grid.ColumnDefinitions>
+
+        <Border BorderThickness="1,0,0,1" BorderBrush="{DynamicResource SageDarkGrey2014Brush}" Grid.ColumnSpan="2" Margin="0,0,750,0" Padding="0" />
+
+        <Grid Grid.Column="0"   x:Name="LoginGrid"   Margin="0,0,0,0"  >
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"   />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto"  />
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.Column="0" Grid.Row="0"  Style="{StaticResource TitleBarStyle}" VerticalAlignment="Stretch" MouseLeftButtonDown="DragWindowEvent" HorizontalAlignment="Stretch" Margin="0,-1,0,1"/>
+            <Image Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Source="Resources/Images/sage_data_cloud_connector_logo_lg.png" Stretch="None" Width="Auto" Height="Auto"  RenderTransformOrigin="0.72,0.557" Margin="129,134,137,44"/>
+            <TextBlock Grid.Column="0" Grid.Row="2" Style="{StaticResource SignInscreenHeaderStyle}" Text="{x:Static viewModels1:CustomerFacingMessages.SignIn_Header1}"   Margin="152,214,164,-20" RenderTransformOrigin="0.503,-0.219" />
+            <TextBlock Grid.Column="0" Grid.Row="2" Style="{StaticResource SignInscreenHeaderStyle}" Text="{x:Static viewModels1:CustomerFacingMessages.SignIn_Header2}"  Margin="175,284,164,-71" Width="411"  />
+            <TextBlock Grid.Column="0" Grid.Row="2" Style="{StaticResource LinkTextStyle}" Name="GettingStartedTextBlock"  Text ="{x:Static viewModels1:CustomerFacingMessages.SignIn_Gettingstarted}" Margin="300,439,323,-233" Width="127" RenderTransformOrigin="0.559,0.6" MouseDown="GettingStartedTextBlock_OnMouseDown" />
+            <Button Grid.Column="0" Grid.Row="2" Style="{StaticResource SinginButtonStyle}" Content="{x:Static viewModels1:CustomerFacingMessages.SignIn_SinginButtoncaption}" MouseEnter="Sigin_MouseEnter" MouseLeave="Sigin_MouseLeave" MouseUp="Sigin_MouseUP" Height="47" Margin="248,362,274,-179"  Width="228"  Command="{Binding ClickCommand}"/>
+            <Label Content="Site Address" HorizontalAlignment="Left" Height="26" Margin="152,317,0,-115" Grid.Row="2" VerticalAlignment="Top" Width="110" Visibility="{Binding ShowEndPointAddress, UpdateSourceTrigger=PropertyChanged}"/>
+            <ComboBox   Name ="SiteaddressComboBox"  HorizontalAlignment="Left" ItemsSource ="{Binding SiteAddressList, UpdateSourceTrigger=PropertyChanged}" Visibility="{Binding ShowEndPointAddress, UpdateSourceTrigger=PropertyChanged}" DisplayMemberPath="Id"  SelectedItem ="{Binding SelectedSiteGroup,UpdateSourceTrigger=PropertyChanged}" Height="24" Margin="248,319,0,-116" Grid.Row="2" VerticalAlignment="Top" Width="228" IsEditable="False" RenderTransformOrigin="0.509,-0.957" />
+            <TextBlock  Grid.Column="0" Grid.Row="2" Height="10" Background="{DynamicResource SageGray4Brush}"  Margin="0,612,0,-390" Padding="0" ClipToBounds="True" SnapsToDevicePixels="True" RenderTransformOrigin="0.5,0.6" />
+        </Grid>
+
+        <Grid Grid.Column="1"   x:Name="ConnectionGrid" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="25"/>
+                <RowDefinition Height="33"/>
+                <RowDefinition Height="35"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <TextBlock  Grid.Row="0" Grid.Column="0"   Style="{StaticResource TitleBarStyle}" MouseLeftButtonDown="DragWindowEvent"  VerticalAlignment="Top" Padding="5,5,5,5"   TextAlignment="Right" Text="Sign Out                           " Margin="0,0,0,0" Grid.RowSpan="2"/>
+            <TextBlock  Grid.Row="0" Grid.Column="0"  Style="{StaticResource TitleBarStyle}" Background="Transparent"  MouseLeftButtonDown="DragWindowEvent"  VerticalAlignment="Top" FontWeight="Bold" Padding="5,5,5,5" TextAlignment="Left" Text="|" Margin="695,0,0,0"  Grid.RowSpan="2"/>
+            <Image  Grid.Row="0" Grid.Column="0" Style="{StaticResource TitleBarImageStyle}"  Source="Resources/Images/help_icon_gray_bg.png" Margin="671,5,0,2"  Grid.RowSpan="2"/>
+            <Image  Grid.Row="0" Grid.Column="0" Style="{StaticResource TitleBarImageStyle}" Source="Resources/Images/close_icon_gray_bg.png"   Margin="716,5,0,2"  Grid.RowSpan="2"/>
+            <Button Grid.Row="0" Grid.Column="0" Style="{StaticResource TitleBarButtonStyle}"  Margin="716,5,0,0"  Width="20"  Click="CloseButton_Click"  Height="20"/>
+            <Button  Grid.Row="0" Grid.Column="0" Style="{StaticResource TitleBarButtonStyle}" Margin="671,5,0,0"   Width="23"  Click="HelpButton_Click"  Height="18" />
+            <StackPanel Grid.Row="1" Grid.Column="0" Orientation="Horizontal" Margin="0,1,0,2" />
+            <Rectangle  HorizontalAlignment="Right" Height="1" Margin="-1,1,0,0" Stroke="{StaticResource SageGrey2014Brush}" VerticalAlignment="Top" Width="751" Grid.Row="2"/>
+            <TextBlock Grid.Row="2" Grid.Column="0" Style="{StaticResource HeaderStyle}" Text="{x:Static viewModels1:CustomerFacingMessages.Captiion_ConnectorConnections}" Height="Auto" HorizontalAlignment="Stretch" Margin="13,12,-13,6" RenderTransformOrigin="0.495,0.706"  />
+
+            <Grid Grid.Column="0" Grid.Row="3" Margin="0,9,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="740" MaxWidth="740" x:Name="ConnectionsColumn"/>
+                    <ColumnDefinition Width="10" MaxWidth="740"/>
+                    <ColumnDefinition Width="0" MaxWidth="450" x:Name="DetailsColumn"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Grid Name ="ConnectionsGrid" Grid.Column="0" Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="740" >
+                        </ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions >
+                        <RowDefinition Height="164"/>
+                        <RowDefinition Height="100"/>
+                        <RowDefinition Height="240"/>
+                    </Grid.RowDefinitions>
+                    <DataGrid Name="ConnectionStatusDataGrid"  Grid.Row="0" Grid.Column="0"  SelectionChanged="DisplayConnectionDetails_Event"  RowHeaderWidth="0" SelectionMode="Single" SelectionUnit="FullRow" ItemsSource="{Binding TenantDataList, Mode=TwoWay}"   AutoGenerateColumns="false" Height="Auto" VerticalAlignment="Top" BorderThickness="1" Margin="15,0,9,0"  AlternationCount="2"  HorizontalScrollBarVisibility="Disabled" HorizontalAlignment="Stretch">
+
+                        <DataGrid.CellStyle>
+                            <Style TargetType="DataGridCell">
+                                <Setter Property="MinHeight" Value="33"></Setter>
+                                <Style.Triggers>
+                                    <Trigger Property="IsSelected" Value="True">
+                                        <Setter Property="Background" Value="{DynamicResource SageLightGreen2014Brush}" />
+                                        <Setter Property="Foreground" Value="{DynamicResource SageWhite2014Brush}" />
+                                        <Setter Property="BorderThickness" Value="0" />
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </DataGrid.CellStyle>
+                        <DataGrid.RowStyle>
+                            <Style TargetType="{x:Type DataGridRow}">
+                                <Style.Triggers>
+                                    <Trigger Property="AlternationIndex" Value="0">
+                                        <Setter Property="Background" Value="{DynamicResource SageWhiteSmoke2014Brush}" />
+                                    </Trigger>
+                                    <Trigger Property="AlternationIndex" Value="1">
+                                        <Setter Property="Background" Value="{DynamicResource SageWhite2014Brush}" />
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </DataGrid.RowStyle>
+
+                        <DataGrid.Columns >
+                            <DataGridTemplateColumn Header="" Width="30" IsReadOnly="True" >
+                                <DataGridTemplateColumn.CellTemplate >
+                                    <DataTemplate >
+                                        <Image Name="Connectionimage" MaxWidth="22" MaxHeight="22"/>
+                                        <DataTemplate.Triggers>
+                                            <!-- ReSharper disable Xaml.BindingWithContextNotResolved -->
+                                            <DataTrigger Binding="{Binding ConnectionStatus}" Value="OnLine">
+                                                <Setter TargetName="Connectionimage" Property="Source" Value="Resources/Images/connected_lg.png"/>
+                                            </DataTrigger>
+                                            <DataTrigger Binding="{Binding ConnectionStatus}" Value="OffLine">
+                                                <Setter TargetName="Connectionimage" Property="Source" Value="Resources/Images/connection_not_setup_lg.png"/>
+                                            </DataTrigger>
+                                            <DataTrigger Binding="{Binding ConnectionStatus}" Value="Error">
+                                                <Setter TargetName="Connectionimage" Property="Source" Value="Resources/Images/connection_error_lg.png"/>
+                                            </DataTrigger>
+                                            <DataTrigger Binding="{Binding ConnectionStatus}" Value="Configured">
+                                                <Setter TargetName="Connectionimage" Property="Source" Value="Resources/Images/connected_lg_diff_machine.png"/>
+                                            </DataTrigger>
+                                        </DataTemplate.Triggers>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+
+                            <DataGridTextColumn  Header="{x:Static viewModels1:CustomerFacingMessages.Connection_Gridcustomersite}" Binding="{Binding TenantName}" ClipboardContentBinding="{x:Null}" Width="467" IsReadOnly="True"/>
+                            <DataGridTextColumn  Header="TenantGuid"  Binding="{Binding TenantGuid}" ClipboardContentBinding="{x:Null}" Width="0" Visibility="Hidden" IsReadOnly="True" />
+                            <DataGridTemplateColumn Header="{x:Static viewModels1:CustomerFacingMessages.Connection_Gridcloud}" Width="110"  IsReadOnly="True" >
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Image Name="Cloudimage" MaxWidth="22" MaxHeight="22"/>
+                                        <DataTemplate.Triggers>
+                                            <DataTrigger Binding="{Binding CloudStatus}" Value="OnLine">
+                                                <Setter TargetName="Cloudimage" Property="Source" Value="Resources/Images/cloud_connected_lg.png"/>
+                                            </DataTrigger>
+                                            <DataTrigger Binding="{Binding CloudStatus}" Value="OffLine">
+                                                <Setter TargetName="Cloudimage" Property="Source" Value="Resources/Images/cloud_not_setup_lg.png"/>
+                                            </DataTrigger>
+                                            <DataTrigger Binding="{Binding CloudStatus}" Value="Error">
+                                                <Setter TargetName="Cloudimage" Property="Source" Value="Resources/Images/connection_error_lg.png"/>
+                                            </DataTrigger>
+                                            <DataTrigger Binding="{Binding CloudStatus}" Value="Configured">
+                                                <Setter TargetName="Cloudimage" Property="Source" Value="Resources/Images/cloud_connected_lg_diff_machine.png"/>
+                                            </DataTrigger>
+                                        </DataTemplate.Triggers>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+
+                            <DataGridTemplateColumn Header="{x:Static viewModels1:CustomerFacingMessages.Connection_GridAccounting}" Width="110" IsReadOnly="True" CanUserResize="False"   >
+                                <DataGridTemplateColumn.CellTemplate >
+                                    <DataTemplate>
+                                        <Image Name="Backofficeimage" MaxWidth="22" MaxHeight="22"/>
+                                        <DataTemplate.Triggers>
+                                            <DataTrigger Binding="{Binding BackOfficeStatus}" Value="3">
+                                                <Setter TargetName="Backofficeimage" Property="Source" Value="Resources/Images/erp_connected_lg.png"/>
+                                            </DataTrigger>
+                                            <DataTrigger Binding="{Binding BackOfficeStatus}" Value="0">
+                                                <Setter TargetName="Backofficeimage" Property="Source" Value="Resources/Images/erp_not_connected_lg.png"/>
+                                            </DataTrigger>
+                                            <DataTrigger Binding="{Binding BackOfficeStatus}" Value="2">
+                                                <Setter TargetName="Backofficeimage" Property="Source" Value="Resources/Images/connection_error_lg.png"/>
+                                            </DataTrigger>
+                                        </DataTemplate.Triggers>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTextColumn  Header="RegisteredConnectorId"  Binding="{Binding RegisteredConnectorId}" ClipboardContentBinding="{x:Null}" Width="0" Visibility="Hidden" IsReadOnly="True" />
+                            <DataGridTextColumn  Header="RegisterdCompanyId"  Binding="{Binding RegisterdCompanyId}" ClipboardContentBinding="{x:Null}" Width="0" Visibility="Hidden" IsReadOnly="True" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <TextBlock  x:Name="ConnectionMessageBlock"  Grid.Column="0" Grid.Row="1" FontFamily="Arial" Margin="14,0,0,0" FontSize="12" FontWeight="Regular" Foreground="{StaticResource SageBlackFore2014Brush}" HorizontalAlignment="Stretch" Height="43" TextWrapping="Wrap"  VerticalAlignment="Top" Width="Auto">
+                <Run Text="{x:Static viewModels1:CustomerFacingMessages.Connection_Message}"/>
+                    </TextBlock>
+                    <Grid Column="0" Row="2"  Margin="14,0,0,0" Name="LegendGrid">
+                        <ListView  IsEnabled="False" DataContext="{StaticResource LegendListCollection}" ItemsSource="{StaticResource LegendListCollection}" Template="{DynamicResource ListViewNewTemplate}" Height="177" Width="216" Margin="5,67,0,-3" Padding="1,1,1,1" VerticalAlignment="Top" HorizontalAlignment="Left" BorderBrush="{x:Null}" BorderThickness="1" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" Background="Transparent" Foreground="{x:Null}">
+                            <ListView.View>
+                                <GridView AllowsColumnReorder="false" ColumnHeaderContainerStyle="{StaticResource GridViewHeaderStyle}"  >
+                                    <GridViewColumn >
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <Border BorderBrush="{StaticResource SageBorderGrey2014Brush}" BorderThickness="1,1,1,1" Margin="-8,-1,-8,-5"  >
+                                                    <StackPanel Margin="8,3,8,2">
+                                                        <Image Source="{Binding LegendImageSource}"  Height="18" Width="18" />
+                                                    </StackPanel>
+                                                </Border>
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
+                                    <GridViewColumn >
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <Border BorderBrush="{StaticResource SageBorderGrey2014Brush}" BorderThickness="0,1,1,1" Margin="-6,-1,-8,-5" >
+                                                    <StackPanel Margin="6,3,8,2">
+                                                        <TextBlock Text="{Binding ImageDescription}" Height="18" Width="150" />
+                                                    </StackPanel>
+                                                </Border>
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
+                                </GridView>
+                            </ListView.View>
+                        </ListView>
+                        <Border Grid.Column="0" Grid.Row="0"  BorderBrush="{StaticResource SageBorderGrey2014Brush}" BorderThickness="1,1,1,1" Margin="5,44,522,172">
+                            <TextBlock Text="{x:Static viewModels1:CustomerFacingMessages.Legend_Header}"  Width="199" Background="{StaticResource SageBorderGrey2014Brush}" Foreground="{StaticResource SageWhite2014Brush}" FontWeight="Bold" HorizontalAlignment="Right" Margin="0,0" Padding="8,1,1,1" />
+                        </Border>
+                    <!--<Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="1" Margin="6,67,0,0" Stroke="DarkGray" VerticalAlignment="Top" Width="198"/>-->
+
+                    </Grid>
+
+                </Grid>
+                <GridSplitter x:Name="Splitter"     Grid.Column="1" Grid.Row="0" Height="Auto"   HorizontalAlignment="Stretch" VerticalAlignment="Stretch" ResizeBehavior="PreviousAndNext"  ResizeDirection="Columns"    PreviewMouseLeftButtonDown="Splitter_OnMouseLeftButtonUp" Cursor="Arrow" >
+                    <GridSplitter.Background>
+                        <!-- Small, Transparent png except the grip itself -->
+                        <ImageBrush ImageSource="Resources/Images/divider_left.png" Stretch="UniformToFill"/>
+                    </GridSplitter.Background>
+                </GridSplitter>
+                <!--<Canvas  Grid.Column="1" Grid.Row="0" Background="ForestGreen" Height="100" Width="8" Margin="0,0,0,0" >
+                    <Polygon Points="6,18 2,12 2,25 6,18" Stroke="White" StrokeThickness="2" Width="8" Canvas.Top="28">
+                        <Polygon.Fill>
+                            <SolidColorBrush Color="White" />
+                        </Polygon.Fill>
+                    </Polygon>
+                </Canvas>-->
+
+                <Grid Name ="AnchorGrid" Grid.Column="2" Grid.Row="0" Background="{DynamicResource SageWhiteSmoke2014Brush}">
+
+
+                    <Grid.DataContext>
+                        <viewModels:ConnectionsViewModel/>
+                    </Grid.DataContext>
+
+                    <control:SettingsControl Name ="ConnectionSettings" HeaderDescription="{x:Static viewModels1:CustomerFacingMessages.ConnectionDetails_Header}" 
+                                             MessageDescription="{Binding Path=MessageDescription, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                                             ShowSettings="{Binding Path=ShowEditSetting, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Visibility="Hidden"
+                                             ShowHelpSettings="{Binding Path=ShowHelpSetting, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                                             EditSettingsToolTip="{x:Static viewModels1:CustomerFacingMessages.Settings_EditSettingsToolTip}"
+                                             ClearSettingsToolTip="{x:Static viewModels1:CustomerFacingMessages.Settings_ClearSettingsToolTip}"
+                                              VerticalAlignment="Top" Grid.Row="0" Grid.Column="0" BorderThickness="0" 
+                                             Margin="10,0,0,0">
+                    </control:SettingsControl>
+
+                    <control:TransistionControl Name="DisplayControl"  Grid.Row="0" Grid.Column="0" BorderThickness="0" Margin="10,50,0,0" Visibility="{Binding ConnectiondetailVisiblity, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+
+                </Grid>
+
+            </Grid>
+            <Image HorizontalAlignment="Left" Source="Resources/Images/sage_data_cloud_sm.png" Margin="14,10,0,0" Grid.Row="1"   VerticalAlignment="Top" Width="Auto" Height="23"/>
+            <!--<Image HorizontalAlignment="Right" Source="Resources/Images/sage_data_cloud_logo.png" Margin="0,2,20,0" ToolTip="{x:Static viewModels1:CustomerFacingMessages.ToolTip_MonitorIcon}" Grid.Row="1" VerticalAlignment="Top" Width="32" Height="32" Grid.RowSpan="2"/>-->
+            <TextBlock Grid.Row="1" Style="{StaticResource HeaderLinkTextStyle}"  Text="{Binding DataCloudWebPageDisplayName}" HorizontalAlignment="Right"  Background="Transparent" ToolTip="{x:Static viewModels1:CustomerFacingMessages.ToolTip_MonitorIcon}"  VerticalAlignment="Top" FontWeight="Bold" Padding="5,5,5,5"   Margin="0,2,20,0" Height="29" />
+            <Button Content="" Style="{StaticResource TitleBarButtonStyle}" HorizontalAlignment="Right" Margin="0,2,20,0" Grid.Row="1"  Height="29" Click="OpenMonitor_Click" Width="130"/>
+            <Button Content="" Grid.Row="0" Grid.Column="0" Style="{StaticResource TitleBarButtonStyle}" Margin="600,0,0,1"  VerticalAlignment="Stretch" Width="60"  Click="SignOutButton_OnClick" />
+        </Grid>
+        <Grid Column="0" Row="0"  ColumnSpan="2">
+            <Grid.DataContext>
+                <viewModels1:ErrorMessageViewModel/>
+            </Grid.DataContext>
+            <TextBlock  Style="{StaticResource TitleBarStyle}" Background="Transparent"  MouseLeftButtonDown="DragWindowEvent" VerticalAlignment="Top" FontWeight="Bold" Padding="5,5,5,5" TextAlignment="Left" Text="|" Margin="695,0,0,0" />
+            <Image Style="{StaticResource TitleBarImageStyle}" Source="Resources/Images/help_icon_gray_bg.png" Margin="671,5,0,2"/>
+            <Image Style="{StaticResource TitleBarImageStyle}" Source="Resources/Images/close_icon_gray_bg.png" Margin="716,5,0,2"/>
+            <Button Content="" Style="{StaticResource TitleBarButtonStyle}"   Margin="716,5,0,2"  Width="23"  Click="CloseButton_Click" />
+            <Button Content="" Style="{StaticResource TitleBarButtonStyle}"  Margin="671,5,0,2"   Width="23"  Click="HelpButton_Click"  />
+            <control:ErrorMessageControl  x:Name="ErrorMessagectl" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Visibility="{Binding DisplayErrorMessage , Mode=TwoWay ,UpdateSourceTrigger=PropertyChanged}"   CancelButtonClick="ErrorMessageControl_OnCancelButtonClick" Height="650" />
+            <control:ConfirmationDialogControl  x:Name="ConfirmationDialogControl" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Visibility="{Binding DisplayConfirmationMessage , Mode=TwoWay ,UpdateSourceTrigger=PropertyChanged}" Height="650" />
+            <control:ProgressbarControl  x:Name="ProgressbarControl" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Bottom" Visibility="{Binding DisplayProgressbar , Mode=TwoWay ,UpdateSourceTrigger=PropertyChanged}" Height="650" />
+        </Grid>
+
+    </Grid>
+</Window>
+

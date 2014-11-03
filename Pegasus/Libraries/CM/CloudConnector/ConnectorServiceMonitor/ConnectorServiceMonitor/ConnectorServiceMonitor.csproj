@@ -1,0 +1,433 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\..\LinkedSource\SageVariables.targets" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{CA6CB973-12A8-4422-90FD-5317F1C2BDF3}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ConnectorServiceMonitor</RootNamespace>
+    <AssemblyName>ConnectorServiceMonitor</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>..\..\..\..\..\Build\PlatformKeyfile.snk</AssemblyOriginatorKeyFile>
+    <RunPostBuildEvent>OnOutputUpdated</RunPostBuildEvent>
+    <SandboxDir>$([System.IO.Path]::GetFullPath('$(MSBuildProjectDirectory)\..\..\..\..\..'))</SandboxDir>
+    <LibraryDir>$(SandboxDir)\Libraries\CM\CloudConnector</LibraryDir>
+    <LibraryConfigFile>$(LibraryDir)\LibraryConfig-Library.xml</LibraryConfigFile>
+    <ToolsBinDir>$(SandboxDir)\Tools\Bin</ToolsBinDir>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>ConnectorServiceMonitor.xml</DocumentationFile>
+    <CodeAnalysisRules>
+    </CodeAnalysisRules>
+    <NoWarn>
+    </NoWarn>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>ConnectorServiceMonitor.xml</DocumentationFile>
+    <DebugType>full</DebugType>
+    <CodeAnalysisRules>
+    </CodeAnalysisRules>
+    <NoWarn>
+    </NoWarn>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisRuleSet>..\..\LinkedSource\SageConnectorCommonCodeAnalysisRules.ruleset</CodeAnalysisRuleSet>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Img\sagemonitor.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Sage.CRE.Core">
+      <HintPath>$(SandboxDir)\Assemblies\Sage.CRE.Core.dll</HintPath>
+      <Name>Sage.CRE.Core</Name>
+      <Private>False</Private>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Sage.CRE.Core.UI">
+      <HintPath>$(SandboxDir)\Assemblies\Sage.CRE.Core.UI.dll</HintPath>
+      <Name>Sage.CRE.Core.UI</Name>
+      <Private>False</Private>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Sage.CRE.HostingFramework.Interfaces">
+      <HintPath>$(SandboxDir)\Assemblies\Sage.CRE.HostingFramework.Interfaces.dll</HintPath>
+      <Name>Sage.CRE.HostingFramework.Interfaces</Name>
+      <Private>False</Private>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Sage.CRE.HostingFramework.Proxy">
+      <HintPath>$(SandboxDir)\Assemblies\Sage.CRE.HostingFramework.Proxy.dll</HintPath>
+      <Name>Sage.CRE.HostingFramework.Proxy</Name>
+      <Private>False</Private>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Sage.CRE.Resources">
+      <HintPath>$(SandboxDir)\Assemblies\Sage.CRE.Resources.dll</HintPath>
+      <Name>Sage.CRE.Resources</Name>
+      <Private>False</Private>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\..\Core\LinkedSource\StockIcons.cs">
+      <Link>StockIcons.cs</Link>
+    </Compile>
+    <Compile Include="..\..\LinkedSource\ServiceConstants.cs">
+      <Link>ServiceConstants.cs</Link>
+    </Compile>
+    <Compile Include="ImageResources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ImageResources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Internal\ChangeServer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Internal\ChangeServer.Designer.cs">
+      <DependentUpon>ChangeServer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Internal\ConfigureForLocalMachine.cs" />
+    <Compile Include="Internal\ConnectionsPageHtmlRenderer.cs" />
+    <Compile Include="Internal\Link.cs" />
+    <Compile Include="Internal\RequestsPageHtmlRenderer.cs" />
+    <Compile Include="Internal\EnterIPForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Internal\EnterIPForm.Designer.cs">
+      <DependentUpon>EnterIPForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Internal\HtmlContentUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Internal\HtmlContentUserControl.Designer.cs">
+      <DependentUpon>HtmlContentUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Internal\GeneralPageHtmlRenderer.cs" />
+    <Compile Include="Internal\HtmlRenderer.cs" />
+    <Compile Include="Internal\ImageManager.cs" />
+    <Compile Include="Internal\InitializeServer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Internal\InitializeServer.Designer.cs">
+      <DependentUpon>InitializeServer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Internal\MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Internal\MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Internal\NetworkBrowserForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Internal\NetworkBrowserForm.Designer.cs">
+      <DependentUpon>NetworkBrowserForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Internal\ServerRegistration.cs" />
+    <Compile Include="Internal\ServerRegistrationParams.cs" />
+    <Compile Include="Internal\ServerRegistry.cs" />
+    <Compile Include="Internal\ServerSelectionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Internal\ServerSelectionForm.Designer.cs">
+      <DependentUpon>ServerSelectionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Internal\ServerValidation.cs" />
+    <Compile Include="Internal\SettingsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Internal\SettingsForm.Designer.cs">
+      <DependentUpon>SettingsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Internal\SpecifyServer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Internal\SpecifyServer.Designer.cs">
+      <DependentUpon>SpecifyServer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Internal\SpecifyServerSuccess.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Internal\SpecifyServerSuccess.Designer.cs">
+      <DependentUpon>SpecifyServerSuccess.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Internal\StartPageHtmlRenderer.cs" />
+    <Compile Include="NotifyIcon.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NotifyIcon.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="SettingsUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SettingsUserControl.Designer.cs">
+      <DependentUpon>SettingsUserControl.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="ImageResources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ImageResources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Internal\ChangeServer.resx">
+      <DependentUpon>ChangeServer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Internal\EnterIPForm.resx">
+      <DependentUpon>EnterIPForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Internal\HtmlContentUserControl.resx">
+      <DependentUpon>HtmlContentUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Internal\InitializeServer.resx">
+      <DependentUpon>InitializeServer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Internal\MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Internal\NetworkBrowserForm.resx">
+      <DependentUpon>NetworkBrowserForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Internal\ServerSelectionForm.resx">
+      <DependentUpon>ServerSelectionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Internal\SettingsForm.resx">
+      <DependentUpon>SettingsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Internal\SpecifyServer.resx">
+      <DependentUpon>SpecifyServer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Internal\SpecifyServerSuccess.resx">
+      <DependentUpon>SpecifyServerSuccess.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NotifyIcon.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>NotifyIcon.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SettingsUserControl.resx">
+      <DependentUpon>SettingsUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.manifest" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="$(SandboxDir)\Build\PlatformKeyfile.snk">
+      <Link>PlatformKeyfile.snk</Link>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Img\Alert.png" />
+    <Content Include="Img\Alert16.bmp" />
+    <Content Include="Img\arrow32x16.png" />
+    <Content Include="Img\arrows_icon_red.png" />
+    <Content Include="Img\blank.png" />
+    <Content Include="Img\Blank16.png" />
+    <Content Include="Img\blankLight.png" />
+    <Content Include="Img\Critical.png" />
+    <Content Include="Img\Cancel16.png" />
+    <Content Include="Img\Critical16.png" />
+    <Content Include="Img\Fixing.png" />
+    <Content Include="Img\Fixing16.bmp" />
+    <Content Include="Img\greenLight.png" />
+    <Content Include="Img\greenLightLeft.png" />
+    <Content Include="Img\greenLightWorking.png" />
+    <Content Include="Img\OK.png" />
+    <Content Include="Img\OK16.png" />
+    <Content Include="Img\OKWithFixes.bmp" />
+    <Content Include="Img\redLight.png" />
+    <Content Include="Img\redLightLeft.png" />
+    <Content Include="Img\redLightWorking.png" />
+    <Content Include="Img\refresh_icon.png" />
+    <Content Include="Img\Repeat.bmp" />
+    <Content Include="Img\Running.png" />
+    <Content Include="Img\Running16.png" />
+    <Content Include="Img\sagemonitor.ico" />
+    <Content Include="Img\serious.png" />
+    <Content Include="Img\UserCancelled16.png" />
+    <Content Include="Img\whiteLight.png" />
+    <Content Include="Img\whiteLightLeft.png" />
+    <Content Include="Img\whiteLightWorking.png" />
+    <Content Include="Img\Wrench.bmp" />
+    <Content Include="Internal\Computers.ico" />
+    <None Include="Resources\refresh_icon.png" />
+    <None Include="Resources\RedLight.png" />
+    <None Include="Resources\sage_connector_monitor_logo.png" />
+    <None Include="Resources\sage_data_cloud_connector_monitor_logo.png" />
+    <None Include="Resources\arrows_icon_red.png" />
+    <Content Include="Resources\broke_double_arrow.png" />
+    <None Include="Resources\ServiceNormal.ico" />
+    <None Include="Resources\ServiceNotConfig.ico" />
+    <None Include="Resources\ServiceOffline.ico" />
+    <None Include="Resources\ServiceWarning.ico" />
+    <None Include="Resources\ServiceBusy.ico" />
+    <None Include="Resources\ServiceError.ico" />
+    <Content Include="ServiceNormal.ico" />
+    <Content Include="NotifyIconResources\ServiceBusy.ico" />
+    <Content Include="NotifyIconResources\ServiceError.ico" />
+    <Content Include="NotifyIconResources\ServiceNormal.ico" />
+    <Content Include="NotifyIconResources\ServiceNotConfig.ico" />
+    <Content Include="NotifyIconResources\ServiceOffline.ico" />
+    <Content Include="NotifyIconResources\ServiceWarning.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\MonitorService\Interfaces\Sage.Connector.MonitorService.Interfaces.csproj">
+      <Project>{80BCC0F9-CA47-4F18-B366-24098EB720CE}</Project>
+      <Name>Sage.Connector.MonitorService.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\MonitorService\Proxy\Sage.Connector.MonitorService.Proxy.csproj">
+      <Project>{46A182E0-4D69-4A52-BC89-4FE8530C11CA}</Project>
+      <Name>Sage.Connector.MonitorService.Proxy</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Sage.Connector.Common\Sage.Connector.Common.csproj">
+      <Project>{BBC8ADEA-E0DA-49C7-A9EA-BB87321F2E56}</Project>
+      <Name>Sage.Connector.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\StateService\Interfaces\Sage.Connector.StateService.Interfaces.csproj">
+      <Project>{CAEB43D4-1702-4008-B937-C8211D545354}</Project>
+      <Name>Sage.Connector.StateService.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ConnectorServiceMonitor.ViewModel\ConnectorServiceMonitor.ViewModel.csproj">
+      <Project>{55A83DE0-8262-4B81-A0E1-661BD2311124}</Project>
+      <Name>ConnectorServiceMonitor.ViewModel</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="IWshRuntimeLibrary">
+      <Guid>{F935DC20-1CF0-11D0-ADB9-00C04FD58A0B}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SageLinkedSourceDirectory)\SageLibrary.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>"$(SandboxDir)\Tools\Bin\LibraryConfigTool.exe" /silent /sandbox:"$(SandboxDir)" /lc:"$(LibraryConfigFile)" /a:PostBuild /d:ProjectName=$(ProjectName) /d:TargetDir="$(TargetDir)." /d:TargetName=$(TargetName) /d:TargetExt=$(TargetExt) /d:ConfigurationName=$(ConfigurationName)</PostBuildEvent>
+  </PropertyGroup>
+</Project>

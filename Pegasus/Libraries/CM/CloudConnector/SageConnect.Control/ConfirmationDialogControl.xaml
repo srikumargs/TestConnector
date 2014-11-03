@@ -1,0 +1,113 @@
+﻿<UserControl x:Class="SageConnect.Control.ConfirmationDialogControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:properties="clr-namespace:SageConnect.ViewModels;assembly=SageConnect.ViewModels"
+             mc:Ignorable="d" 
+             d:DesignHeight="650" Width="750"  >
+    <UserControl.Resources>
+        <Style TargetType="TextBlock"  x:Key="GeneralTextStyle">
+            <Setter Property="HorizontalAlignment" Value="Left" />
+            <Setter Property="FontFamily" Value="Arial"/>
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="Foreground" Value="#333333"/>
+            <Setter Property="FontWeight" Value="Regular"/>
+            <Setter Property="Width" Value="Auto"/>
+            <Setter Property="TextWrapping" Value= "WrapWithOverflow"/>
+        </Style>
+        <Style BasedOn="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" TargetType="Button">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <ControlTemplate.Resources>
+                            <Style x:Key="ShadowStyle">
+                                <Setter Property="Control.Foreground" Value="#41a940" />
+                            </Style>
+                        </ControlTemplate.Resources>
+                        <Border Name="border" BorderThickness="0" Padding="4,2" BorderBrush="DarkGray"  Background="{TemplateBinding Background}">
+                            <Grid >
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Name="contentShadow" Style="{StaticResource ShadowStyle}">
+                                    <ContentPresenter.RenderTransform>
+                                        <TranslateTransform X="0" Y="0" />
+                                    </ContentPresenter.RenderTransform>
+                                </ContentPresenter>
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Name="content"/>
+                            </Grid>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="FontFamily" Value="Arial"/>
+            <Setter Property="FontSize" Value="11"/>
+            <Setter Property="Foreground" Value="#ffffff"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Background" Value="#41a940"/>
+        </Style>
+        <!--<Style BasedOn="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" TargetType="Button">
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="BorderBrush" Value="Black" />
+            <Setter Property="FontFamily" Value="Arial"/>
+            <Setter Property="FontSize" Value="11"/>
+            <Setter Property="Foreground" Value="#ffffff"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Background" Value="#41a940"/>
+
+        </Style>-->
+        <Style TargetType="TextBlock"  x:Key="GeneralHeaderStyle">
+            <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="TextAlignment" Value="Left" />
+            <Setter Property="FontFamily" Value="Arial"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Foreground" Value="#333333"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="Width" Value="Auto"/>
+            <Setter Property="TextWrapping" Value= "Wrap"/>
+        </Style>
+        <Style TargetType="Border"  x:Key="GridBorderStyle">
+            <Setter Property="Margin" Value="4" />
+            <Setter Property="BorderBrush" Value="#A9A8A8" />
+            <Setter Property="Background" Value="White" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="CornerRadius" Value="10" />
+            <Setter  Property="Effect" >
+                <Setter.Value >
+                    <DropShadowEffect Color="#000000" Opacity="35" ></DropShadowEffect>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <SolidColorBrush Color="#000000" Opacity=".75" x:Key="GridOpacityBrush"/>
+
+        <Style TargetType="Hyperlink"  x:Key="HyperLinkStyle">
+            <Setter Property="FontFamily" Value="Arial"/>
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="Foreground" Value="#41a940"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Foreground" Value="#41a940"/>
+                    <Setter Property="Cursor" Value="Hand" />
+                    <Setter Property="ForceCursor" Value="True" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </UserControl.Resources>
+    <Grid Margin="0,0,0,0"  Background="{StaticResource GridOpacityBrush}"  >
+        <Rectangle Margin="187,95,195,388" Fill="White" RadiusX="8" RadiusY="8" Opacity="1" StrokeThickness="1" Stroke="#a9a8a8" />
+        <TextBlock Name="MessageTextBlock" Margin="219,148,0,431"  Style="{StaticResource GeneralTextStyle}" Text="{x:Static properties:CustomerFacingMessages.ConfirmationDialog_ClearSettingsMessage}" Width="336">
+            <Hyperlink Click="Hyperlink_OnClick" Style="{StaticResource HyperLinkStyle}"  >
+                <LineBreak />
+                <Run Text="{x:Static properties:CustomerFacingMessages.ConfirmationDialog_ClearSettingsHelp_Header}" /> 
+            </Hyperlink>
+        </TextBlock>
+
+        <Button Margin="408,224,231,400"  Name="ClearsettingsButton" GotFocus="UIElement_OnGotFocus" Click="ConfirmSettings_Click" LostFocus="UIElement_OnLostFocus" Content="{x:Static properties:CustomerFacingMessages.ConfirmationDialog_ClearsettingsButton}" Width="111" Height="26"  />
+        <Button Margin="285,224,348,400"  Name="Cancelbutton" Background="#9a9a9b" Foreground="White" GotFocus="UIElement_OnGotFocus" Click="CancelSettings_Click" LostFocus="UIElement_OnLostFocus" Content="{x:Static properties:CustomerFacingMessages.ConfirmationDialog_Cancel}" RenderTransformOrigin="0.461,-3.375" Width="117" Height="26" />
+        <TextBlock Height="20" Margin="219,112,281,0" Style="{StaticResource GeneralHeaderStyle}"  Text="{x:Static properties:CustomerFacingMessages.ConfirmationDialog_ClearSettingsCaption}" VerticalAlignment="Top" Width="250"/>
+        <Rectangle HorizontalAlignment="Left" Height="1" Margin="190,140,0,0" RadiusY="8" RadiusX="8" Stroke="#a9a8a8" StrokeThickness="1" VerticalAlignment="Top" Width="365"/>
+        <Image HorizontalAlignment="Left" Height="15" Margin="505,115,0,0" Source="Resources/Images/close_icon_gray.png" VerticalAlignment="Top" Width="15"/>
+        <Button Name="CloseButton"  Height="15" Width="15" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="505,115,0,0" Background="Transparent" BorderThickness="1" BorderBrush="Transparent" Click="CancelSettings_Click" />
+    </Grid>
+</UserControl>

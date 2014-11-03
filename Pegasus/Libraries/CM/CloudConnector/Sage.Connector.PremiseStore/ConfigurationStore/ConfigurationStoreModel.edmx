@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ConfigurationStoreModel.Store" Alias="Self" Provider="System.Data.SqlServerCe.4.0" ProviderManifestToken="4.0" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="ConfigurationStoreModelStoreContainer">
+    <EntitySet Name="PremiseConfigurations" EntityType="ConfigurationStoreModel.Store.PremiseConfigurations" store:Type="Tables" Schema="dbo" />
+  </EntityContainer>
+  <EntityType Name="PremiseConfigurations">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="BackOfficeCompanyUniqueId" Type="nvarchar" Nullable="false" MaxLength="4000" />
+    <Property Name="PremiseAgent" Type="nvarchar" Nullable="false" MaxLength="4000" />
+    <Property Name="CloudTenantId" Type="nvarchar" Nullable="false" MaxLength="1000" />
+    <Property Name="CloudPremiseKey" Type="nvarchar" Nullable="false" MaxLength="1000" />
+    <Property Name="CloudTenantClaim" Type="nvarchar" Nullable="true" MaxLength="4000" />
+    <Property Name="SiteAddress" Type="nvarchar" Nullable="false" MaxLength="4000" />
+    <Property Name="BackOfficeConnectionEnabledToReceive" Type="bit" Nullable="false" />
+    <Property Name="CloudConnectionEnabledToReceive" Type="bit" Nullable="false" />
+    <Property Name="CloudConnectionEnabledToSend" Type="bit" Nullable="false" />
+    <Property Name="CloudCompanyUrl" Type="nvarchar" Nullable="true" MaxLength="4000" />
+    <Property Name="CloudCompanyName" Type="nvarchar" Nullable="true" MaxLength="1000" />
+    <Property Name="BackOfficeCompanyName" Type="nvarchar" Nullable="true" MaxLength="1000" />
+    <Property Name="SentDocumentStoragePolicy" Type="smallint" Nullable="false" />
+    <Property Name="SentDocumentStorageDays" Type="smallint" Nullable="false" />
+    <Property Name="SentDocumentStorageMBs" Type="bigint" Nullable="false" />
+    <Property Name="SentDocumentFolderName" Type="nvarchar" Nullable="false" MaxLength="4000" />
+    <Property Name="BackOfficeAllowableConcurrentExecutions" Type="smallint" Nullable="false" />
+    <Property Name="MinCommunicationFailureRetryInterval" Type="int" Nullable="false" DefaultValue="60000" />
+    <Property Name="MaxCommunicationFailureRetryInterval" Type="int" Nullable="false" DefaultValue="300000" />
+    <Property Name="ConnectorPluginId" Type="nvarchar" Nullable="false" MaxLength="200" />
+    <Property Name="BackOfficeProductName" Type="nvarchar" Nullable="false" MaxLength="200" />
+    <Property Name="BackOfficeConnectionCredentials" Type="nvarchar" Nullable="false" MaxLength="4000" />
+    <Property Name="BackOfficeConnectionCredentialsDescription" Type="nvarchar" Nullable="true" MaxLength="4000" />
+  </EntityType>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ConfigurationStoreModel" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="ConfigurationStoreModelContainer" annotation:LazyLoadingEnabled="true" a:TypeAccess="Internal" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration">
+          <EntitySet Name="PremiseConfigurations" EntityType="ConfigurationStoreModel.PremiseConfiguration" />
+        </EntityContainer>
+        <EntityType Name="PremiseConfiguration">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Guid" Name="Id" Nullable="false" />
+          <Property Type="String" Name="BackOfficeCompanyUniqueId" Nullable="false" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="PremiseAgent" Nullable="false" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CloudTenantId" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CloudPremiseKey" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CloudTenantClaim" Nullable="true" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="SiteAddress" Nullable="false" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="BackOfficeConnectionEnabledToReceive" Nullable="false" />
+          <Property Type="Boolean" Name="CloudConnectionEnabledToReceive" Nullable="false" />
+          <Property Type="Boolean" Name="CloudConnectionEnabledToSend" Nullable="false" />
+          <Property Type="String" Name="CloudCompanyUrl" Nullable="true" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CloudCompanyName" Nullable="true" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="BackOfficeCompanyName" Nullable="true" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Type="Int16" Name="SentDocumentStoragePolicy" Nullable="false" />
+          <Property Type="Int16" Name="SentDocumentStorageDays" Nullable="false" />
+          <Property Type="Int64" Name="SentDocumentStorageMBs" Nullable="false" />
+          <Property Type="String" Name="SentDocumentFolderName" Nullable="false" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Type="Int16" Name="BackOfficeAllowableConcurrentExecutions" Nullable="false" />
+          <Property Type="Int32" Name="MinCommunicationFailureRetryInterval" Nullable="false" DefaultValue="60000" />
+          <Property Type="Int32" Name="MaxCommunicationFailureRetryInterval" Nullable="false" DefaultValue="300000" />
+          <Property Type="String" Name="ConnectorPluginId" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="BackOfficeProductName" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="BackOfficeConnectionCredentials" Nullable="false" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="BackOfficeConnectionCredentialsDescription" Nullable="true" MaxLength="4000" Unicode="true" FixedLength="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ConfigurationStoreModelStoreContainer" CdmEntityContainer="ConfigurationStoreModelContainer">
+    <EntitySetMapping Name="PremiseConfigurations">
+      <EntityTypeMapping TypeName="IsTypeOf(ConfigurationStoreModel.PremiseConfiguration)">
+        <MappingFragment StoreEntitySet="PremiseConfigurations">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="BackOfficeCompanyUniqueId" ColumnName="BackOfficeCompanyUniqueId" />
+          <ScalarProperty Name="PremiseAgent" ColumnName="PremiseAgent" />
+          <ScalarProperty Name="CloudTenantId" ColumnName="CloudTenantId" />
+          <ScalarProperty Name="CloudPremiseKey" ColumnName="CloudPremiseKey" />
+          <ScalarProperty Name="CloudTenantClaim" ColumnName="CloudTenantClaim" />
+          <ScalarProperty Name="SiteAddress" ColumnName="SiteAddress" />
+          <ScalarProperty Name="BackOfficeConnectionEnabledToReceive" ColumnName="BackOfficeConnectionEnabledToReceive" />
+          <ScalarProperty Name="CloudConnectionEnabledToReceive" ColumnName="CloudConnectionEnabledToReceive" />
+          <ScalarProperty Name="CloudConnectionEnabledToSend" ColumnName="CloudConnectionEnabledToSend" />
+          <ScalarProperty Name="CloudCompanyUrl" ColumnName="CloudCompanyUrl" />
+          <ScalarProperty Name="CloudCompanyName" ColumnName="CloudCompanyName" />
+          <ScalarProperty Name="BackOfficeCompanyName" ColumnName="BackOfficeCompanyName" />
+          <ScalarProperty Name="SentDocumentStoragePolicy" ColumnName="SentDocumentStoragePolicy" />
+          <ScalarProperty Name="SentDocumentStorageDays" ColumnName="SentDocumentStorageDays" />
+          <ScalarProperty Name="SentDocumentStorageMBs" ColumnName="SentDocumentStorageMBs" />
+          <ScalarProperty Name="SentDocumentFolderName" ColumnName="SentDocumentFolderName" />
+          <ScalarProperty Name="BackOfficeAllowableConcurrentExecutions" ColumnName="BackOfficeAllowableConcurrentExecutions" />
+          <ScalarProperty Name="MinCommunicationFailureRetryInterval" ColumnName="MinCommunicationFailureRetryInterval" />
+          <ScalarProperty Name="MaxCommunicationFailureRetryInterval" ColumnName="MaxCommunicationFailureRetryInterval" />
+          <ScalarProperty Name="ConnectorPluginId" ColumnName="ConnectorPluginId" />
+          <ScalarProperty Name="BackOfficeProductName" ColumnName="BackOfficeProductName" />
+          <ScalarProperty Name="BackOfficeConnectionCredentials" ColumnName="BackOfficeConnectionCredentials" />
+          <ScalarProperty Name="BackOfficeConnectionCredentialsDescription" ColumnName="BackOfficeConnectionCredentialsDescription" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer>
+    <edmx:Connection>
+      <edmx:DesignerInfoPropertySet>
+        <edmx:DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </edmx:DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <edmx:DesignerInfoPropertySet>
+        <edmx:DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <edmx:DesignerProperty Name="EnablePluralization" Value="True" />
+        <edmx:DesignerProperty Name="UseLegacyProvider" Value="True" />
+        <edmx:DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </edmx:DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <edmx:Diagram Name="ConfigurationStoreModel" ZoomLevel="81">
+        <edmx:EntityTypeShape EntityType="ConfigurationStoreModel.PremiseConfiguration" Width="3.375" PointX="6.375" PointY="1" />
+      </edmx:Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

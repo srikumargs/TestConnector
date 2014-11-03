@@ -1,0 +1,343 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Captiion_ConnectorConnections" xml:space="preserve">
+    <value>Manage Connector Connections</value>
+  </data>
+  <data name="ConfirmationDialog_Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="ConfirmationDialog_ClearsettingsButton" xml:space="preserve">
+    <value>Clear Settings</value>
+  </data>
+  <data name="ConfirmationDialog_ClearSettingsCaption" xml:space="preserve">
+    <value>Clear Settings?</value>
+  </data>
+  <data name="ConfirmationDialog_ClearSettingsHelp_Header" xml:space="preserve">
+    <value>More Information</value>
+  </data>
+  <data name="ConfirmationDialog_ClearSettingsMessage" xml:space="preserve">
+    <value>Clear all connection and default transaction settings for this connection? 
+Settings will be cleared, but previously synchronized data will not be cleared from the Sage Data Cloud.</value>
+  </data>
+  <data name="ErrorMessage_HyperLinkText" xml:space="preserve">
+    <value>More Information</value>
+  </data>
+  <data name="ErrorMessage_NoTenantCaption" xml:space="preserve">
+    <value>Authorization Error</value>
+  </data>
+  <data name="ErrorMessage_NoTenantExists" xml:space="preserve">
+    <value>The Sage ID you entered is not authorized to configure Sage Data Cloud Connector. Sign in with an authorized Sage ID or contact your administrator for assistance.</value>
+  </data>
+  <data name="Settings_ClearSettingsToolTip" xml:space="preserve">
+    <value>Clear Settings</value>
+  </data>
+  <data name="Settings_EditSettingsToolTip" xml:space="preserve">
+    <value>Edit Settings</value>
+  </data>
+  <data name="ToolTip_MonitorIcon" xml:space="preserve">
+    <value>Click to Open Sage Mobile Sales</value>
+  </data>
+  <data name="AdminCredentialsCaption" xml:space="preserve">
+    <value>Accounting/ERP Information</value>
+  </data>
+  <data name="BackOfficeCaption" xml:space="preserve">
+    <value>Accounting/ERP System:</value>
+  </data>
+  <data name="ButtonCaption_Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="ButtonCaption_Ok" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="ButtonCaption_Register" xml:space="preserve">
+    <value>Connect</value>
+  </data>
+  <data name="ButtonCaption_Save" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="ButtonCaption_Submit" xml:space="preserve">
+    <value>Continue</value>
+  </data>
+  <data name="ButtonCaption_Validate" xml:space="preserve">
+    <value>Validate</value>
+  </data>
+  <data name="ConnectionCredentialsCaption" xml:space="preserve">
+    <value>Accounting/ERP Information</value>
+  </data>
+  <data name="ConnectionDetails_Header" xml:space="preserve">
+    <value>Connection Details</value>
+  </data>
+  <data name="Connection_Connections" xml:space="preserve">
+    <value>Connections</value>
+  </data>
+  <data name="Connection_FormCaption" xml:space="preserve">
+    <value>Sage Data Cloud Connector</value>
+  </data>
+  <data name="Connection_GridAccounting" xml:space="preserve">
+    <value>Accounting/ERP</value>
+  </data>
+  <data name="Connection_Gridcloud" xml:space="preserve">
+    <value>Cloud</value>
+  </data>
+  <data name="Connection_Gridcustomersite" xml:space="preserve">
+    <value>Customer Site</value>
+  </data>
+  <data name="Connection_ImageAccountingconnected" xml:space="preserve">
+    <value>Accounting/ERP Connected</value>
+  </data>
+  <data name="Connection_ImageAccountingnotsetup" xml:space="preserve">
+    <value>Accounting/ERP Not Set Up</value>
+  </data>
+  <data name="Connection_ImageCloudConnected" xml:space="preserve">
+    <value>Cloud Connected</value>
+  </data>
+  <data name="Connection_ImageCloudnotsetup" xml:space="preserve">
+    <value>Cloud Not Set Up</value>
+  </data>
+  <data name="Connection_ImageConnected" xml:space="preserve">
+    <value>Connected</value>
+  </data>
+  <data name="Connection_ImageConnectionerror" xml:space="preserve">
+    <value>Connection Error</value>
+  </data>
+  <data name="Connection_Imageconnectionnotsetup" xml:space="preserve">
+    <value>Connection Not Set Up</value>
+  </data>
+  <data name="Connection_Message" xml:space="preserve">
+    <value>This list displays all connections associated with the Sage ID you used to sign in. Click a connection to set it up or to modify existing connection settings.</value>
+  </data>
+  <data name="ErrorCaption" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="ErrorMessage_CloudRegistratoinFailed" xml:space="preserve">
+    <value>A technical problem occurred and the connection could not be created. </value>
+  </data>
+  <data name="ErrorMessage_CompanyRegisteredtodifferentTenant" xml:space="preserve">
+    <value>The selected company is already connected to a customer site {site/us}. You cannot connect a company to multiple customer sites.</value>
+  </data>
+  <data name="ErrorMessage_Connectionsavefailed" xml:space="preserve">
+    <value>A problem occurred and your changes could not be saved. Error message:</value>
+  </data>
+  <data name="ErrorMessage_DifferenentCompanySelectedonEdit" xml:space="preserve">
+    <value>You cannot change the company that is selected for an existing connection.</value>
+  </data>
+  <data name="ErrorMessage_ErrorwhenlistingFeatureConfguration" xml:space="preserve">
+    <value>Feature Configuration Error</value>
+    <comment>Will be removed.</comment>
+  </data>
+  <data name="ErrorMessage_FeatureConfigurationNull" xml:space="preserve">
+    <value>No Feature Configuration Details returned from BackOffice</value>
+    <comment>Will be removed.</comment>
+  </data>
+  <data name="ErrorMessage_FeatureConfigValuesMissing" xml:space="preserve">
+    <value>Some default transaction settings are missing required information, or contain information that could not be validated in your accounting or ERP system. Please review your settings and try again</value>
+  </data>
+  <data name="ErrorMessage_FeatureConfivalueMisssing_Caption" xml:space="preserve">
+    <value>Required values Missing</value>
+  </data>
+  <data name="Header_CustomerSettings" xml:space="preserve">
+    <value>Connection Settings</value>
+  </data>
+  <data name="InfoCaption" xml:space="preserve">
+    <value>Information</value>
+  </data>
+  <data name="InfoCaption_ConnectionSaved" xml:space="preserve">
+    <value>Connection Settings Saved</value>
+  </data>
+  <data name="InfoCaption_OpenConnectionMonitor" xml:space="preserve">
+    <value>Open Sage Mobile Sales</value>
+  </data>
+  <data name="InfoCaption_TenantConnectionExists" xml:space="preserve">
+    <value>Cannot Modify Existing Connection</value>
+  </data>
+  <data name="InfoMessage_ConnectionSaved" xml:space="preserve">
+    <value>Your connection settings have been saved and data is now being synchronized between your accounting or ERP system and Sage Data Cloud.
+
+Initial synchronization may take up to a few hours to complete,depending on the amount of data and your connection speed.
+
+You can safely close the configuration screen and begin using your Sage web and mobile applicatiions .Sage Data Cloud will continue to synchronize data in the background.</value>
+  </data>
+  <data name="InfoMessage_TenantConnectionExists" xml:space="preserve">
+    <value>The selected customer site is connected to an accounting or ERP system on another computer. If you want to set up a new connection for this customer site, you must clear settings for the existing connection first.</value>
+  </data>
+  <data name="Settings_ClearSettings" xml:space="preserve">
+    <value>Clear Settings</value>
+  </data>
+  <data name="Settings_ConnectionDetails" xml:space="preserve">
+    <value>Connection Details</value>
+  </data>
+  <data name="Settings_ConnectionsMessage" xml:space="preserve">
+    <value>Enter information to connect to your accounting or ERP system.</value>
+  </data>
+  <data name="Settings_EditSettings" xml:space="preserve">
+    <value>Edit Settings</value>
+  </data>
+  <data name="Settings_FeatureHeader" xml:space="preserve">
+    <value>Default Transaction Settings</value>
+  </data>
+  <data name="Settings_FeatureMessage" xml:space="preserve">
+    <value>Specify transaction settings for your accounting or ERP system.</value>
+  </data>
+  <data name="Settings_LearnMore" xml:space="preserve">
+    <value>Learn More</value>
+  </data>
+  <data name="Settings_Name" xml:space="preserve">
+    <value>Company Site:</value>
+  </data>
+  <data name="SignIn_BackofficeMissing" xml:space="preserve">
+    <value>Sage Data Cloud Connector did not find a supported version of Sage accounting or ERP software on your computer. Before setting up Sage Data Cloud Connector, you must install supported accounting or ERP software or apply required product updates to your installed software.</value>
+  </data>
+  <data name="SignIn_BackofficeMissing_Header" xml:space="preserve">
+    <value>Supported Accounting/ERP Software Not Found</value>
+  </data>
+  <data name="SignIn_Gettingstarted" xml:space="preserve">
+    <value>Getting Started Help</value>
+  </data>
+  <data name="SignIn_Header1" xml:space="preserve">
+    <value>Sage Data Cloud Connector transfers data between your accounting or ERP software and your Sage web and mobile applications.</value>
+  </data>
+  <data name="SignIn_Header2" xml:space="preserve">
+    <value>To set up or manage your connections, sign in with your Sage ID.</value>
+  </data>
+  <data name="SignIn_SinginButtoncaption" xml:space="preserve">
+    <value>Sign In</value>
+  </data>
+  <data name="ErrorMessage_CloudRegistratoinFailed_Caption" xml:space="preserve">
+    <value>Cloud Registration Failed</value>
+  </data>
+  <data name="Legend_Header" xml:space="preserve">
+    <value>Legend</value>
+  </data>
+  <data name="Sage_MobileSales" xml:space="preserve">
+    <value>Sage Mobile Sales</value>
+  </data>
+  <data name="Progressbar_LoadingConnection" xml:space="preserve">
+    <value>Loading connection details.</value>
+  </data>
+  <data name="Progressbar_Savingconnection" xml:space="preserve">
+    <value>Saving connection details...</value>
+  </data>
+  <data name="Progressbar_Validatingcredentials" xml:space="preserve">
+    <value>Validating credentials...</value>
+  </data>
+  <data name="Progressbar_Refreshtransaction" xml:space="preserve">
+    <value>Refresh transaction settings...</value>
+  </data>
+</root>

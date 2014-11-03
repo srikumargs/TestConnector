@@ -1,0 +1,240 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+  This file is only used to automate the ui for load testing.
+  The below configuration will spin up 3 tenants with differing configurations.
+  Notes:
+    - Initial Requests will enter, in bulk, all of the listed requests all at one time.
+    - Continued Requests will be iterated through with a RequestDelay between them.  When the
+       end of the list is hit, it starts back at the top.
+    - Requests supported at this point are as follows
+        - Loopback   This is a round trip through the core connector service with no action.
+        - ReportList This is a standard report list request.
+        - Report1    This is the JC Cost Entries by Job.rpt
+        - Report2    This is the JC Committed Cost Status.rpt
+        - Report3    This is the PJ Job Overview (CR).rpt
+        - Garbage    This is an unknow report and will return an error response "Report not found"
+        - Custom     This is not invokable from the UI but will show the counter specific to any custom
+                      report run from automation xml configuration.
+        - JobList    This is a request for the backoffice vendor list.
+        - VendorList    This is a request for the backoffice vendor list.
+        - ContactList    This is a request for the backoffice vendor list.
+                      
+    - Custom report requests are invokable via automation with all supported ParameterValue types.
+-->
+<LoadTestTenantCollection xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Tenants>
+    <Tenant>
+      <EndpointAddress>http://orb515759:8002/MockCloudService.svc/Gateway</EndpointAddress>
+      <TenantId>5dc75a87-4688-4d45-b4ff-91d43db98072</TenantId>
+      <PremiseKey>Test</PremiseKey>
+      <TestTime>2</TestTime>
+      <RequestDelay>10</RequestDelay>
+      <InitialRequests>
+        <Request>
+          <RequestTypeName>Loopback</RequestTypeName>
+          <RequestType>LoopBackRequest</RequestType>
+          <ReportUniqueId></ReportUniqueId>
+          <Parameters></Parameters>
+        </Request>
+        <Request>
+          <RequestTypeName>ReportList</RequestTypeName>
+          <RequestType>ReportDescriptorListRequest</RequestType>
+          <ReportUniqueId></ReportUniqueId>
+          <Parameters></Parameters>
+        </Request>
+      </InitialRequests>
+      <ContinuedRequests>
+        <Request>
+          <RequestTypeName>Loopback</RequestTypeName>
+          <RequestType>LoopBackRequest</RequestType>
+          <ReportUniqueId></ReportUniqueId>
+          <Parameters></Parameters>
+        </Request>
+        <Request>
+          <RequestTypeName>ReportList</RequestTypeName>
+          <RequestType>ReportDescriptorListRequest</RequestType>
+          <ReportUniqueId></ReportUniqueId>
+          <Parameters></Parameters>
+        </Request>
+      </ContinuedRequests>
+      <GatewayServiceInfo>
+        <Name>The name</Name>
+        <Uri>http://Uri</Uri>
+        <ServiceNamespace>theNamespace</ServiceNamespace>
+      </GatewayServiceInfo>
+      <ServiceInfos>
+        <TenantInfo>
+          <Name>Another name1</Name>
+          <Uri>http://Uri1</Uri>
+          <ServiceNamespace>theNamespace1</ServiceNamespace>
+        </TenantInfo>
+        <TenantInfo>
+          <Name>Another name2</Name>
+          <Uri>http://Uri2</Uri>
+          <ServiceNamespace>theNamespace2</ServiceNamespace>
+        </TenantInfo>
+      </ServiceInfos>
+      <CustomUpdateConfigurationParameters>
+        <NormalPerformanceConfigParams>
+          <MaxResponseBatchCount>2</MaxResponseBatchCount>
+          <LargeResponseSizeThreshold>1002</LargeResponseSizeThreshold>
+          <MinGetRequestsInterval>1002</MinGetRequestsInterval>
+          <MaxGetRequestsInterval>22222</MaxGetRequestsInterval>
+        </NormalPerformanceConfigParams>
+        <PeakPerformanceConfigParams>
+          <MaxResponseBatchCount>3</MaxResponseBatchCount>
+          <LargeResponseSizeThreshold>1003</LargeResponseSizeThreshold>
+          <MinGetRequestsInterval>1003</MinGetRequestsInterval>
+          <MaxGetRequestsInterval>33333</MaxGetRequestsInterval>
+        </PeakPerformanceConfigParams>
+        <CommBlackoutStartTimeOfDayUtc>01:01:01</CommBlackoutStartTimeOfDayUtc>
+        <CommBlackoutDuration>01:01:01</CommBlackoutDuration>
+        <PeakHoursStartTimeOfDayUtc>01:01:01</PeakHoursStartTimeOfDayUtc>
+        <PeakHoursDuration>01:01:01</PeakHoursDuration>
+        <SuggestedMaxConnectorUptimeDuration>01:01:01</SuggestedMaxConnectorUptimeDuration>
+        <MinCommunicationFailureRetryInterval>00:01:00</MinCommunicationFailureRetryInterval>
+        <MaxCommunicationFailureRetryInterval>00:10:00</MaxCommunicationFailureRetryInterval>
+      </CustomUpdateConfigurationParameters>
+    </Tenant>
+    <Tenant>
+      <EndpointAddress>http://orb515759:8002/MockCloudService.svc/Gateway</EndpointAddress>
+      <TenantId>db94139b-38b5-495f-86b6-680f02908094</TenantId>
+      <PremiseKey>Test</PremiseKey>
+      <TestTime>3</TestTime>
+      <RequestDelay>5</RequestDelay>
+      <InitialRequests>
+        <Request>
+          <RequestTypeName>Loopback</RequestTypeName>
+          <RequestType>LoopBackRequest</RequestType>
+          <ReportUniqueId></ReportUniqueId>
+          <Parameters></Parameters>
+        </Request>
+        <Request>
+          <RequestTypeName>ReportList</RequestTypeName>
+          <RequestType>ReportDescriptorListRequest</RequestType>
+          <ReportUniqueId></ReportUniqueId>
+          <Parameters></Parameters>
+        </Request>
+        <Request>
+          <RequestTypeName>Loopback</RequestTypeName>
+          <RequestType>LoopBackRequest</RequestType>
+          <ReportUniqueId></ReportUniqueId>
+          <Parameters></Parameters>
+        </Request>
+        <Request>
+          <RequestTypeName>Report1</RequestTypeName>
+          <RequestType>RunReportRequest</RequestType>
+          <ReportUniqueId></ReportUniqueId>
+          <Parameters></Parameters>
+        </Request>
+        <Request>
+          <RequestTypeName>Loopback</RequestTypeName>
+          <RequestType>LoopBackRequest</RequestType>
+          <ReportUniqueId></ReportUniqueId>
+          <Parameters></Parameters>
+        </Request>
+        <Request>
+          <RequestTypeName>Report2</RequestTypeName>
+          <RequestType>RunReportRequest</RequestType>
+          <ReportUniqueId></ReportUniqueId>
+          <Parameters></Parameters>
+        </Request>
+        <Request>
+          <RequestTypeName>Loopback</RequestTypeName>
+          <RequestType>LoopBackRequest</RequestType>
+          <ReportUniqueId></ReportUniqueId>
+          <Parameters></Parameters>
+        </Request>
+        <Request>
+          <RequestTypeName>Report3</RequestTypeName>
+          <RequestType>RunReportRequest</RequestType>
+          <ReportUniqueId></ReportUniqueId>
+          <Parameters></Parameters>
+        </Request>
+        <Request>
+          <RequestTypeName>Loopback</RequestTypeName>
+          <RequestType>LoopBackRequest</RequestType>
+          <ReportUniqueId></ReportUniqueId>
+          <Parameters></Parameters>
+        </Request>
+        <Request>
+          <RequestTypeName>Garbage</RequestTypeName>
+          <RequestType>RunReportRequest</RequestType>
+          <ReportUniqueId></ReportUniqueId>
+          <Parameters></Parameters>
+        </Request>
+        <Request>
+          <RequestTypeName>Loopback</RequestTypeName>
+          <RequestType>LoopBackRequest</RequestType>
+          <ReportUniqueId></ReportUniqueId>
+          <Parameters></Parameters>
+        </Request>
+        <Request>
+          <RequestTypeName>Loopback</RequestTypeName>
+          <RequestType>LoopBackRequest</RequestType>
+          <ReportUniqueId></ReportUniqueId>
+          <Parameters></Parameters>
+        </Request>
+        <Request>
+          <RequestTypeName>Loopback</RequestTypeName>
+          <RequestType>LoopBackRequest</RequestType>
+          <ReportUniqueId></ReportUniqueId>
+          <Parameters></Parameters>
+        </Request>
+        <Request>
+          <RequestTypeName>Loopback</RequestTypeName>
+          <RequestType>LoopBackRequest</RequestType>
+          <ReportUniqueId></ReportUniqueId>
+          <Parameters></Parameters>
+        </Request>
+        <Request>
+          <RequestTypeName>Loopback</RequestTypeName>
+          <RequestType>LoopBackRequest</RequestType>
+          <ReportUniqueId></ReportUniqueId>
+          <Parameters></Parameters>
+        </Request>
+      </InitialRequests>
+      <ContinuedRequests>
+        <Request>
+          <RequestTypeName>Custom</RequestTypeName>
+          <RequestType>RunReportRequest</RequestType>
+          <ReportUniqueId>&lt;UniqueID ApplicationAbbr="JC" ReportName="Cost Entries by Job" /&gt;</ReportUniqueId>
+          <Parameters>
+            <Parameter>
+              <ParameterType>BooleanReportParamValue</ParameterType>
+              <ParameterName>IncludeClosedJobs</ParameterName>
+              <ParameterValue>false</ParameterValue>
+              <PremiseMetadata>premiseFormatting</PremiseMetadata>
+            </Parameter>
+          </Parameters>
+        </Request>
+        <Request>
+          <RequestTypeName>Custom</RequestTypeName>
+          <RequestType>RunReportRequest</RequestType>
+          <ReportUniqueId>&lt;UniqueID ApplicationAbbr="JC" ReportName="Committed Cost Status" /&gt;</ReportUniqueId>
+          <Parameters>
+            <Parameter>
+              <ParameterType>BooleanReportParamValue</ParameterType>
+              <ParameterName>IncludeClosedJobs</ParameterName>
+              <ParameterValue>false</ParameterValue>
+              <PremiseMetadata>premiseFormatting</PremiseMetadata>
+            </Parameter>
+          </Parameters>
+        </Request>
+        <Request>
+          <RequestTypeName>Custom</RequestTypeName>
+          <RequestType>RunReportRequest</RequestType>
+          <ReportUniqueId>&lt;UniqueID ApplicationAbbr="PJ" ReportName="Job Overview (CR)" /&gt;</ReportUniqueId>
+          <Parameters>
+            <Parameter>
+              <ParameterType>BooleanReportParamValue</ParameterType>
+              <ParameterName>IncludeClosedJobs</ParameterName>
+              <ParameterValue>false</ParameterValue>
+              <PremiseMetadata>premiseFormatting</PremiseMetadata>
+            </Parameter>
+          </Parameters>
+        </Request>
+      </ContinuedRequests>
+    </Tenant>
+  </Tenants>
+</LoadTestTenantCollection>

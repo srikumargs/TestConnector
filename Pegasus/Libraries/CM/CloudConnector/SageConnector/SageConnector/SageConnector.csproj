@@ -1,0 +1,390 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\..\LinkedSource\SageVariables.targets" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2EA447F9-2269-4685-B75B-DE8360192B96}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SageConnector</RootNamespace>
+    <AssemblyName>SageConnector</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <RunPostBuildEvent>OnOutputUpdated</RunPostBuildEvent>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <SandboxDir>$([System.IO.Path]::GetFullPath('$(MSBuildProjectDirectory)\..\..\..\..\..'))</SandboxDir>
+    <LibraryDir>$(SandboxDir)\Libraries\CM\CloudConnector</LibraryDir>
+    <LibraryConfigFile>$(LibraryDir)\LibraryConfig-Library.xml</LibraryConfigFile>
+    <ToolsBinDir>$(SandboxDir)\Tools\Bin</ToolsBinDir>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <DocumentationFile>bin\Debug\SageConnector.xml</DocumentationFile>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+    <DocumentationFile>bin\Release\SageConnector.xml</DocumentationFile>
+    <CodeAnalysisRuleSet>..\..\LinkedSource\SageConnectorCommonCodeAnalysisRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>..\..\..\..\..\Build\PlatformKeyfile.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\Installer.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Newtonsoft.Json.6.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Sage.CRE.Core">
+      <HintPath>$(SandboxDir)\Assemblies\Sage.CRE.Core.dll</HintPath>
+      <Name>Sage.CRE.Core</Name>
+      <Private>False</Private>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Sage.CRE.Core.UI">
+      <HintPath>$(SandboxDir)\Assemblies\Sage.CRE.Core.UI.dll</HintPath>
+      <Name>Sage.CRE.Core.UI</Name>
+      <Private>False</Private>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Sage.CRE.HostingFramework.Interfaces">
+      <HintPath>$(SandboxDir)\Assemblies\Sage.CRE.HostingFramework.Interfaces.dll</HintPath>
+      <Name>Sage.CRE.HostingFramework.Interfaces</Name>
+      <Private>False</Private>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Sage.CRE.HostingFramework.Proxy">
+      <HintPath>$(SandboxDir)\Assemblies\Sage.CRE.HostingFramework.Proxy.dll</HintPath>
+      <Name>Sage.CRE.HostingFramework.Proxy</Name>
+      <Private>False</Private>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BackOfficeNotAvailableForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BackOfficeNotAvailableForm.Designer.cs">
+      <DependentUpon>BackOfficeNotAvailableForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CloudConnectorAdminLoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CloudConnectorAdminLoginForm.Designer.cs">
+      <DependentUpon>CloudConnectorAdminLoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CloudConnectorDetailForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CloudConnectorDetailForm.Designer.cs">
+      <DependentUpon>CloudConnectorDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CloudConnectorFeatureConfigurationsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CloudConnectorFeatureConfigurationsForm.Designer.cs">
+      <DependentUpon>CloudConnectorFeatureConfigurationsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CloudConnectorMainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CloudConnectorMainForm.Designer.cs">
+      <DependentUpon>CloudConnectorMainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ConnectionRequestListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConnectionRequestListForm.Designer.cs">
+      <DependentUpon>ConnectionRequestListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ConnectorServiceNotReadyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConnectorServiceNotReadyForm.Designer.cs">
+      <DependentUpon>ConnectorServiceNotReadyForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ConnectorUpdateForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConnectorUpdateForm.Designer.cs">
+      <DependentUpon>ConnectorUpdateForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CredentialsHelper.cs" />
+    <Compile Include="Internal\FeatureMetaData.cs" />
+    <Compile Include="Internal\SelectBackOfficeToConnectToForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Internal\SelectBackOfficeToConnectToForm.Designer.cs">
+      <DependentUpon>SelectBackOfficeToConnectToForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Internal\NoConnectableBackOfficeAvailableForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Internal\NoConnectableBackOfficeAvailableForm.Designer.cs">
+      <DependentUpon>NoConnectableBackOfficeAvailableForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ErrorOnSaveForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ErrorOnSaveForm.Designer.cs">
+      <DependentUpon>ErrorOnSaveForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Internal\ServiceWorkerWithProgress.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="AccountSelectionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AccountSelectionForm.Designer.cs">
+      <DependentUpon>AccountSelectionForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="BackOfficeNotAvailableForm.resx">
+      <DependentUpon>BackOfficeNotAvailableForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CloudConnectorAdminLoginForm.resx">
+      <DependentUpon>CloudConnectorAdminLoginForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CloudConnectorDetailForm.resx">
+      <DependentUpon>CloudConnectorDetailForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CloudConnectorFeatureConfigurationsForm.resx">
+      <DependentUpon>CloudConnectorFeatureConfigurationsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CloudConnectorMainForm.resx">
+      <DependentUpon>CloudConnectorMainForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConnectionRequestListForm.resx">
+      <DependentUpon>ConnectionRequestListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConnectorServiceNotReadyForm.resx">
+      <DependentUpon>ConnectorServiceNotReadyForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConnectorUpdateForm.resx">
+      <DependentUpon>ConnectorUpdateForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Internal\SelectBackOfficeToConnectToForm.resx">
+      <DependentUpon>SelectBackOfficeToConnectToForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Internal\NoConnectableBackOfficeAvailableForm.resx">
+      <DependentUpon>NoConnectableBackOfficeAvailableForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ErrorOnSaveForm.resx">
+      <DependentUpon>ErrorOnSaveForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AccountSelectionForm.resx">
+      <DependentUpon>AccountSelectionForm.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="app.config" />
+    <Content Include="Config.Debug.xslt">
+      <DependentUpon>app.config</DependentUpon>
+    </Content>
+    <Content Include="Config.Release.xslt">
+      <DependentUpon>app.config</DependentUpon>
+    </Content>
+    <Content Include="Resources\selelection_up.png" />
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\CloudConnectorFeatureConfigurationsForm.datasource" />
+    <None Include="Properties\DataSources\SageConnector.Internal.FeatureMetadata.datasource" />
+    <None Include="Resources\Service_stopped.png" />
+    <None Include="Resources\Edit_configuration.png" />
+    <None Include="Resources\config-error.png" />
+    <Content Include="Resources\Installer.ico" />
+    <None Include="Resources\New_service.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\DomainContracts\Configuration.Contracts.Data\Configuration.Contracts.Data.csproj">
+      <Project>{b7b5159e-6f29-4f8e-8822-deb5cfb8c183}</Project>
+      <Name>Configuration.Contracts.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\DomainContracts\DomainContracts.Responses\DomainContracts.Responses.csproj">
+      <Project>{18500939-BBDF-4CF8-A315-FDB500216716}</Project>
+      <Name>DomainContracts.Responses</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\DomainMediators\Configuration.Mediator\Configuration.Mediator.csproj">
+      <Project>{f4afcd9e-f3b0-4b58-bee2-c881de6558b7}</Project>
+      <Name>Configuration.Mediator</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\DomainMediators\DomainMediator.Core\DomainMediator.Core.csproj">
+      <Project>{7dd87cbe-c72b-4e32-ad25-76d7e2c02055}</Project>
+      <Name>DomainMediator.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Logging\Logging\Sage.Connector.Logging.csproj">
+      <Project>{898981d1-9fac-48dc-a91d-232a5a859a0f}</Project>
+      <Name>Sage.Connector.Logging</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\NotificationService\Interfaces\Sage.Connector.NotificationService.Interfaces.csproj">
+      <Project>{A5AE9283-DB1D-4BFC-AEE0-45FC553E0B59}</Project>
+      <Name>Sage.Connector.NotificationService.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\NotificationService\Proxy\Sage.Connector.NotificationService.Proxy.csproj">
+      <Project>{B087F37C-5595-4063-AAE3-F9C2A8D2CB2A}</Project>
+      <Name>Sage.Connector.NotificationService.Proxy</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Sage.Connector.Common\Sage.Connector.Common.csproj">
+      <Project>{BBC8ADEA-E0DA-49C7-A9EA-BB87321F2E56}</Project>
+      <Name>Sage.Connector.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Sage.Connector.Data\Sage.Connector.Data.csproj">
+      <Project>{FC82C216-980F-433A-BEE1-2EB29997515D}</Project>
+      <Name>Sage.Connector.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Sage.Connector.Management\Sage.Connector.Management.csproj">
+      <Project>{13b60d77-d220-464b-a2cc-3b595720d91b}</Project>
+      <Name>Sage.Connector.Management</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\StateService\Interfaces\Sage.Connector.StateService.Interfaces.csproj">
+      <Project>{CAEB43D4-1702-4008-B937-C8211D545354}</Project>
+      <Name>Sage.Connector.StateService.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\StateService\Proxy\Sage.Connector.StateService.Proxy.csproj">
+      <Project>{65602998-E2EE-433A-892C-44233AEFDC85}</Project>
+      <Name>Sage.Connector.StateService.Proxy</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SageConnector.ViewModel\SageConnector.ViewModel.csproj">
+      <Project>{0EFD912C-A64B-4310-8497-33C332AF9DB6}</Project>
+      <Name>SageConnector.ViewModel</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.manifest">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow32x16.gif" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SageLinkedSourceDirectory)\SageLibrary.targets" />
+  <Target Name="BeforeBuild" DependsOnTargets="ApplyMachineSpecificConfiguration">
+  </Target>
+  <Target Name="ApplyMachineSpecificConfiguration" Inputs="$(ProjectDir)\app.config;$(ProjectDir)\Config.$(Configuration).xslt;$(ProjectDir)\Config.$(Configuration).$(Computername).xslt" Outputs="$(ProjectDir)\$(AssemblyName).exe.config">
+    <Delete Files="Config.Output.xml" />
+    <XslTransformation Condition="Exists('Config.$(Configuration).xslt')" XmlInputPaths="app.config" XslInputPath="Config.$(Configuration).xslt" Parameters="&lt;Parameter Name='SandboxDir' Value='$(SandboxDir)'/&gt;" OutputPaths="Config.Output.xml" />
+    <XslTransformation Condition="Exists('Config.$(Configuration).$(Computername).xslt')" XmlInputPaths="app.config" XslInputPath="Config.$(Configuration).$(Computername).xslt" Parameters="&lt;Parameter Name='SandboxDir' Value='$(SandboxDir)'/&gt;" OutputPaths="Config.Output.xml" />
+    <Copy SourceFiles="Config.Output.xml" DestinationFiles="$(ProjectDir)\$(AssemblyName).exe.config" />
+  </Target>
+  <Target Name="AfterBuild">
+    <ItemGroup>
+      <GeneratedVersionTextFiles Include="$(MSBuildProjectDirectory)\bin\$(Configuration)\Generated.*.txt" />
+    </ItemGroup>
+    <Copy SourceFiles="@(GeneratedVersionTextFiles)" DestinationFolder="$(SageLinkedSourceDirectory)" />
+  </Target>
+  <PropertyGroup>
+    <PostBuildEvent>"$(SandboxDir)\Tools\Bin\LibraryConfigTool.exe" /silent /sandbox:"$(SandboxDir)" /lc:"$(LibraryConfigFile)" /a:PostBuild /d:ProjectName=$(ProjectName) /d:TargetDir="$(TargetDir)." /d:TargetName=$(TargetName) /d:TargetExt=$(TargetExt) /d:ConfigurationName=$(ConfigurationName)</PostBuildEvent>
+  </PropertyGroup>
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
+</Project>

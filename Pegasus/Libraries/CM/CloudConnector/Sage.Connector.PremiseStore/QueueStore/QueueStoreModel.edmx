@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="QueueStoreModel.Store" Alias="Self" Provider="System.Data.SqlServerCe.4.0" ProviderManifestToken="4.0" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="QueueStoreModelStoreContainer">
+    <EntitySet Name="QueueEntries" EntityType="QueueStoreModel.Store.QueueEntries" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+  </EntityContainer>
+  <EntityType Name="QueueEntries">
+    <Key>
+      <PropertyRef Name="QueueId" />
+    </Key>
+    <Property Name="QueueId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="DateTimeUtc" Type="datetime" Nullable="false" />
+    <Property Name="User" Type="nvarchar" Nullable="false" MaxLength="200" />
+    <Property Name="Machine" Type="nvarchar" Nullable="false" MaxLength="200" />
+    <Property Name="Type" Type="nvarchar" Nullable="false" MaxLength="200" />
+    <Property Name="ProcessingExpirationDateTimeUtc" Type="datetime" Nullable="false" />
+    <Property Name="Content" Type="ntext" Nullable="false" />
+  </EntityType>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="QueueStoreModel" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="QueueStoreModelContainer" annotation:LazyLoadingEnabled="true" a:TypeAccess="Internal" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration">
+          <EntitySet Name="QueueEntries" EntityType="QueueStoreModel.QueueEntry" />
+        </EntityContainer>
+        <EntityType Name="QueueEntry">
+          <Key>
+            <PropertyRef Name="QueueId" />
+          </Key>
+          <Property Type="Guid" Name="QueueId" Nullable="false" annotation:StoreGeneratedPattern="None" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Type="DateTime" Name="DateTimeUtc" Nullable="false" />
+          <Property Type="String" Name="User" Nullable="false" MaxLength="200" />
+          <Property Type="String" Name="Machine" Nullable="false" MaxLength="200" />
+          <Property Type="String" Name="Type" Nullable="false" MaxLength="200" />
+          <Property Type="DateTime" Name="ProcessingExpirationDateTimeUtc" Nullable="false" />
+          <Property Type="String" Name="Content" Nullable="false" MaxLength="Max" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="QueueStoreModelStoreContainer" CdmEntityContainer="QueueStoreModelContainer">
+    <EntitySetMapping Name="QueueEntries">
+      <EntityTypeMapping TypeName="IsTypeOf(QueueStoreModel.QueueEntry)">
+        <MappingFragment StoreEntitySet="QueueEntries">
+          <ScalarProperty Name="QueueId" ColumnName="QueueId" />
+          <ScalarProperty Name="DateTimeUtc" ColumnName="DateTimeUtc" />
+          <ScalarProperty Name="User" ColumnName="User" />
+          <ScalarProperty Name="Machine" ColumnName="Machine" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="ProcessingExpirationDateTimeUtc" ColumnName="ProcessingExpirationDateTimeUtc" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer>
+    <edmx:Connection>
+      <edmx:DesignerInfoPropertySet>
+        <edmx:DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </edmx:DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <edmx:DesignerInfoPropertySet>
+        <edmx:DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <edmx:DesignerProperty Name="EnablePluralization" Value="True" />
+      </edmx:DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <edmx:Diagram Name="QueueStoreModel" ZoomLevel="98">
+        <edmx:EntityTypeShape EntityType="QueueStoreModel.QueueEntry" Width="2.75" PointX="1" PointY="3" Height="2.5571907552083317" />
+      </edmx:Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,56 @@
+
+-- --------------------------------------------------
+-- Entity Designer DDL Script for SQL Server Compact Edition
+-- --------------------------------------------------
+-- Date Created: 02/20/2012 15:33:56
+-- Generated from EDMX file: C:\dev\Sage Cloud\CloudConnector\Main\Libraries\CRE\CloudConnector\Sage.Connector.PremiseStore\QueueStore\QueueStoreModel.edmx
+-- --------------------------------------------------
+
+
+-- --------------------------------------------------
+-- Dropping existing FOREIGN KEY constraints
+-- NOTE: if the constraint does not exist, an ignorable error will be reported.
+-- --------------------------------------------------
+
+
+-- --------------------------------------------------
+-- Dropping existing tables
+-- NOTE: if the table does not exist, an ignorable error will be reported.
+-- --------------------------------------------------
+
+    DROP TABLE [QueueEntries];
+GO
+
+-- --------------------------------------------------
+-- Creating all tables
+-- --------------------------------------------------
+
+-- Creating table 'QueueEntries'
+CREATE TABLE [QueueEntries] (
+    [QueueId] uniqueidentifier  NOT NULL,
+    [DateTimeUtc] datetime  NOT NULL,
+    [User] nvarchar(200)  NOT NULL,
+    [Machine] nvarchar(200)  NOT NULL,
+    [Type] nvarchar(200)  NOT NULL,
+    [ProcessingExpirationDateTimeUtc] datetime  NOT NULL,
+    [Content] ntext  NOT NULL
+);
+GO
+
+-- --------------------------------------------------
+-- Creating all PRIMARY KEY constraints
+-- --------------------------------------------------
+
+-- Creating primary key on [QueueId] in table 'QueueEntries'
+ALTER TABLE [QueueEntries]
+ADD CONSTRAINT [PK_QueueEntries]
+    PRIMARY KEY ([QueueId] );
+GO
+
+-- --------------------------------------------------
+-- Creating all FOREIGN KEY constraints
+-- --------------------------------------------------
+
+-- --------------------------------------------------
+-- Script has ended
+-- --------------------------------------------------

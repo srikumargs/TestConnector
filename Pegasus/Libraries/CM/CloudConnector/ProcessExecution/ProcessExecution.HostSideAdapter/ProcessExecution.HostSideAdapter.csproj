@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\..\LinkedSource\SageVariables.targets" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4E3055E1-F7AB-44D7-A5D9-8DD547D0A156}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Sage.Connector.ProcessExecution.HostSideAdapter</RootNamespace>
+    <AssemblyName>Sage.Connector.ProcessExecution.HostSideAdapter</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <RestorePackages>true</RestorePackages>
+    <TargetFrameworkProfile />
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\</SolutionDir>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;CODE_ANALYSIS</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>Sage.Connector.ProcessExecution.HostSideAdapter.xml</DocumentationFile>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+    <DocumentationFile>Sage.Connector.ProcessExecution.HostSideAdapter.xml</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+    <SandboxDir>$([System.IO.Path]::GetFullPath('$(MSBuildProjectDirectory)\..\..\..\..\..'))</SandboxDir>
+    <LibraryDir>$(SandboxDir)\Libraries\CM\CloudConnector</LibraryDir>
+    <LibraryConfigFile>$(LibraryDir)\LibraryConfig-Library.xml</LibraryConfigFile>
+    <ToolsBinDir>$(SandboxDir)\Tools\Bin</ToolsBinDir>
+    <AssemblyOriginatorKeyFile>$(SandboxDir)\Build\PlatformKeyfile.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RunPostBuildEvent>OnOutputUpdated</RunPostBuildEvent>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.AddIn" />
+    <Reference Include="System.AddIn.Contract" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AppContractToViewHostAdapter.cs" />
+    <Compile Include="AppHostAdapter.cs" />
+    <Compile Include="AppNotificationEventArgsContractToViewHostAdapter.cs" />
+    <Compile Include="AppNotificationEventArgsHostAdapter.cs" />
+    <Compile Include="AppNotificationEventArgsViewToContractHostAdapter.cs" />
+    <Compile Include="AppNotificationEventHandlerContractToViewHostAdapter.cs" />
+    <Compile Include="AppNotificationEventHandlerViewToContractHostAdapter.cs" />
+    <Compile Include="AppViewToContractHostAdapter.cs" />
+    <Compile Include="BackOfficeCompanyConfigContractToViewHostAdapter.cs" />
+    <Compile Include="LoggingContractToViewHostAdapter.cs" />
+    <Compile Include="LoggingHostAdapter.cs" />
+    <Compile Include="LoggingViewToContractHostAdapter.cs" />
+    <Compile Include="ProcessRequestContractToViewHostSideAdapter.cs" />
+    <Compile Include="ProcessRequestViewToContractHostAdapter.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ResponseEventArgsContractToViewHostAdapter.cs" />
+    <Compile Include="ResponseEventArgsHostAdapter.cs" />
+    <Compile Include="BackOfficeCompanyConfigHostAdapter.cs" />
+    <Compile Include="ResponseEventArgsViewToContractHostAdapter.cs" />
+    <Compile Include="BackOfficeCompanyConfigViewToContractHostAdapter.cs" />
+    <Compile Include="ResponseEventHandlerContractToViewHostAdapter.cs" />
+    <Compile Include="ResponseEventHandlerViewToContractHostAdapter.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\DomainContracts\DomainContracts.BackOffice\DomainContracts.BackOffice.csproj">
+      <Project>{20226f1f-2de0-4498-9528-e075be90a5d1}</Project>
+      <Name>DomainContracts.BackOffice</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ProcessExecution.Contract\ProcessExecution.Contract.csproj">
+      <Project>{84b8f6cf-58a1-40f0-a737-8aa35cdb2b58}</Project>
+      <Name>ProcessExecution.Contract</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\ProcessExecution.Interfaces\ProcessExecution.Interfaces.csproj">
+      <Project>{a3c5e2ff-f6f5-45b5-9f11-0a194337d53f}</Project>
+      <Name>ProcessExecution.Interfaces</Name>
+      <Private>False</Private>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="PlatformKeyfile.snk" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\..\LinkedSource\SageLibrary.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>"$(SandboxDir)\Tools\Bin\LibraryConfigTool.exe" /silent /sandbox:"$(SandboxDir)" /lc:"$(LibraryConfigFile)" /a:PostBuild /d:ProjectName=$(ProjectName) /d:TargetDir="$(TargetDir)." /d:TargetName=$(TargetName) /d:TargetExt=$(TargetExt) /d:ConfigurationName=$(ConfigurationName)</PostBuildEvent>
+  </PropertyGroup>
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

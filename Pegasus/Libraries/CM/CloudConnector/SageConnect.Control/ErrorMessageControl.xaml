@@ -1,0 +1,139 @@
+﻿<UserControl x:Class="SageConnect.Control.ErrorMessageControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:properties="clr-namespace:SageConnect.ViewModels;assembly=SageConnect.ViewModels"
+             mc:Ignorable="d"  d:DesignHeight="600" Width="750" Background="Transparent" Margin="0,0,0,0" >
+    <UserControl.Resources>
+        <!--<Style BasedOn="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" TargetType="Button">
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="BorderBrush" Value="Transparent" />
+        </Style>-->
+        <Style BasedOn="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" TargetType="Button">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <ControlTemplate.Resources>
+                            <Style x:Key="ShadowStyle">
+                                <Setter Property="Control.Foreground" Value="LightGray" />
+                            </Style>
+                        </ControlTemplate.Resources>
+                        <Border Name="border" BorderThickness="0" Padding="4,2" BorderBrush="DarkGray"  Background="{TemplateBinding Background}">
+                            <Grid >
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Name="contentShadow" Style="{StaticResource ShadowStyle}">
+                                    <!--<ContentPresenter.RenderTransform>
+                                        <TranslateTransform X="1.0" Y="1.0" />
+                                    </ContentPresenter.RenderTransform>-->
+                                </ContentPresenter>
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Name="content"/>
+                            </Grid>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+
+        <Style x:Key="DiscreteCheckBoxStyle" TargetType="{x:Type CheckBox}">
+            <Setter Property="SnapsToDevicePixels" Value="true"/>
+            <Setter Property="FocusVisualStyle" Value="{DynamicResource CheckBoxFocusVisual}"/>
+            <Setter Property="Background" Value="{DynamicResource NormalBrush}"/>
+            <Setter Property="BorderBrush" Value="{DynamicResource NormalBorderBrush}"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type CheckBox}">
+                        <Border>
+                            <Grid>
+                                <ContentPresenter Content="{TemplateBinding Content}" ContentTemplate="{TemplateBinding ContentTemplate}" Margin="{TemplateBinding Padding}"  />
+                                <Border  Width="15"
+                                       Height="15"
+                                         BorderThickness="1,1,1,1"
+                                         BorderBrush="Gray">
+
+                                    <Border.Background>
+                                        <VisualBrush Opacity="1.0" Stretch="None" >
+                                            <VisualBrush.Visual>
+                                                <Path Name="path" Opacity="0.1" Data="M 0 5 L 3 10 10 0" Stroke="#FF3838BA" StrokeThickness="1.5"
+                                    StrokeStartLineCap="Round" StrokeEndLineCap="Round" StrokeLineJoin="Round" />
+                                            </VisualBrush.Visual>
+                                        </VisualBrush>
+                                    </Border.Background>
+                                </Border>
+                            </Grid>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter TargetName="path" Property="Opacity" Value="1.0" />
+                                <Setter TargetName="path" Property="Stroke" Value="#41a940" />
+                                <Setter TargetName="path" Property="StrokeThickness" Value="1.5" />
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style TargetType="Border"  x:Key="GridBorderStyle">
+            <Setter Property="Margin" Value="4" />
+            <Setter Property="BorderBrush" Value="#A9A8A8" />
+            <Setter Property="Background" Value="White" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="CornerRadius" Value="10" />
+            <Setter  Property="Effect" >
+                <Setter.Value >
+                    <DropShadowEffect Color="#000000" Opacity="35" ></DropShadowEffect>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style TargetType="TextBlock"  x:Key="GeneralTextStyle">
+            <Setter Property="HorizontalAlignment" Value="Left" />
+            <Setter Property="Padding" Value="5,0,0,0" />
+            <Setter Property="FontFamily" Value="Arial"/>
+            <Setter Property="Background" Value="#FFFFFF"/>
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="Foreground" Value="#565555"/>
+            <Setter Property="FontWeight" Value="Regular"/>
+            <Setter Property="Width" Value="Auto"/>
+            <Setter Property="TextWrapping" Value= "WrapWithOverflow"/>
+
+
+
+        </Style>
+        <Style TargetType="Hyperlink"  x:Key="HyperLinkStyle">
+            <Setter Property="FontFamily" Value="Arial"/>
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="Foreground" Value="#41a940"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Foreground" Value="#41a940"/>
+                    <Setter Property="Cursor" Value="Hand" />
+                    <Setter Property="ForceCursor" Value="True" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <SolidColorBrush Color="#000000" Opacity=".75" x:Key="GridOpacityBrush"/>
+    </UserControl.Resources>
+    <Grid Margin="0,0,0,0"  Background="{StaticResource GridOpacityBrush}"  Height="Auto" Width="Auto" >
+        <TextBlock  Background="#4D4F53"  Text="{Binding ErrorCaption}" Foreground="White" TextAlignment="Left" Padding="20,5,10,10" Height="30" VerticalAlignment="Top" Margin="150,62,127,0"/>
+        <TextBlock  Background="{Binding ImageBackgroundColor}"  Height="31" Width="35"  Margin="{Binding MessageImageMargin}"/>
+        <Image  Name="ErrorImage" Margin="{Binding MessageImageMargin}" Width="24" Height="20"  Visibility="{Binding DisplayErrorImage}" Source="{Binding ErrorImageSource}" Stretch="Uniform"/>
+        <Border BorderBrush="#a0a1a2" Background="White" BorderThickness="1,1,1,1" Margin="{Binding MessageBorderMargin}"/>
+        <Image  Source="Resources/Images/close_icon_black_bg.png" Height="15" Width="15"  HorizontalAlignment="Right" Margin="0,68,139,567" RenderTransformOrigin="0.267,-0.267"/>
+        <Button Name="CloseButton"  Height="14" Width="15"  HorizontalAlignment="Right" Margin="0,68,139,568" Background="Transparent" BorderThickness="1" BorderBrush="Transparent" Click="CancelButton_Click" RenderTransformOrigin="-0.733,0.467"></Button>
+        <CheckBox Style="{StaticResource ResourceKey=DiscreteCheckBoxStyle}"  Visibility="{Binding DisplayMonitorOpenCheckbox}" IsChecked="{Binding  MonitorOpenstatus , Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"  Margin="170,0,563,403" VerticalAlignment="Bottom" Height="17" RenderTransformOrigin="0.5,0.5"  />
+        
+        <TextBlock Style="{StaticResource GeneralTextStyle}"  Text="{Binding ErrorMessage}" ToolTip="{Binding ErrorMessage}" Margin="{Binding MessageTextMargin}" Width="500" RenderTransformOrigin="0.519,0.8" Padding="52,10,10,10" ><Hyperlink Style="{StaticResource HyperLinkStyle}"><Run Text="{x:Static properties:CustomerFacingMessages.ConfirmationDialog_ClearSettingsHelp_Header}"/></Hyperlink></TextBlock>
+        <TextBlock Style="{StaticResource GeneralTextStyle}" TextWrapping="NoWrap" x:Name="MonitorOpenText" Text="{Binding MonitorOpenCaption}" Visibility="{Binding DisplayMonitorOpenCheckbox}"  Margin="188,205,308,375" Width="254" Height="20"/>
+        <TextBlock Style="{StaticResource GeneralTextStyle}" Margin="170,150,0,480" Visibility="{Binding HelpLinkVisibility}" Width="175" Padding="0,0,0,0"  >
+             <Hyperlink Click="Hyperlink_OnClick"  Style="{StaticResource HyperLinkStyle}"> 
+                 <Run Text="{x:Static properties:CustomerFacingMessages.ConfirmationDialog_ClearSettingsHelp_Header}"/> 
+             </Hyperlink>
+        </TextBlock>
+        <Button Content="OK" Background="#41a940" Foreground="White"   FontFamily="Arial" FontWeight="Bold" FontSize="12"  HorizontalAlignment="Center" Height="24"   Width="130" Visibility="{Binding DisplayOkButton}"  Click="CancelButton_Click" Margin="{Binding OkButtonMargin}"/>
+    </Grid>
+</UserControl>

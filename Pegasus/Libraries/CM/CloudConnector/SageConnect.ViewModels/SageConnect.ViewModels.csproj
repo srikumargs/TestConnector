@@ -1,0 +1,175 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <!--Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" /-->
+  <Import Project="..\LinkedSource\SageVariables2.targets" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C004F19E-898B-4F59-A1BF-5742BE7E441E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SageConnect.ViewModels</RootNamespace>
+    <AssemblyName>SageConnect.ViewModels</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <SignAssembly>true</SignAssembly>
+    <SandboxDir>$([System.IO.Path]::GetFullPath('$(MSBuildProjectDirectory)\..\..\..\..'))</SandboxDir>
+    <LibraryDir>$(SandboxDir)\Libraries\CM\CloudConnector</LibraryDir>
+    <LibraryConfigFile>$(LibraryDir)\LibraryConfig-Library.xml</LibraryConfigFile>
+    <ToolsBinDir>$(SandboxDir)\Tools\Bin</ToolsBinDir>
+    <AssemblyOriginatorKeyFile>$(SandboxDir)\Build\PlatformKeyfile.snk</AssemblyOriginatorKeyFile>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\SageConnect.ViewModels.XML</DocumentationFile>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Release\SageConnect.ViewModels.XML</DocumentationFile>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.6.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ApplicationHelpers.cs" />
+    <Compile Include="CommandHandler.cs" />
+    <Compile Include="ConfigurationViewModel.cs" />
+    <Compile Include="ConnectorUserLoginViewModel.cs" />
+    <Compile Include="CustomerFacingMessages.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CustomerFacingMessages.resx</DependentUpon>
+    </Compile>
+    <Compile Include="HelpLinkManager.cs" />
+    <Compile Include="SageConnect.ViewModels.HelpLinks.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SageConnect.ViewModels.HelpLinks.resx</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="ErrorMessageViewModel.cs" />
+    <Compile Include="FeatureMetaData.cs" />
+    <Compile Include="GridAnimation.cs" />
+    <Compile Include="NativeMethods.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SageConnect.ViewModels.HelpLinks.NonProduction.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SageConnect.ViewModels.HelpLinks.NonProduction.resx</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="ViewModelBase.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DomainContracts\Configuration.Contracts.Data\Configuration.Contracts.Data.csproj">
+      <Project>{b7b5159e-6f29-4f8e-8822-deb5cfb8c183}</Project>
+      <Name>Configuration.Contracts.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DomainContracts\DomainContracts.Responses\DomainContracts.Responses.csproj">
+      <Project>{18500939-bbdf-4cf8-a315-fdb500216716}</Project>
+      <Name>DomainContracts.Responses</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DomainMediators\Configuration.Mediator\Configuration.Mediator.csproj">
+      <Project>{f4afcd9e-f3b0-4b58-bee2-c881de6558b7}</Project>
+      <Name>Configuration.Mediator</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DomainMediators\DomainMediator.Core\DomainMediator.Core.csproj">
+      <Project>{7dd87cbe-c72b-4e32-ad25-76d7e2c02055}</Project>
+      <Name>DomainMediator.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Sage.Connector.Common\Sage.Connector.Common.csproj">
+      <Project>{bbc8adea-e0da-49c7-a9ea-bb87321f2e56}</Project>
+      <Name>Sage.Connector.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Sage.Connector.Data\Sage.Connector.Data.csproj">
+      <Project>{fc82c216-980f-433a-bee1-2eb29997515d}</Project>
+      <Name>Sage.Connector.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Sage.Connector.Management\Sage.Connector.Management.csproj">
+      <Project>{13b60d77-d220-464b-a2cc-3b595720d91b}</Project>
+      <Name>Sage.Connector.Management</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\StateService\Interfaces\Sage.Connector.StateService.Interfaces.csproj">
+      <Project>{caeb43d4-1702-4008-b937-c8211d545354}</Project>
+      <Name>Sage.Connector.StateService.Interfaces</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="$(SandboxDir)\Build\PlatformKeyfile.snk">
+      <Link>PlatformKeyfile.snk</Link>
+    </None>
+    <Content Include="Resources\Help16.gif" />
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CustomerFacingMessages.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>CustomerFacingMessages.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <Content Include="SageConnect.ViewModels.HelpLinks.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>SageConnect.ViewModels.HelpLinks.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SageConnect.ViewModels.HelpLinks.NonProduction.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>SageConnect.ViewModels.HelpLinks.NonProduction.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>"$(SandboxDir)\Tools\Bin\LibraryConfigTool.exe" /silent /sandbox:"$(SandboxDir)" /lc:"$(LibraryConfigFile)" /a:PostBuild /d:ProjectName=$(ProjectName) /d:TargetDir="$(TargetDir)." /d:TargetName=$(TargetName) /d:TargetExt=$(TargetExt) /d:ConfigurationName=$(ConfigurationName)</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

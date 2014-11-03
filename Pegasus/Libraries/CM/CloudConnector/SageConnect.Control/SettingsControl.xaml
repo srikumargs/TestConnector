@@ -1,0 +1,60 @@
+﻿<UserControl x:Class="SageConnect.Control.SettingsControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:resources="clr-namespace:SageConnect.ViewModels;assembly=SageConnect.ViewModels"
+             x:Name="SettingsUserControl"
+             mc:Ignorable="d" 
+             d:DesignHeight="70" d:DesignWidth="350" >
+    <UserControl.Resources>
+        <Style TargetType="TextBlock"  x:Key="TitleText">
+            <Setter Property="HorizontalAlignment" Value="Left" />
+            <Setter Property="FontFamily" Value="Arial"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Foreground" Value="#666666"/>
+            <Setter Property="Width" Value="Auto"/>
+
+        </Style>
+
+        <Style TargetType="TextBlock"  x:Key="LinkTextStyle">
+            <Setter Property="HorizontalAlignment" Value="Left" />
+            <Setter Property="FontFamily" Value="Arial"/>
+            <Setter Property="FontSize" Value="10"/>
+            <Setter Property="Foreground" Value="#41a940"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <EventSetter Event="MouseEnter" Handler="MouseEnter_Event"/>
+            <EventSetter Event="MouseLeave" Handler="MouseLeave_Event" />
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Foreground" Value="Red"/>
+                    <Setter Property="Cursor" Value="Hand" />
+                    <Setter Property="ForceCursor" Value="True" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style TargetType="TextBlock"  x:Key="GeneralTextStyle">
+            <Setter Property="HorizontalAlignment" Value="Left" />
+            <Setter Property="FontFamily" Value="Arial"/>
+            <Setter Property="FontSize" Value="10"/>
+            <Setter Property="Foreground" Value="#41a940"/>
+            <Setter Property="FontWeight" Value="Regular"/>
+            <Setter Property="Width" Value="Auto"/>
+        </Style>
+    </UserControl.Resources>
+    
+    
+    <Grid Background="Transparent" Name="SettingsGrid">
+
+        <TextBlock Style="{StaticResource TitleText}" Name="HeaderTextBlock" Text="{Binding Path=HeaderDescription ,ElementName=SettingsUserControl,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged }"  Margin="0,6,0,32" RenderTransformOrigin="0.519,0.773" Width="225"/>
+        <TextBlock Style="{StaticResource LinkTextStyle}" MouseLeftButtonUp="EditSetting_Click" Name="EditsettingsTextBlock"   Text ="{x:Static resources:CustomerFacingMessages.Settings_EditSettings}" Visibility="{Binding Path = ShowSettings}" ToolTip="{Binding Path= EditSettingsToolTip }" Margin="204,11,0,32" />
+        <TextBlock Style="{StaticResource LinkTextStyle}" MouseDown="clearSettings_Click" Name="ClearsettingsTextBlock"  Text ="{x:Static resources:CustomerFacingMessages.Settings_ClearSettings}" Visibility="{Binding Path = ShowSettings}" ToolTip="{Binding Path= ClearSettingsToolTip}" Margin="280,11,0,32" />
+        <TextBlock Style="{StaticResource TitleText}"  Name="MarginTextBlock" Foreground="#9e9e9e" Text ="|" Visibility="{Binding Path = ShowSettings}" Margin="270,5,76,32"  />
+        <TextBlock Style="{StaticResource LinkTextStyle}"   MouseDown="HelpSetting_Click" Name="HelpfileTextBlock" HorizontalAlignment="Right" Text ="{x:Static resources:CustomerFacingMessages.Settings_LearnMore}" Visibility="{Binding Path = ShowHelpSettings}"  Margin="280,11,0,32"/>
+        <Rectangle HorizontalAlignment="Left" Name="LineRectangle" Height="3" Margin="-2,29,-2,0" StrokeThickness="1" Stroke="#9e9e9e" VerticalAlignment="Top" Width="352"/>
+        <TextBlock Style="{StaticResource GeneralTextStyle}" Foreground="#9e9e9e" Name="DescriptionTextBlock" Text="{Binding Path=MessageDescription ,ElementName=SettingsUserControl,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged }"   Margin="0,33,10,4" Height="Auto" TextWrapping="Wrap"/>
+
+    </Grid>
+</UserControl>

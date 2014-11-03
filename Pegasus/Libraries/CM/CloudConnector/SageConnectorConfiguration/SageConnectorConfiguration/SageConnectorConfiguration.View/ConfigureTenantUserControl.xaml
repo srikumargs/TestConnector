@@ -1,0 +1,133 @@
+﻿<UserControl x:Class="SageConnectorConfiguration.View.ConfigureTenantUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             xmlns:local="clr-namespace:SageConnectorConfiguration"
+             d:DesignHeight="480" d:DesignWidth="640"
+             >
+    <Grid>
+        <StackPanel Orientation="Vertical" Margin="10">
+            <Image Source="..\Images\SageConnectorNew27.png" HorizontalAlignment="Left" VerticalAlignment="Top" Stretch="Fill" Width="400"/>
+            <Separator Height="10" Opacity="0"/>
+
+            <TextBlock Padding="5" TextWrapping="Wrap">The SCA Connector requires back office connection information in order to properly set up connections to SCA .</TextBlock>
+            <TextBlock Padding="5" TextAlignment="Right">
+                <Hyperlink local:HyperlinkExtensions.IsExternal="true" NavigateUri="http://help.sageconstructionanywhere.com/2-3/sage300cre/help/Default.htm#01_Setup/pro_Connecting_to_the_cloud.htm%3FTocPath%3DInstalling%20%20Sage%20Construction%20Anywhere%7CConnecting%20to%20the%20Cloud%7C_____0">More about back office information</Hyperlink>
+            </TextBlock>
+
+            <Grid x:Name="_boCredentialsGrid">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="16"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="5"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="5"/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="1" Grid.Column="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="205"/>
+                        <ColumnDefinition Width="325*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="29" />
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Label FontWeight="Bold" >Back office pr_oduct:</Label>
+                    <ComboBox Grid.Column="1"  Margin="5,3,5,4"
+                              ItemsSource="{Binding BackofficeIDs}" 
+                              Name="_backofficeIDItems" 
+                              SelectedIndex="0" 
+                              SelectedItem="{Binding SelectedBackofficeID}" 
+                              SelectionChanged="_backofficeIDItems_SelectionChanged" />
+                    <TextBlock x:Name="_boAdminIDLabel" Grid.Column="0" Grid.Row="1" FontWeight="Bold" VerticalAlignment="Center" Margin="5,0,0,0" Text="{Binding Path=BOAdminTermID}"></TextBlock>
+                    <TextBox x:Name="_adminNameTextBox" Text="{Binding BackofficeAdminName}" Grid.Column="1" Grid.Row="1"  Margin="5"></TextBox>
+                    <TextBlock x:Name="_boAdminPasswordLabel" Grid.Column="0" Grid.Row="2" FontWeight="Bold" VerticalAlignment="Center" Margin="5,0,0,0" Text="{Binding Path=BOAdminTermPassword}"></TextBlock>
+                    <PasswordBox x:Name="_adminPasswordTextBox" PasswordChanged="AdminPasswordChangedHandler" Grid.Column="1" Grid.Row="2"  Margin="5"></PasswordBox>
+                </Grid>
+            </Grid>
+
+            <Grid x:Name="_adminValidationGrid">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="110"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <TextBlock x:Name="_invalidAdminCredentialsTextBlock" Grid.Column="0" Grid.Row="0" Padding="15,10,5,5" TextWrapping="Wrap" FontStyle="Italic" FontWeight="Bold" Foreground="Red" 
+                           Visibility="{Binding Path=AdminCredentialsFailed, Converter={StaticResource BoolToVisibleOrCollapsed}}"
+                           Text="{Binding Path=AdminCredentialsFailedMessage}">
+                </TextBlock>
+                <TextBlock Grid.Column="0" Grid.Row="0" Padding="15,10,5,5" TextWrapping="Wrap" FontStyle="Italic" FontWeight="Bold" Foreground="Red" 
+                           Visibility="{Binding Path=NoBackofficeIDs, Converter={StaticResource BoolToVisibleOrCollapsed}}">Failed to detect any back office installations.</TextBlock>
+                <Button Grid.Column="1" Grid.Row="0" x:Name="_validateButton" Width="100"  Margin="5" Click="validateButton_Click">_Validate</Button>
+            </Grid>
+
+            <Grid x:Name="_boConnectionInfoGrid"  Visibility="{Binding Path=BOConnectionOK, Mode=TwoWay, Converter={StaticResource BoolToVisibleOrCollapsed}}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="16"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="5"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="5"/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="1" Grid.Column="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="205"/>
+                        <ColumnDefinition Width="325*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Label Grid.Column="0" Grid.Row="0" FontWeight="Bold" VerticalAlignment="Center">Back office co_mpany name:</Label>
+                    <ComboBox x:Name="_companyNameComboBox" Grid.Column="1" Grid.Row="0"  Margin="5" 
+                              SelectedIndex="0"
+                              ItemsSource="{Binding Connections}" 
+                              DisplayMemberPath="Name"
+                              SelectedItem="{Binding Path=SelectedConnection}"
+                              SelectedValue="{Binding Path=SelectedConnection.Name}" 
+                              SelectedValuePath="Name">
+                    </ComboBox>
+                    <Label Grid.Column="0" Grid.Row="1" FontWeight="Bold" VerticalAlignment="Center">Back office _data connection:</Label>
+                    <TextBlock x:Name="_dataConnectionTextBlock" Text="{Binding Path=SelectedConnection.DisplayName, Mode=OneWay}" Grid.Column="1" Grid.Row="1"  Margin="5"></TextBlock>
+                    <Label Grid.Column="0" Grid.Row="2" FontWeight="Bold" VerticalAlignment="Center">Back office user _ID:</Label>
+                    <TextBox x:Name="_userNameTextBox" Text="{Binding BackofficeUserName}" Grid.Column="1" Grid.Row="2"  Margin="5"></TextBox>
+                    <Label Grid.Column="0" Grid.Row="3" FontWeight="Bold" VerticalAlignment="Center">Back office pa_ssword:</Label>
+                    <PasswordBox x:Name="_passwordTextBox" PasswordChanged="UserPasswordChangedHandler" Grid.Column="1" Grid.Row="3"  Margin="5"></PasswordBox>
+                </Grid>
+            </Grid>
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="30"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Padding="15,15,5,5" TextWrapping="Wrap" FontStyle="Italic" FontWeight="Bold" Foreground="Red" Visibility="{Binding Path=NoDataConnections, Converter={StaticResource BoolToVisibleOrCollapsed}}">Failed to find any data connections to the back office.</TextBlock>
+                <TextBlock Padding="15,15,5,5" TextWrapping="Wrap" FontStyle="Italic" FontWeight="Bold" Foreground="Red" Visibility="{Binding Path=BOConnectionFailed, Converter={StaticResource BoolToVisibleOrCollapsed}}" Text="{Binding Path=BOConnectionFailedMessage}"></TextBlock>
+                <TextBlock Padding="15,15,5,5" TextWrapping="Wrap" FontStyle="Italic" FontWeight="Bold" Foreground="Red" Visibility="{Binding Path=TenantConnectionFailed, Converter={StaticResource BoolToVisibleOrCollapsed}}" Text="{Binding Path=TenantConnectionFailedMessage}"></TextBlock>
+                <TextBlock Padding="15,15,5,5" TextWrapping="Wrap" FontStyle="Italic" FontWeight="Bold" Foreground="Red" Visibility="{Binding Path=CreateTenantFailed, Converter={StaticResource BoolToVisibleOrCollapsed}}">Failed to create the tenant connection.</TextBlock>
+
+                <TextBlock Grid.Column="0" Grid.Row="1" Padding="15,5,5,5" TextWrapping="Wrap" FontWeight="Bold" HorizontalAlignment="Right" Visibility="{Binding Path=ChecksFailed, Converter={StaticResource BoolToVisibleOrCollapsed}}">
+                <Hyperlink NavigateUri="http://help.sageconstructionanywhere.com/2-3/sage300cre/help/Default.htm#98_Troubleshooting/trb_Troubleshooting_connection_issues.htm%3FTocPath%3DInstalling%20%20Sage%20Construction%20Anywhere%7CConnecting%20to%20the%20Cloud%7C_____3" local:HyperlinkExtensions.IsExternal="true">
+                    Troubleshooting connection issues
+                </Hyperlink>
+                </TextBlock>
+            </Grid>
+        </StackPanel>
+    </Grid>
+</UserControl>

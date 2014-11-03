@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{463401FC-8EBA-4806-B7F0-3C8622467359}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Build_GetPlatformDependencies</RootNamespace>
+    <AssemblyName>Build_GetPlatformDependencies</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <SandboxDir>$([System.IO.Path]::GetFullPath('$(MSBuildProjectDirectory)\..\..\..\..'))</SandboxDir>
+    <LibraryDir>$(SandboxDir)\Libraries\CM\CloudConnector</LibraryDir>
+    <LibraryConfigFile>$(LibraryDir)\LibraryConfig-Library.xml</LibraryConfigFile>
+    <ToolsBinDir>$(SandboxDir)\Tools\Bin</ToolsBinDir>
+    <GetPlatformDependenciesLogFile>$(LibraryDir)\CRE_CloudConnector.GetPlatformDependenciesLog.txt</GetPlatformDependenciesLogFile>
+    <SkipCopyBuildProduct>true</SkipCopyBuildProduct>
+    <DestinationDirectory>$(SandboxDir)</DestinationDirectory>
+    <PackageRepositoryRoot>.\Packages</PackageRepositoryRoot>
+    <!--FOR DEV: <PackageRepositoryRoot>E:\Architecture\Platform\Releases\4.1.x\Libraries</PackageRepositoryRoot>-->
+    <DevPackageVersion>4.5.0.21</DevPackageVersion>
+    <DevPackage>4.5.0\$(DevPackageVersion)\$(DevPackageVersion).zip</DevPackage>
+    <!--FOR DEV: <DevPackage>Publish\LibraryPackage.zip</DevPackage>-->
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <DevPackageItems Include="$(PackageRepositoryRoot)\Sandbox\Tools\$(DevPackage)">
+      <!--FOR DEV: <DevPackageItems Include="\\orbdevfile01\crebuild\Platform\Packages\Sandbox\Tools\4.1.1\$(DevPackageVersion)\$(DevPackageVersion).zip">-->
+      <LibrarySetId>Sandbox</LibrarySetId>
+      <LibraryName>Tools</LibraryName>
+    </DevPackageItems>
+    <DevPackageItems Include="$(PackageRepositoryRoot)\CM\Resources\$(DevPackage)">
+      <LibrarySetId>CM</LibrarySetId>
+      <LibraryName>Resources</LibraryName>
+    </DevPackageItems>
+    <DevPackageItems Include="$(PackageRepositoryRoot)\CM\NUnit\$(DevPackage)">
+      <LibrarySetId>CM</LibrarySetId>
+      <LibraryName>NUnit</LibraryName>
+    </DevPackageItems>
+    <DevPackageItems Include="$(PackageRepositoryRoot)\CM\Microsoft\$(DevPackage)">
+      <LibrarySetId>CM</LibrarySetId>
+      <LibraryName>Microsoft</LibraryName>
+    </DevPackageItems>
+    <DevPackageItems Include="$(PackageRepositoryRoot)\CM\Core\$(DevPackage)">
+      <LibrarySetId>CM</LibrarySetId>
+      <LibraryName>Core</LibraryName>
+    </DevPackageItems>
+    <DevPackageItems Include="$(PackageRepositoryRoot)\CM\HostingFramework\$(DevPackage)">
+      <LibrarySetId>CM</LibrarySetId>
+      <LibraryName>HostingFramework</LibraryName>
+    </DevPackageItems>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.Common.targets" />
+  <Target Name="CreateManifestResourceNames" />
+  <Target Name="CoreCompile" />
+  <Target Name="Build" DependsOnTargets="$(BuildDependsOn)" Inputs="$(LibraryConfigFile)" Outputs="$(GetPlatformDependenciesLogFile)">
+    <CallTarget Targets="BuildUnzip" />
+    <CallTarget Targets="GetDevPackage" />
+    <WriteLinesToFile File="$(GetPlatformDependenciesLogFile)" Lines="Success!" />
+    <OnError ExecuteTargets="DeleteOutputFiles" />
+  </Target>
+  <Target Name="BuildUnzip" Inputs="$(LibraryDir)\Unzip\Unzip.sln" Outputs="$(LibraryDir)\Unzip\bin\Release\Unzip.exe">
+    <Message Importance="Normal" Text="Building Unzip.exe..." />
+    <Exec Command="msbuild.exe &quot;$(LibraryDir)\Unzip\Unzip.sln&quot; /t:Build /p:Configuration=Release" WorkingDirectory="$(MSBuildToolsPath)" />
+  </Target>
+  <Target Name="GetDevPackage" Inputs="@(DevPackageItems)" Outputs="$(SandboxDir)\DevPackage_%(LibrarySetId)_%(LibraryName)%(extension)">
+    <Message Text="Copying dev packages to local sandbox..." />
+    <Copy SourceFiles="@(DevPackageItems)" DestinationFiles="@(DevPackageItems->'$(SandboxDir)\DevPackage_%(LibrarySetId)_%(LibraryName)%(extension)')" SkipUnchangedFiles="true" OverwriteReadOnlyFiles="true" />
+    <Message Importance="Normal" Text="Unzipping..." />
+    <Exec Command="Unzip.exe &quot;@(DevPackageItems->'$(SandboxDir)\DevPackage_%(LibrarySetId)_%(LibraryName)%(extension)')&quot; &quot;$(SandboxDir)&quot;" WorkingDirectory="$(LibraryDir)\Unzip\bin\Release" />
+    <Message Importance="Normal" Text="Activating..." />
+    <Exec Command="&quot;$(SandboxDir)\Tools\Bin\LibraryConfigTool.exe&quot; /sandbox:&quot;$(SandboxDir)&quot; /action:SandboxActivate /d:ConfigurationName=$(Configuration) /d:DisableFolderRedirectCreation=true /lc:&quot;@(DevPackageItems->'$(SandboxDir)\Libraries\%(LibrarySetId)\%(LibraryName)\LibraryConfig-Library.xml')&quot;" WorkingDirectory="$(ToolsBinDir)" />
+  </Target>
+  <Target Name="DeleteOutputFiles">
+    <Delete Files="$(GetPlatformDependenciesLogFile)" />
+    <Delete Files="$(LibraryDir)\Unzip\bin\Release\Unzip.exe" />
+    <Delete Files="@(DevPackageItems->'$(SandboxDir)\DevPackage_%(LibrarySetId)_%(LibraryName)%(extension)')" />
+  </Target>
+  <Target Name="CoreClean" DependsOnTargets="$(CoreCleanDependsOn)">
+    <CallTarget Targets="DeleteOutputFiles" />
+  </Target>
+</Project>

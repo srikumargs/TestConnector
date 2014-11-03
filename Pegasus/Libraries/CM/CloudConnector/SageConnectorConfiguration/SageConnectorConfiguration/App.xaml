@@ -1,0 +1,64 @@
+﻿<Application x:Class="SageConnectorConfiguration.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             StartupUri="MainWindow.xaml"
+             xmlns:local="clr-namespace:SageConnectorConfiguration">
+    <Application.Resources>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+        <local:BoolToVisibleOrHidden x:Key="BoolToVisibleOrCollapsedReverse" Collapse="True" Reverse="True" />
+        <local:BoolToVisibleOrHidden x:Key="BoolToVisibleOrCollapsed" Collapse="True" Reverse="False" />
+        <local:BoolToVisibleOrHidden x:Key="BoolToVisibleOrHidden" Collapse="False" Reverse="False" />
+
+        <!-- Sage Gray #4: FF999999 -->
+        <!--<Color x:Key="SageGray4">#FF999999</Color>-->
+
+        <!-- Sage Gray #6: FF636469 -->
+        <!--<Color x:Key="SageGray6">#FF636469</Color>-->
+
+        <!-- Sage Orange #6: FFE98300 -->
+        <!--<Color x:Key="SageOrange6">#FFE98300</Color>-->
+
+        <!-- Sage Gren #6: FF69923A -->
+        <!--<Color x:Key="SageGreen6">#FF69923A</Color>-->
+
+
+        <!-- Current (Jan 2014) Sage approved colors from print guidelines -->
+        <Color x:Key="SageWhite2014">#FFFFFFFF</Color>
+        <Color x:Key="SageBlack2014">#FF000000</Color>
+        <Color x:Key="SageGreen2014">#FF007f64</Color>
+        <Color x:Key="SageBrightGreen2014">#FF41a940</Color>
+        <Color x:Key="SageDarkGrey2014">#FF4d4f53</Color>
+        <Color x:Key="SageMidGrey2014">#FF9a9b9c</Color>
+        <Color x:Key="SageLightGrey2014">#FFe0e1dd</Color>
+        <Color x:Key="SageOrange2014">#FFff5800</Color>
+        <Color x:Key="SageBlue2014">#FF009fda</Color>
+        <Color x:Key="SagePurple2014">#FF6639b7</Color>
+
+
+        <!--<SolidColorBrush x:Key="DisabledButtonColorBrush" Color="{StaticResource ResourceKey=SageGray4}"/>-->
+        <!--<SolidColorBrush x:Key="SageGray6Brush" Color="{StaticResource ResourceKey=SageGray6}"/>-->
+        <SolidColorBrush x:Key="DisabledButtonColorBrush" Color="{StaticResource ResourceKey=SageMidGrey2014}"/>
+        <SolidColorBrush x:Key="CurrentItemHighlightColorBrush" Color="{StaticResource ResourceKey=SageOrange2014}"/>
+        <SolidColorBrush x:Key="SageDarkGrey2014Brush" Color="{StaticResource ResourceKey=SageDarkGrey2014}"/>
+
+
+        <!-- Make ListBox content stretch-->
+        <Style x:Key="StretchedContainerStyle" TargetType="{x:Type ListBoxItem}">
+            <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+
+            <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+            <Setter Property="Focusable" Value="False"/>
+
+            <Setter Property="IsSelected" Value="{Binding Path=IsCurrentlySelected, Mode=TwoWay}"/>
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding IsSelected, RelativeSource={RelativeSource AncestorType={x:Type ListBoxItem}}}" Value="True">
+                    <Setter Property="IsSelected" Value="{Binding Path=IsCurrentlySelected, Mode=TwoWay}"/>
+                </DataTrigger>
+                <DataTrigger Binding="{Binding IsEnabled}" Value="False">
+                    <Setter Property="Visibility" Value="Collapsed"/>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+
+    </Application.Resources>
+</Application>

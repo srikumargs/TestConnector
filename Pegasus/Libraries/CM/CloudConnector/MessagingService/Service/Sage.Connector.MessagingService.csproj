@@ -1,0 +1,306 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\..\LinkedSource\SageVariables.targets" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{933C6304-C3DE-45B1-82EC-015AA36C4472}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Sage.Connector.MessagingService</RootNamespace>
+    <AssemblyName>Sage.Connector.MessagingService</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <TargetFrameworkProfile />
+    <RunPostBuildEvent>OnOutputUpdated</RunPostBuildEvent>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <SignAssembly>true</SignAssembly>
+    <SandboxDir>$([System.IO.Path]::GetFullPath('$(MSBuildProjectDirectory)\..\..\..\..\..'))</SandboxDir>
+    <LibraryDir>$(SandboxDir)\Libraries\CM\CloudConnector</LibraryDir>
+    <LibraryConfigFile>$(LibraryDir)\LibraryConfig-Library.xml</LibraryConfigFile>
+    <ToolsBinDir>$(SandboxDir)\Tools\Bin</ToolsBinDir>
+    <AssemblyOriginatorKeyFile>$(SandboxDir)\Build\PlatformKeyfile.snk</AssemblyOriginatorKeyFile>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <RunCodeAnalysis>false</RunCodeAnalysis>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <NoWarn>
+    </NoWarn>
+    <CodeAnalysisRules>
+    </CodeAnalysisRules>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>Sage.Connector.MessagingService.xml</DocumentationFile>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <NoWarn>
+    </NoWarn>
+    <CodeAnalysisRules>
+    </CodeAnalysisRules>
+    <DebugType>full</DebugType>
+    <DocumentationFile>Sage.Connector.MessagingService.xml</DocumentationFile>
+    <CodeAnalysisRuleSet>..\..\LinkedSource\SageConnectorCommonCodeAnalysisRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>$(SandboxDir)\Build\PlatformKeyfile.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RunPostBuildEvent>OnOutputUpdated</RunPostBuildEvent>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Data.Edm, Version=5.6.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.Data.Edm.5.6.1\lib\net40\Microsoft.Data.Edm.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.OData, Version=5.6.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.Data.OData.5.6.1\lib\net40\Microsoft.Data.OData.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.Services.Client, Version=5.6.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.Data.Services.Client.5.6.1\lib\net40\Microsoft.Data.Services.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.Configuration, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.WindowsAzure.ConfigurationManager.2.0.3\lib\net40\Microsoft.WindowsAzure.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.Storage, Version=4.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\WindowsAzure.Storage.4.1.0\lib\net40\Microsoft.WindowsAzure.Storage.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Newtonsoft.Json.6.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Sage.Connector.Cloud.Integration.Interfaces">
+      <HintPath>..\..\packages\Sage.Connector.Cloud.Integration.Interfaces.1.4.10904.2\lib\net45\Sage.Connector.Cloud.Integration.Interfaces.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Sage.Connector.Cloud.Integration.Proxy">
+      <HintPath>..\..\packages\Sage.Connector.Cloud.Integration.Proxy.1.4.10904.2\lib\net45\Sage.Connector.Cloud.Integration.Proxy.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Sage.CRE.Core">
+      <HintPath>$(SandboxDir)\Assemblies\Sage.CRE.Core.dll</HintPath>
+      <Name>Sage.CRE.Core</Name>
+      <Private>False</Private>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Sage.CRE.HostingFramework.Interfaces">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(SandboxDir)\Assemblies\Sage.CRE.HostingFramework.Interfaces.dll</HintPath>
+      <Name>Sage.CRE.HostingFramework.Interfaces</Name>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Sage.CRE.HostingFramework.Proxy">
+      <HintPath>$(SandboxDir)\Assemblies\Sage.CRE.HostingFramework.Proxy.dll</HintPath>
+      <Name>Sage.CRE.HostingFramework.Proxy</Name>
+      <Private>False</Private>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Data.Services.Client" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Net.Http">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=5.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.AspNet.WebApi.Client.5.1.2\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.Spatial, Version=5.6.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\System.Spatial.5.6.1\lib\net40\System.Spatial.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ClientProxies\APIBaseServiceProxy.cs" />
+    <Compile Include="ClientProxies\APIClearConnectorRegistrationProxy.cs" />
+    <Compile Include="ClientProxies\APIConcludeUploadSessionServiceProxy.cs" />
+    <Compile Include="ClientProxies\APIConfigurationServiceProxy.cs" />
+    <Compile Include="ClientProxies\APIRequestServiceProxy.cs" />
+    <Compile Include="ClientProxies\APIResponseServiceProxy.cs" />
+    <Compile Include="ClientProxies\APIBeginUploadSessionServiceProxy.cs" />
+    <Compile Include="ClientProxies\APITenantListProxy.cs" />
+    <Compile Include="ClientProxies\APITenantRegistrationProxy.cs" />
+    <Compile Include="Internal\CloudConnectivityStateMonitorHelper.cs" />
+    <Compile Include="Internal\ConnectorClientFactory.cs" />
+    <Compile Include="Internal\RemoteConfigHelper.cs" />
+    <Compile Include="Internal\Controller.cs" />
+    <Compile Include="Internal\FaultArgumentValidator.cs" />
+    <Compile Include="Internal\ConstantIntervalScheduler.cs" />
+    <Compile Include="Internal\FaultHelper.cs" />
+    <Compile Include="Internal\GetRequestsWorkManager.cs" />
+    <Compile Include="Internal\GetRequestsWorker.cs" />
+    <Compile Include="Internal\PremiseAgentHelper.cs" />
+    <Compile Include="Internal\PutResponsesPolicy.cs" />
+    <Compile Include="Internal\IScheduler.cs" />
+    <Compile Include="Internal\PutResponsesWorker.cs" />
+    <Compile Include="Internal\PutResponsesWorkManager.cs" />
+    <Compile Include="Internal\MinMaxBackOffScheduler.cs" />
+    <Compile Include="Internal\RequestAvailabilityWorker.cs" />
+    <Compile Include="Internal\RequestAvailabilityWorkManager.cs" />
+    <Compile Include="Internal\SchedulerFactory.cs" />
+    <Compile Include="Internal\SchedulerPurpose.cs" />
+    <Compile Include="Internal\TenantWorkCoordinator.cs" />
+    <Compile Include="MessagingService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Config.Base.xml" />
+    <Content Include="Config.Debug.xslt">
+      <DependentUpon>Config.Base.xml</DependentUpon>
+    </Content>
+    <Content Include="Config.Release.xslt">
+      <DependentUpon>Config.Base.xml</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="$(SandboxDir)\Build\PlatformKeyfile.snk">
+      <Link>PlatformKeyfile.snk</Link>
+    </None>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\ConfigurationService\Interfaces\Sage.Connector.ConfigurationService.Interfaces.csproj">
+      <Project>{EAB67C9C-2828-4C76-A12D-F7DEE25E11F0}</Project>
+      <Name>Sage.Connector.ConfigurationService.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ConfigurationService\Proxy\Sage.Connector.ConfigurationService.Proxy.csproj">
+      <Project>{2826FBC9-1EE1-4F4F-A0E7-8E01F7931CB9}</Project>
+      <Name>Sage.Connector.ConfigurationService.Proxy</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Documents\Documents\Sage.Connector.Documents.csproj">
+      <Project>{432AA13F-6DE3-497C-BC4F-F1A5097F4BCC}</Project>
+      <Name>Sage.Connector.Documents</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Logging\Logging\Sage.Connector.Logging.csproj">
+      <Project>{898981D1-9FAC-48DC-A91D-232A5A859A0F}</Project>
+      <Name>Sage.Connector.Logging</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\NotificationService\Interfaces\Sage.Connector.NotificationService.Interfaces.csproj">
+      <Project>{A5AE9283-DB1D-4BFC-AEE0-45FC553E0B59}</Project>
+      <Name>Sage.Connector.NotificationService.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\NotificationService\Proxy\Sage.Connector.NotificationService.Proxy.csproj">
+      <Project>{B087F37C-5595-4063-AAE3-F9C2A8D2CB2A}</Project>
+      <Name>Sage.Connector.NotificationService.Proxy</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Queues\Queues\Sage.Connector.Queues.csproj">
+      <Project>{B2FC9A88-556A-47E5-8188-8DAF54061721}</Project>
+      <Name>Sage.Connector.Queues</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Sage.Connector.Common\Sage.Connector.Common.csproj">
+      <Project>{BBC8ADEA-E0DA-49C7-A9EA-BB87321F2E56}</Project>
+      <Name>Sage.Connector.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Sage.Connector.ConnectorServiceCommon\Sage.Connector.ConnectorServiceCommon.csproj">
+      <Project>{9B7358BF-F3EC-4F68-B435-587B314D2BD7}</Project>
+      <Name>Sage.Connector.ConnectorServiceCommon</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Sage.Connector.Data\Sage.Connector.Data.csproj">
+      <Project>{FC82C216-980F-433A-BEE1-2EB29997515D}</Project>
+      <Name>Sage.Connector.Data</Name>
+    </ProjectReference>
+    <Reference Include="Sage.CRE.CloudConnector.Integration.Interfaces">
+      <HintPath>$(SandboxDir)\Assemblies\Sage.CRE.CloudConnector.Integration.Interfaces.dll</HintPath>
+      <Name>Sage.CRE.CloudConnector.Integration.Interfaces</Name>
+      <Private>False</Private>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <ProjectReference Include="..\..\SignalR.Client\Signalr.Client.csproj">
+      <Project>{1be23430-f2b7-4050-a550-11e6f21bab96}</Project>
+      <Name>Signalr.Client</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Signalr.Interfaces\Signalr.Interfaces.csproj">
+      <Project>{cd67c96a-fb2b-4872-af5e-bcec4a9ccd10}</Project>
+      <Name>Signalr.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\StateService\Interfaces\Sage.Connector.StateService.Interfaces.csproj">
+      <Project>{CAEB43D4-1702-4008-B937-C8211D545354}</Project>
+      <Name>Sage.Connector.StateService.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\StateService\Proxy\Sage.Connector.StateService.Proxy.csproj">
+      <Project>{65602998-E2EE-433A-892C-44233AEFDC85}</Project>
+      <Name>Sage.Connector.StateService.Proxy</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Utilities\Sage.Connector.Utilities.csproj">
+      <Project>{2143F64E-3625-4CAC-B7BE-CCDC3B0B6EA5}</Project>
+      <Name>Sage.Connector.Utilities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Interfaces\Sage.Connector.MessagingService.Interfaces.csproj">
+      <Project>{84E70A52-B0B1-4727-9C26-51152296DA7A}</Project>
+      <Name>Sage.Connector.MessagingService.Interfaces</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SageLinkedSourceDirectory)\SageLibrary.targets" />
+  <Target Name="BeforeBuild" DependsOnTargets="ApplyMachineSpecificConfiguration">
+  </Target>
+  <Target Name="ApplyMachineSpecificConfiguration" Inputs="$(ProjectDir)\Config.Base.xml;$(ProjectDir)\Config.$(Configuration).xslt;$(ProjectDir)\Config.$(Configuration).$(Computername).xslt" Outputs="$(ProjectDir)\$(AssemblyName).Config.xml">
+    <Delete Files="Config.Output.xml" />
+    <XslTransformation Condition="Exists('Config.$(Configuration).xslt')" XmlInputPaths="Config.Base.xml" XslInputPath="Config.$(Configuration).xslt" Parameters="&lt;Parameter Name='SandboxDir' Value='$(SandboxDir)'/&gt;" OutputPaths="Config.Output.xml" />
+    <XslTransformation Condition="Exists('Config.$(Configuration).$(Computername).xslt')" XmlInputPaths="Config.Base.xml" XslInputPath="Config.$(Configuration).$(Computername).xslt" Parameters="&lt;Parameter Name='SandboxDir' Value='$(SandboxDir)'/&gt;" OutputPaths="Config.Output.xml" />
+    <Copy SourceFiles="Config.Output.xml" DestinationFiles="$(ProjectDir)\$(AssemblyName).Config.xml" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>"$(SandboxDir)\Tools\Bin\LibraryConfigTool.exe" /silent /sandbox:"$(SandboxDir)" /lc:"$(LibraryConfigFile)" /a:PostBuild /d:ProjectName=$(ProjectName) /d:TargetDir="$(TargetDir)." /d:TargetName=$(TargetName) /d:TargetExt=$(TargetExt) /d:ConfigurationName=$(ConfigurationName)</PostBuildEvent>
+  </PropertyGroup>
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+</Project>

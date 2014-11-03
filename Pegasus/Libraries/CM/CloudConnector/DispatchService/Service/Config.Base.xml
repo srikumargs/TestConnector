@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+  <configSections/>
+  <system.diagnostics/>
+  <appSettings>
+    <add key="DependsOn" value="Sage.Connector.ConfigurationService.Config;Sage.Connector.NotificationService.Config;Sage.Connector.StateService.Config"/>
+
+    <!--
+    Format of the <service>_FullyQualifiedTypeName is "<Fully-qualified service typename>,<assembly identity>"
+    
+    Where <assembly identity> can be:
+    1) a current directory dll (e.g., "SomeService.dll")
+    2) a PathRegistrar-compatible dll path (e.g., "specialpath://librarymanager.sharedlibrarieslocation/SomeService.dll")
+    3) a GAC assembly identity (e.g., "SomeService,Version=1.0.0.0,Culture=neutral,PublicKeyToken=3e78b2cabf12f868")
+    -->
+
+    <!-- DispatchService -->
+    <add key="DispatchService_FullyQualifiedTypeName" value="Sage.Connector.DispatchService.DispatchService,Sage.Connector.DispatchService.dll" />
+    <add key="DispatchService_Description" value="Provides dispatch service for the cloud connector" />
+  </appSettings>
+
+  <system.serviceModel>
+    <services>
+      <service name="DispatchService" behaviorConfiguration="ServiceBehavior">
+        <endpoint address="DispatchService"
+                  binding="netTcpBinding"
+                  bindingConfiguration="ReliableTCP"
+                  contract="Sage.Connector.DispatchService.Interfaces.IDispatchService" />
+        <endpoint address="AutoUpdateService"
+                  binding="netTcpBinding"
+                  bindingConfiguration="ReliableTCP"
+                  contract="Sage.Connector.DispatchService.Interfaces.IAutoUpdateService" />
+        
+      </service>
+    </services>
+
+    <behaviors>
+      <serviceBehaviors>
+        <behavior name="ServiceBehavior">
+          <serviceThrottling maxConcurrentSessions="10000" />
+        </behavior>
+      </serviceBehaviors>
+    </behaviors>
+
+    <bindings>
+      <netTcpBinding>
+        <binding name="ReliableTCP" maxReceivedMessageSize="1048576" sendTimeout="00:03:00">
+          <readerQuotas maxStringContentLength="1048576"  />
+          <reliableSession enabled="true" inactivityTimeout="00:10:00"  />
+          <security mode="Transport">
+            <transport clientCredentialType="Windows" protectionLevel="EncryptAndSign" />
+          </security>
+        </binding>
+      </netTcpBinding>
+    </bindings>
+  </system.serviceModel>
+
+</configuration>

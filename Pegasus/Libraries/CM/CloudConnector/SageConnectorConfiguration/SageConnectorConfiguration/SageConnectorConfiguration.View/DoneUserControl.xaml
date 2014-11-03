@@ -1,0 +1,69 @@
+﻿<UserControl x:Class="SageConnectorConfiguration.View.DoneUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SageConnectorConfiguration"
+             mc:Ignorable="d" 
+             d:DesignHeight="480" d:DesignWidth="640">
+    <Grid>
+        <StackPanel Orientation="Vertical" Margin="10">
+            <Image Source="..\Images\SageConnectorNew27.png" HorizontalAlignment="Left" VerticalAlignment="Top" Stretch="Fill" Width="400"/>
+            <Separator Height="20" Opacity="0"/>
+            <TextBlock Padding="15,10,5,5" TextWrapping="Wrap" FontStyle="Italic" >Congratulations! Connection setup successful. You're now ready to start using the tenant site with the back office.</TextBlock>
+
+            <Grid x:Name="_tenantInfoGrid">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="16"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="5"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="5"/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="1" Grid.Column="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="135"/>
+                        <ColumnDefinition Width="325*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Column="0" Grid.Row="0" FontWeight="Bold" VerticalAlignment="Center">Tenant name:</TextBlock>
+                    <TextBlock x:Name="_tenantNameTextBox" Text="{Binding TenantName, Mode=OneWay}" Grid.Column="1" Grid.Row="0"  Margin="5"></TextBlock>
+                    <TextBlock Grid.Column="0" Grid.Row="1" FontWeight="Bold" VerticalAlignment="Center">Tenant URL:</TextBlock>
+                    <TextBlock x:Name="_tenantURLTextBox" Grid.Column="1" Grid.Row="1"  Margin="5">
+                        <Hyperlink local:HyperlinkExtensions.IsExternal="true" NavigateUri="{Binding TenantURL}">
+                            <Run Text="{Binding TenantURL, Mode=OneWay}"/>
+                        </Hyperlink>
+                    </TextBlock>
+                    <TextBlock Grid.Column="0" Grid.Row="2" FontWeight="Bold" VerticalAlignment="Center">Back office data folder:</TextBlock>
+                    <TextBlock x:Name="_backofficeDataFolderTextBox" Text="{Binding BackofficeDataFolder, Mode=OneWay}" Grid.Column="1" Grid.Row="2" Margin="5"></TextBlock>
+                </Grid>
+            </Grid>
+
+            <TextBlock Padding="5,50,5,5" TextWrapping="Wrap" FontWeight="Bold" >Note:</TextBlock>
+            <TextBlock Padding="25,5,5,5" TextWrapping="Wrap" FontStyle="Italic" >You can monitor the cloud-back office interaction activities using the Sage Connector Monitor.</TextBlock>
+
+            <TextBlock Padding="5,50,5,5" TextWrapping="Wrap" FontWeight="Bold">Additional information:</TextBlock>
+            <TextBlock Padding="25,5,5,5" TextWrapping="Wrap" >
+                <Hyperlink NavigateUri="http://help.sageconstructionanywhere.com/2-3/sage300cre/help/Default.htm#03_Connector_Monitor/win_SCA_Connector_Monitor.htm%3FTocPath%3DAdditional%20Tools%7CSage%20Construction%20Anywhere%20Connector%20Monitor%7C_____0" local:HyperlinkExtensions.IsExternal="true">
+                    Sage Connector Monitor
+                </Hyperlink>
+            </TextBlock>
+            <TextBlock Padding="25,5,5,5" TextWrapping="Wrap" >
+                <Hyperlink NavigateUri="http://help.sageconstructionanywhere.com/2-3/sage300cre/help/Default.htm#00_SCA/Navigating_SCA.htm%3FTocPath%3DUsing%20Sage%20Construction%20Anywhere%7CNavigating%20the%20Sage%20Construction%20Anywhere%20Site%7C_____0" local:HyperlinkExtensions.IsExternal="true">
+                    Navigating the Sage Site
+                </Hyperlink>
+            </TextBlock>
+            <TextBlock Padding="25,5,5,5" TextWrapping="Wrap" >
+                <Hyperlink NavigateUri="http://help.sageconstructionanywhere.com/2-3/sage300cre/help/Default.htm#01_Setup/pro_Changing_servers.htm%3FTocPath%3DMaintenance%7C_____1" local:HyperlinkExtensions.IsExternal="true">
+                    Maintenance
+                </Hyperlink>
+            </TextBlock>
+        </StackPanel>
+    </Grid>
+</UserControl>

@@ -1,0 +1,155 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <Import Project="..\..\LinkedSource\SageVariables.targets" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{CC0D46C2-00A1-44E4-845B-2B9FE355C6E9}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Sage.Connector.ProductCatalog.Mediator</RootNamespace>
+    <AssemblyName>Sage.Connector.ProductCatalog.Mediator</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;CODE_ANALYSIS</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\Sage.Connector.ProductCatalog.Mediator.XML</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;CODE_ANALYSIS</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Release\Sage.Connector.ProductCatalog.Mediator.XML</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+    <SandboxDir>$([System.IO.Path]::GetFullPath('$(MSBuildProjectDirectory)\..\..\..\..\..'))</SandboxDir>
+    <LibraryDir>$(SandboxDir)\Libraries\CM\CloudConnector</LibraryDir>
+    <LibraryConfigFile>$(LibraryDir)\LibraryConfig-Library.xml</LibraryConfigFile>
+    <ToolsBinDir>$(SandboxDir)\Tools\Bin</ToolsBinDir>
+    <AssemblyOriginatorKeyFile>$(SandboxDir)\Build\PlatformKeyfile.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RunPostBuildEvent>OnOutputUpdated</RunPostBuildEvent>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Newtonsoft.Json.6.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="FeatureDescriptions.Designer.cs">
+      <DependentUpon>FeatureDescriptions.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="FeatureMessageTypes.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SyncInventoryItems.cs" />
+    <Compile Include="SyncServiceTypes.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="FeatureDescriptions.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>FeatureDescriptions.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\DomainContracts\DomainContracts.BackOffice\DomainContracts.BackOffice.csproj">
+      <Project>{20226f1f-2de0-4498-9528-e075be90a5d1}</Project>
+      <Name>DomainContracts.BackOffice</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\DomainContracts\DomainContracts.Data\DomainContracts.Data.csproj">
+      <Project>{ad067891-fd5c-4d12-aab0-82081b0ba349}</Project>
+      <Name>DomainContracts.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\DomainContracts\DomainContracts.Responses\DomainContracts.Responses.csproj">
+      <Project>{18500939-bbdf-4cf8-a315-fdb500216716}</Project>
+      <Name>DomainContracts.Responses</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\DomainContracts\ProductCatalog.Contracts.BackOffice\ProductCatalog.Contracts.BackOffice.csproj">
+      <Project>{48bbf441-fef0-40fd-bcfa-609075f50dbb}</Project>
+      <Name>ProductCatalog.Contracts.BackOffice</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\DomainContracts\ProductCatalog.Contracts.CloudIntegration\ProductCatalog.Contracts.CloudIntegration.csproj">
+      <Project>{081ded81-4e13-4b5c-a252-f579ffe38958}</Project>
+      <Name>ProductCatalog.Contracts.CloudIntegration</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\DomainContracts\ProductCatalog.Contracts.Data\ProductCatalog.Contracts.Data.csproj">
+      <Project>{bb30110a-8e83-4261-8e3c-b1444093b59f}</Project>
+      <Name>ProductCatalog.Contracts.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\DomainContracts\Sync.Contracts.CloudIntegration\Sync.Contracts.CloudIntegration.csproj">
+      <Project>{16d70043-84be-4257-a55a-c09f42c4e878}</Project>
+      <Name>Sync.Contracts.CloudIntegration</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\DomainContracts\Sync.Contracts.Data\Sync.Contracts.Data.csproj">
+      <Project>{76bb5f02-bf93-40cf-bc94-6148a890fbf2}</Project>
+      <Name>Sync.Contracts.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Sage.Connector.Sync.Interfaces\Sage.Connector.Sync.Interfaces.csproj">
+      <Project>{cbba9316-bae9-4914-9459-a799eb3ef9c2}</Project>
+      <Name>Sage.Connector.Sync.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Sage.Connector.Sync\Sage.Connector.Sync.csproj">
+      <Project>{e7e0a8b6-9939-490a-ba51-4135db74e63c}</Project>
+      <Name>Sage.Connector.Sync</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DomainMediator.Core\DomainMediator.Core.csproj">
+      <Project>{7dd87cbe-c72b-4e32-ad25-76d7e2c02055}</Project>
+      <Name>DomainMediator.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\..\LinkedSource\SageLibrary.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>"$(SandboxDir)\Tools\Bin\LibraryConfigTool.exe" /silent /sandbox:"$(SandboxDir)" /lc:"$(LibraryConfigFile)" /a:PostBuild /d:ProjectName=$(ProjectName) /d:TargetDir="$(TargetDir)." /d:TargetName=$(TargetName) /d:TargetExt=$(TargetExt) /d:ConfigurationName=$(ConfigurationName)</PostBuildEvent>
+  </PropertyGroup>
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

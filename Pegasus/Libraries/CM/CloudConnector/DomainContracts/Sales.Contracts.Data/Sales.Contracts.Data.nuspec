@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/10/nuspec.xsd">
+    <metadata>
+        <id>Sage.Connector.Sales.Contracts.Data</id>
+        <version>$SagePathedVersionString$</version>
+        <title>Sage.Connector.Sales.Contracts.Data</title>
+        <authors>$author$</authors>
+        <owners>$author$</owners>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>Sales Data Contracts</description>
+        <copyright>Copyright © Sage 2014</copyright>
+    </metadata>
+
+</package>

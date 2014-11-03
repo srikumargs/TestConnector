@@ -1,0 +1,227 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <Import Project="..\LinkedSource\SageVariables2.targets" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1AAF951C-DDCD-4CD0-9CCE-872DE3AAA375}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Sage.Connector.AutoUpdate</RootNamespace>
+    <AssemblyName>Sage.Connector.AutoUpdate</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <RunPostBuildEvent>OnOutputUpdated</RunPostBuildEvent>
+    <SignAssembly>true</SignAssembly>
+    <SandboxDir>$([System.IO.Path]::GetFullPath('$(MSBuildProjectDirectory)\..\..\..\..'))</SandboxDir>
+    <LibraryDir>$(SandboxDir)\Libraries\CM\CloudConnector</LibraryDir>
+    <LibraryConfigFile>$(LibraryDir)\LibraryConfig-Library.xml</LibraryConfigFile>
+    <ToolsBinDir>$(SandboxDir)\Tools\Bin</ToolsBinDir>
+    <AssemblyOriginatorKeyFile>$(SandboxDir)\Build\PlatformKeyfile.snk</AssemblyOriginatorKeyFile>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <CodeAnalysisRules>
+    </CodeAnalysisRules>
+    <NoWarn>
+    </NoWarn>
+    <CodeAnalysisRuleSet>..\LinkedSource\SageConnectorCommonCodeAnalysisRules.ruleset</CodeAnalysisRuleSet>
+    <DocumentationFile>bin\Debug\Sage.Connector.AutoUpdate.XML</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <DocumentationFile>bin\Release\Sage.Connector.AutoUpdate.XML</DocumentationFile>
+    <CodeAnalysisRules>
+    </CodeAnalysisRules>
+    <NoWarn>
+    </NoWarn>
+    <CodeAnalysisRuleSet>..\LinkedSource\SageConnectorCommonCodeAnalysisRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.3.0.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Libraries\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.84.0.0, Culture=neutral, PublicKeyToken=1b03e6acf1164f73">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Libraries\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Sage.Passport.Client, Version=2.1.5.2, Culture=neutral, PublicKeyToken=74a731fb0207630c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Libraries\Sage.Passport.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Sage.Passport.Client.Xrpc, Version=2.0.3.1, Culture=neutral, PublicKeyToken=74a731fb0207630c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Libraries\Sage.Passport.Client.Xrpc.dll</HintPath>
+    </Reference>
+    <Reference Include="Sage.Passport.Util, Version=2.0.1.1, Culture=neutral, PublicKeyToken=74a731fb0207630c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Libraries\Sage.Passport.Util.dll</HintPath>
+    </Reference>
+    <Reference Include="Sage.Ssdp.Security.Client, Version=3.2.0.3, Culture=neutral, PublicKeyToken=eeff789a30344e52, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Libraries\Sage.Ssdp.Security.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Sage.CRE.HostingFramework.Interfaces">
+      <HintPath>$(SandboxDir)\Assemblies\Sage.CRE.HostingFramework.Interfaces.dll</HintPath>
+      <Name>Sage.CRE.HostingFramework.Interfaces</Name>
+      <Private>False</Private>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Sage.CRE.HostingFramework.Proxy">
+      <HintPath>$(SandboxDir)\Assemblies\Sage.CRE.HostingFramework.Proxy.dll</HintPath>
+      <Name>Sage.CRE.HostingFramework.Proxy</Name>
+      <Private>False</Private>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Sage.CRE.Core">
+      <HintPath>$(SandboxDir)\Assemblies\Sage.CRE.Core.dll</HintPath>
+      <Name>Sage.CRE.Core</Name>
+      <Private>False</Private>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ActiveUpdaters.cs" />
+    <Compile Include="AddinUpdateTimer.cs" />
+    <Compile Include="Addin\AddinNames.cs" />
+    <Compile Include="Addin\AddinTimes.cs" />
+    <Compile Include="Addin\AddinUpdater.cs" />
+    <Compile Include="Addin\ISoftwareUpdateComparerTrailingUpdateId.cs" />
+    <Compile Include="Addin\ISoftwareUpdateComparerVersionId.cs" />
+    <Compile Include="Addin\LocalAutoUpdateClient.cs" />
+    <Compile Include="Addin\LocalSoftwareUpdate.cs" />
+    <Compile Include="AutoUpdateManager.cs" />
+    <Compile Include="AutoUpdateTimerIntervalProvider.cs" />
+    <Compile Include="ConfigurationProvider.cs" />
+    <Compile Include="IAddinUpdater.cs" />
+    <Compile Include="IAutoUpdateTimerIntervalProvider.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="$(SandboxDir)\Build\PlatformKeyfile.snk">
+      <Link>PlatformKeyfile.snk</Link>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AutoUpdate.config.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="AutoUpdate.NonProduction.config.xml" />
+    <Content Include="AutoUpdateProductVersion.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Libraries\BouncyCastle.Crypto.dll" />
+    <Content Include="Libraries\ICSharpCode.SharpZipLib.dll" />
+    <Content Include="Libraries\Sage.Passport.Client.dll" />
+    <Content Include="Libraries\Sage.Passport.Client.Xrpc.dll" />
+    <Content Include="Libraries\Sage.Passport.Util.dll" />
+    <Content Include="Libraries\Sage.Ssdp.Security.Client.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Logging\Logging\Sage.Connector.Logging.csproj">
+      <Project>{898981d1-9fac-48dc-a91d-232a5a859a0f}</Project>
+      <Name>Sage.Connector.Logging</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Sage.Connector.Common\Sage.Connector.Common.csproj">
+      <Project>{bbc8adea-e0da-49c7-a9ea-bb87321f2e56}</Project>
+      <Name>Sage.Connector.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Sage.Connector.Data\Sage.Connector.Data.csproj">
+      <Project>{FC82C216-980F-433A-BEE1-2EB29997515D}</Project>
+      <Name>Sage.Connector.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\StateService\Interfaces\Sage.Connector.StateService.Interfaces.csproj">
+      <Project>{caeb43d4-1702-4008-b937-c8211d545354}</Project>
+      <Name>Sage.Connector.StateService.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\StateService\Proxy\Sage.Connector.StateService.Proxy.csproj">
+      <Project>{65602998-e2ee-433a-892c-44233aefdc85}</Project>
+      <Name>Sage.Connector.StateService.Proxy</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SageLinkedSourceDirectory)\SageLibrary.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>"$(SandboxDir)\Tools\Bin\LibraryConfigTool.exe" /silent /sandbox:"$(SandboxDir)" /lc:"$(LibraryConfigFile)" /a:PostBuild /d:ProjectName=$(ProjectName) /d:TargetDir="$(TargetDir)." /d:TargetName=$(TargetName) /d:TargetExt=$(TargetExt) /d:ConfigurationName=$(ConfigurationName)</PostBuildEvent>
+  </PropertyGroup>
+  <!--generate the addin.update.txt file for the connector core. This will let us install and get an updated stamp of the installed version
+  The component id here must match the name given in the cloud
+  We are using a leading 0. to allow us to easily later have a later version replace these files. 
+  A trailing zero segment will to allow manual adjustment for local dev builds, but does not need to be specified it will be auto filled by the software if needed.
+  -->
+  <PropertyGroup>
+    <SageBuildAddinUpdateTXTFile Condition=" '$(SageBuildAddinUpdateTXTFile)'=='' ">$(MSBuildProjectDirectory)\addin.update.txt</SageBuildAddinUpdateTXTFile>
+  </PropertyGroup>
+  <Target Name="SageWriteAddinUpdateTXTFile" DependsOnTargets="SageBuildFileVersion" BeforeTargets="BeforeCompile" Condition="('$(SageBuildType)'=='TFSBUILD') or ('$(SageBuildType)'=='DEVBUILD')">
+    <PropertyGroup>
+      <SageAddinUpdateTxtString>ConnectorCore.0.$(SageFullBuildVersionString)</SageAddinUpdateTxtString>
+    </PropertyGroup>
+    <ItemGroup>
+      <addinUpdateTXTLines Include="$(SageAddinUpdateTxtString)" />
+    </ItemGroup>
+    <WriteLinesToFile Overwrite="true" File="$(SageBuildAddinUpdateTXTFile)" Lines="@(addinUpdateTXTLines)" />
+  </Target>
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
+</Project>

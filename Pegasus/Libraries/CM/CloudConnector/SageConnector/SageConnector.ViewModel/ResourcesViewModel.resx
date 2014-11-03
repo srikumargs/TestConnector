@@ -1,0 +1,235 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ConnectorDetails_MessagingServiceNotAvailableException" xml:space="preserve">
+    <value>An error occurred communicating with the website {0}.</value>
+  </data>
+  <data name="ConnectorDetails_RequiredFieldErrorCaption" xml:space="preserve">
+    <value>RequiredFieldMissing</value>
+  </data>
+  <data name="ConnectorDetails_RequiredFieldsErrorMessage" xml:space="preserve">
+    <value>The {0} field is required.</value>
+  </data>
+  <data name="ConnectorDetails_TenantIdAlreadyInUse" xml:space="preserve">
+    <value>The connection key is for a website which is already in use.</value>
+  </data>
+  <data name="ConnectorDetails_TenantIdDoesNotMatchSpecifiedWebsite" xml:space="preserve">
+    <value>This connection key does not match the existing web site.  Please create a new connection to use this key.</value>
+  </data>
+  <data name="ConnectorDetails_ConnectionKeyInUse" xml:space="preserve">
+    <value>This connection key is already in use.</value>
+  </data>
+  <data name="ConnectorDetails_ToChangeWebsiteCreateNewConnection" xml:space="preserve">
+    <value>The connection key for the website does not match the connection key in the Sage Connector connection. Please delete the connection in the Sage connector and recreate the connection using the correct connection key from the website</value>
+  </data>
+  <data name="DetailFormHelpPathFragment" xml:space="preserve">
+    <value>Default_CSH.htm#10001</value>
+  </data>
+  <data name="MainFormHelpPathFragment" xml:space="preserve">
+    <value>Default_CSH.htm#10000</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="GreenLight" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\GreenLight.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="RedLight" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\RedLight.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="WhiteLight" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\WhiteLight.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ConnectorDetails_CompanyDatabaseInUse" xml:space="preserve">
+    <value>The company database is in use for an existing connection.</value>
+  </data>
+  <data name="ConnectorLogin_LoginError_BackofficeValidationDidNotSucceed" xml:space="preserve">
+    <value>Login validation did not succeed.</value>
+  </data>
+  <data name="ConnectorLogin_NoResponseFromBackoffice" xml:space="preserve">
+    <value>No response received from the back office.</value>
+  </data>
+  <data name="SystemRequirementsHelpPathFragment" xml:space="preserve">
+    <value>Default_CSH.htm#10023</value>
+  </data>
+  <data name="ConnectorLogin_DefaultErrorResponseFromBackoffice" xml:space="preserve">
+    <value>An error response was received from the back office.</value>
+  </data>
+  <data name="ConnectorDetails_ConfigurationDataProblem" xml:space="preserve">
+    <value>A data access problem has occured.</value>
+  </data>
+  <data name="ConnectionDetail_CloudUnavailable" xml:space="preserve">
+    <value>The website is temporarily unavailable. Please try again later.</value>
+  </data>
+  <data name="ConnectionDetail_CommunicationFailure" xml:space="preserve">
+    <value>Unable to connect to the website.</value>
+  </data>
+  <data name="ConnectionDetail_GatewayServiceUnavailable" xml:space="preserve">
+    <value>The gateway service is unavailable. Verify that port 8443 is open in your firewall. If the port is open, the gateway service may be down temporarily. Please try again later.</value>
+  </data>
+  <data name="ConnectionDetail_IncompatibleClient" xml:space="preserve">
+    <value>The Sage Connector software is not compatible with the website. Please install a compatible version.</value>
+  </data>
+  <data name="ConnectionDetail_InternetConnectionUnavailable" xml:space="preserve">
+    <value>There is no internet connection. Please check with your system administrator.</value>
+  </data>
+  <data name="ConnectionDetail_InvalidConnectionInformation" xml:space="preserve">
+    <value>The connection information is not valid. Verify that the connection key on the site matches the connection key in the Sage Connector software.</value>
+  </data>
+  <data name="ConnectionDetail_LocalNetworkUnavailable" xml:space="preserve">
+    <value>There is no local network available on this computer. Please check with your system administrator.</value>
+  </data>
+  <data name="ConnectionDetail_None" xml:space="preserve">
+    <value>Unable to determine website connectivity. The site URL used by the Sage Connector may not match the actual website URL.</value>
+  </data>
+  <data name="ConnectionDetail_Normal" xml:space="preserve">
+    <value>The Sage Connector is communicating successfully with the website.</value>
+  </data>
+  <data name="ConnectionDetail_Reconfigure" xml:space="preserve">
+    <value>New connection information is needed. This will be retrieved automatically.</value>
+  </data>
+  <data name="ConnectionDetail_TenantDisabled" xml:space="preserve">
+    <value>This site has been suspended by Sage.</value>
+  </data>
+  <data name="ConnectorServiceNotEnabledMessageFormat" xml:space="preserve">
+    <value>The {0} service is not currently enabled on this computer.\n\nEnable the service in the Services control panel and then click OK to continue configuring the {1}\n\nFor information on enabling services, refer to Microsoft Windows documentation.</value>
+  </data>
+  <data name="BlankLight" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\BlankLight.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="RequestsFormHelpPathFragment" xml:space="preserve">
+    <value>Default_CSH.htm#10037</value>
+  </data>
+  <data name="ConnectorRequestList_CompletedStatusText" xml:space="preserve">
+    <value>Completed</value>
+  </data>
+  <data name="ConnectorRequestList_CompletedWithErrorStatusText" xml:space="preserve">
+    <value>Completed with Error</value>
+  </data>
+  <data name="ConnectorRequestList_InProgressStatusText" xml:space="preserve">
+    <value>In Progress</value>
+  </data>
+  <data name="AccountSelectionFormHelpPathFragment" xml:space="preserve">
+    <value>Default_CSH.htm#10038</value>
+  </data>
+  <data name="Running" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\Running.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Blank" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\Blank.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+</root>

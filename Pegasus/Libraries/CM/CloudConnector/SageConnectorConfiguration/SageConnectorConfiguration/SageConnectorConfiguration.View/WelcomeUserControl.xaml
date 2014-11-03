@@ -1,0 +1,79 @@
+﻿<UserControl x:Class="SageConnectorConfiguration.View.WelcomeUserControl"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:SageConnectorConfiguration"
+      mc:Ignorable="d" 
+      d:DesignHeight="480" d:DesignWidth="640">
+
+    <Grid>
+        <StackPanel Orientation="Vertical" Margin="10">
+            <Image Source="..\Images\SageConnectorNew27.png" HorizontalAlignment="Left" VerticalAlignment="Top" Stretch="Fill" Width="400"/>
+            <Separator Height="5" Opacity="0"/>
+            <TextBlock Padding="5"  TextWrapping="Wrap" Text="This wizard will guide you through the steps necessary to install and configure the Sage Connector software. If you are not connecting to the back office, you will not be able to run this wizard."/>
+            <TextBlock Padding="5,15,5,0" TextWrapping="Wrap" FontWeight="Bold">What to expect:</TextBlock>
+            <TextBlock Padding="25,5,5,0"  TextWrapping="Wrap">- Installation and/or upgrade of the Sage Connector software.</TextBlock>
+            <TextBlock Padding="25,5,5,0"  TextWrapping="Wrap">- A configured connection between the selected back office and the Sage tenant site.</TextBlock>
+            <TextBlock Padding="5,15,5,0"  TextWrapping="Wrap" FontWeight="Bold" >You will need:</TextBlock>
+            <TextBlock Padding="25,5,5,0"  TextWrapping="Wrap">- Windows domain user account or a local admin account on this computer.</TextBlock>
+            <TextBlock Padding="25,5,5,0"  TextWrapping="Wrap">- Back office installed and security already set up.</TextBlock>
+            <TextBlock Padding="25,5,5,0"  TextWrapping="Wrap">- Back office administrator and user credentials.</TextBlock>
+            <TextBlock Padding="25,5,5,0"  TextWrapping="Wrap">- Sage Connector user(s) already set up.</TextBlock>
+            <TextBlock Padding="5,15,5,0"  TextWrapping="Wrap" FontWeight="Bold" >Note:</TextBlock>
+            <TextBlock Padding="5,5,5,5"  TextWrapping="Wrap" Text="The Sage tenant site needs to be up and running for this wizard to complete successfully."/>
+
+            <!--<Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="5"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="10"/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="1" Grid.Column="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="150"/>
+                        <ColumnDefinition Width="80"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Grid.Column="0" Grid.Row="0" FontWeight="Bold" TextWrapping="Wrap">Configuration XML File:</TextBlock>
+
+                    <Button Name="BrowseButton" Content="Browse..." Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Width="75" Click="BrowseButton_Click" />
+                    <TextBox x:Name="_configurationFileLocationTextBox" Grid.Column="2" Grid.Row="0" Text="{Binding ConfigurationLocation}"></TextBox>
+
+                    <TextBlock Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="3" FontStyle="Italic" FontWeight="Bold" Foreground="Red" VerticalAlignment="Bottom" HorizontalAlignment="Center" Visibility="{Binding Path=InvalidConfigurationFileLocation, Converter={StaticResource BoolToVisibleOrCollapsed}}">
+                        Invalid XML file. TODO - corrective steps.
+                    </TextBlock>
+                    <TextBlock Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="3" Padding="25,0,0,0" FontStyle="Italic" VerticalAlignment="Bottom" Visibility="{Binding Path=InvalidConfigurationFileLocation, Converter={StaticResource BoolToVisibleOrCollapsed}}">
+                        The Sage tenant site configuration file location.
+                    </TextBlock>
+                </Grid>
+            </Grid>-->
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="350" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Column="0" Grid.Row="0" HorizontalAlignment="Center" FontStyle="Italic" FontWeight="Bold" FontSize="18" Visibility="{Binding Path=AllGo, Converter={StaticResource BoolToVisibleOrCollapsed}}">Let's get started!</TextBlock>
+                <TextBlock Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" FontStyle="Italic" FontWeight="Bold" Foreground="Red" TextWrapping="Wrap" Visibility="{Binding Path=BONotInstalled, Converter={StaticResource BoolToVisibleOrCollapsed}}">Back office not installed! You need to install the back office before you can run this wizard.</TextBlock>
+                <TextBlock Grid.Column="1" Grid.Row="0" Padding="5" TextAlignment="Right">
+                <Hyperlink local:HyperlinkExtensions.IsExternal="true" NavigateUri="http://help.sageconstructionanywhere.com/2-3/sage300cre/help/Default.htm#01_Setup/Setup_Preparations.htm%3FTocPath%3DInstalling%20%20Sage%20Construction%20Anywhere%7C_____3">More about setup preparation</Hyperlink>
+                </TextBlock>
+            </Grid>
+        </StackPanel>
+
+    </Grid>
+</UserControl>

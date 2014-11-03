@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D9D2F845-44B6-44D1-95C1-B3740406710F}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Build_SandboxActivate</RootNamespace>
+    <AssemblyName>Build_SandboxActivate</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <SandboxDir>$([System.IO.Path]::GetFullPath('$(MSBuildProjectDirectory)\..\..\..\..'))</SandboxDir>
+    <LibraryDir>$(SandboxDir)\Libraries\CM\CloudConnector</LibraryDir>
+    <LibraryConfigFile>$(LibraryDir)\LibraryConfig-Library.xml</LibraryConfigFile>
+    <ToolsBinDir>$(SandboxDir)\Tools\Bin</ToolsBinDir>
+    <SandboxActivateLogFile>$(LibraryDir)\CRE_CloudConnector.SandboxActivateLog.txt</SandboxActivateLogFile>
+    <RuntimeDirectory>$(SandboxDir)\Runtime Files\Program Files\CloudConnector (COMMON_STAGING)</RuntimeDirectory>
+    <SkipCopyBuildProduct>true</SkipCopyBuildProduct>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.Common.targets" />
+  <Target Name="CreateManifestResourceNames" />
+  <Target Name="CoreCompile" />
+  <Target Name="Build" DependsOnTargets="$(BuildDependsOn)" Inputs="$(LibraryConfigFile)" Outputs="$(SandboxActivateLogFile)">
+    <Message Importance="Normal" Text="Running SandboxActivate action..." />
+    <Exec Command="LibraryConfigTool.exe /sandbox:&quot;$(SandboxDir)&quot; /action:SandboxActivate /d:ConfigurationName=$(Configuration) /lc:&quot;$(LibraryConfigFile)&quot;" WorkingDirectory="$(ToolsBinDir)" />
+    <WriteLinesToFile File="$(SandboxActivateLogFile)" Lines="Success!" />
+    <OnError ExecuteTargets="DeleteOutputFiles" />
+  </Target>
+  <Target Name="DeleteOutputFiles">
+    <Delete Files="$(SandboxActivateLogFile)" />
+  </Target>
+  <Target Name="CoreClean" DependsOnTargets="$(CoreCleanDependsOn)">
+    <CallTarget Targets="DeleteOutputFiles" />
+  </Target>
+</Project>

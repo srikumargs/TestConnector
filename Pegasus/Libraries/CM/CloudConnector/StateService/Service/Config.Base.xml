@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+  <configSections/>
+  <system.diagnostics/>
+  <appSettings>
+    <add key="DependsOn" value="Sage.Connector.NotificationService.Config"/>
+    
+    <!--
+    Format of the <service>_FullyQualifiedTypeName is "<Fully-qualified service typename>,<assembly identity>"
+    
+    Where <assembly identity> can be:
+    1) a current directory dll (e.g., "SomeService.dll")
+    2) a PathRegistrar-compatible dll path (e.g., "specialpath://librarymanager.sharedlibrarieslocation/SomeService.dll")
+    3) a GAC assembly identity (e.g., "SomeService,Version=1.0.0.0,Culture=neutral,PublicKeyToken=3e78b2cabf12f868")
+    -->
+
+    <!-- StateService -->
+    <add key="StateService_FullyQualifiedTypeName" value="Sage.Connector.StateService.StateService,Sage.Connector.StateService.dll" />
+    <add key="StateService_Description" value="Provides state service for the cloud connector" />
+  </appSettings>
+
+  <system.serviceModel>
+    <services>
+      <service name="StateService" behaviorConfiguration="ServiceBehavior">
+        <endpoint address="StateService"
+                  binding="netTcpBinding"
+                  bindingConfiguration="ReliableTCP"
+                  contract="Sage.Connector.StateService.Interfaces.IStateService" />
+        <endpoint address="DatabaseRepairerService"
+                  binding="netTcpBinding"
+                  bindingConfiguration="ReliableTCP"
+                  contract="Sage.Connector.StateService.Interfaces.IDatabaseRepairerService" />
+        <endpoint address="BackOfficeValidationService"
+                  binding="netTcpBinding"
+                  bindingConfiguration="ReliableTCP"
+                  contract="Sage.Connector.StateService.Interfaces.IBackOfficeValidationService" />
+        <endpoint address="FeatureService"
+                  binding="netTcpBinding"
+                  bindingConfiguration="ReliableTCP"
+                  contract="Sage.Connector.StateService.Interfaces.IFeatureService" />
+        <endpoint address="TenantValidationService"
+                  binding="netTcpBinding"
+                  bindingConfiguration="ReliableTCP"
+                  contract="Sage.Connector.StateService.Interfaces.ITenantValidationService" />
+      </service>
+    </services>
+
+    <behaviors>
+      <serviceBehaviors>
+        <behavior name="ServiceBehavior">
+          <serviceThrottling maxConcurrentSessions="10000" />
+        </behavior>
+      </serviceBehaviors>
+    </behaviors>
+
+    <bindings>
+      <netTcpBinding>
+        <binding name="ReliableTCP" maxReceivedMessageSize="1048576" maxBufferPoolSize="1048576" maxBufferSize="1048576" sendTimeout="00:03:00">
+          <readerQuotas maxStringContentLength="1048576" maxArrayLength="1048576" maxBytesPerRead="1048576"  />
+          <reliableSession enabled="true" inactivityTimeout="00:10:00"  />
+          <security mode="Transport">
+            <transport clientCredentialType="Windows" protectionLevel="EncryptAndSign" />
+          </security>
+        </binding>
+      </netTcpBinding>
+    </bindings>
+  </system.serviceModel>
+
+</configuration>

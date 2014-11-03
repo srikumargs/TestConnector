@@ -1,0 +1,139 @@
+﻿<UserControl x:Class="SageConnectorConfiguration.View.WindowsAccountSelector"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SageConnectorConfiguration"
+             mc:Ignorable="d" 
+             d:DesignHeight="480" d:DesignWidth="640">
+    <Grid>
+        <StackPanel Margin="10" Orientation="Vertical">
+            <Image Source="..\Images\SageConnectorNew27.png" HorizontalAlignment="Left" VerticalAlignment="Top" Stretch="Fill" Width="400"/>
+            <Separator Height="5" Opacity="0"/>
+            <TextBlock Padding="5" TextWrapping="Wrap"><Run Text="Select the Windows account to use with the Sage Connector."/></TextBlock>
+            <TextBlock Padding="5" TextAlignment="Right">
+                <Hyperlink local:HyperlinkExtensions.IsExternal="true" NavigateUri="http://help.sageconstructionanywhere.com/2-3/sage300cre/help/Default.htm#02_Connector/win_Account_Selection.htm%3FTocPath%3DInstalling%20%20Sage%20Construction%20Anywhere%7CInstalling%20the%20Sage%20Construction%20Anywhere%20Connector%20Software%7C_____1">
+                    <Run Text="Which option should I choose?"/>
+                </Hyperlink>
+            </TextBlock>
+            <TextBlock Padding="5" FontWeight="Bold" TextWrapping="Wrap"><Run Text="Select Windows account:"/></TextBlock>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="5"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="1" Grid.Column="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="200"/>
+                        <ColumnDefinition Width="300*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <RadioButton x:Name="_userAccountRadioBtn" Grid.Column="0" Grid.Row="0" FontWeight="Bold" VerticalAlignment="Center" GroupName="_windowsAccount" IsChecked="{Binding IsUserAccount, Mode=TwoWay}" Content="_User account (Recommended):"/>
+                    <TextBox x:Name="_userAccountTextBox" Text="{Binding UserAccount}" Grid.Column="1" Grid.Row="0"  Margin="5" IsEnabled="{Binding IsChecked, ElementName=_userAccountRadioBtn}"/>
+
+                    <TextBlock Grid.Column="0" Grid.Row="1" FontWeight="Bold" VerticalAlignment="Center" Margin="18,0,0,0"><Run Text="Password:"/></TextBlock>
+                    <PasswordBox x:Name="_password" PasswordChanged="PasswordChangedHandler" Grid.Column="1" Grid.Row="1" Margin="5" IsEnabled="{Binding IsChecked, ElementName=_userAccountRadioBtn}"/>
+
+                    <TextBlock Grid.Column="0" Grid.Row="2" FontWeight="Bold" VerticalAlignment="Center" Margin="18,0,0,0"><Run Text="Confirm password:"/></TextBlock>
+                    <PasswordBox x:Name="_confirmPassword" PasswordChanged="ConfirmPasswordChangedHandler" Grid.Column="1" Grid.Row="2" Margin="5" IsEnabled="{Binding IsChecked, ElementName=_userAccountRadioBtn}"/>
+
+                    <TextBlock Grid.Column="0" Grid.Row="3" VerticalAlignment="Center" Margin="50,0,0,0" FontStyle="Italic" FontSize="11"></TextBlock>
+                    <Expander Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2" VerticalAlignment="Center" Margin="18,0,0,0" FontSize="11" HorizontalAlignment="Left" Header="More info" ExpandDirection="Down" Width="500">
+                        <TextBlock TextWrapping="Wrap"><Run Text="Use this account to provide the best security control over the access to the Sage Connector software. Select the appropriate Windows user account and enter the password twice. We recommend that you set up a new domain user account solely for use with the Sage Connector service rather than using an existing user account. For more information about the permissions needed on this account, see Setting up a User Account. Note: if your back office server and Sage Construction Anywhere Connector server are different, or you are using Windows Server 2003 or Windows XP, you must select the User account option. Ensure that the user account has the appropriate permissions on both servers."/></TextBlock>
+                    </Expander>
+
+                    <RadioButton x:Name="_localSystemAccountRadioBtn" Grid.Column="0" Grid.Row="4" Margin="0,10,0,0" FontWeight="Bold" VerticalAlignment="Center" GroupName="_windowsAccount" IsChecked="{Binding IsLocalSystemAccount, Mode=TwoWay}" Content="_Local System account"/>
+                    <TextBlock Grid.Column="0" Grid.Row="5" VerticalAlignment="Center" Margin="50,0,0,0" FontStyle="Italic" FontSize="11"/>
+                    <Expander x:Name="_localSystemAccountExpander" Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="2" VerticalAlignment="Center" Margin="18,0,0,0" FontSize="11" HorizontalAlignment="Left" Header="More info" ExpandDirection="Down" Width="500">
+                        <TextBlock TextWrapping="Wrap">
+                            <Run Text="Use this account if you do not want to link your Sage Connector software to a specific Windows user account. Be aware that this option provides reduced security over the User account option. For Sage 100 Contractor, you can only use the Local System account if your data is on a local drive in the MB7 folder."/>
+                        </TextBlock>
+                    </Expander>
+                </Grid>
+            </Grid>
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                </Grid.RowDefinitions>
+                <TextBlock FontStyle="Italic" FontWeight="Bold" Foreground="Red" HorizontalAlignment="Center" VerticalAlignment="Bottom" Visibility="{Binding PasswordsDontMatch, Converter={StaticResource BoolToVisibleOrCollapsed}}"><Run Text="Passwords do not match"/></TextBlock>
+                <TextBlock FontStyle="Italic" FontWeight="Bold" Foreground="Red" HorizontalAlignment="Center" VerticalAlignment="Bottom" Visibility="{Binding InvalidUserAccount, Converter={StaticResource BoolToVisibleOrCollapsed}}"><Run Text="Invalid user account or password"/></TextBlock>
+                <TextBlock FontStyle="Italic" FontWeight="Bold" Foreground="Red" HorizontalAlignment="Center" VerticalAlignment="Bottom" Visibility="{Binding InvalidPassword, Converter={StaticResource BoolToVisibleOrCollapsed}}"><Run Text="Invalid password"/></TextBlock>
+            </Grid>
+
+            <TextBlock Padding="5,25,5,5" FontWeight="Bold" TextWrapping="Wrap">Tenant Configuration XML File Location:</TextBlock>
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="5"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="10"/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="1" Grid.Column="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="140"/>
+                        <ColumnDefinition Width="300*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <Button Name="BrowseButton" Content="_Browse..." Grid.Column="0" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Width="75" Click="BrowseButton_Click" />
+                    <TextBox x:Name="_configurationFileLocationTextBox" Grid.Column="1" Grid.Row="0" Text="{Binding ConfigurationLocation}" Margin="5"></TextBox>
+
+                    <TextBlock Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" FontStyle="Italic" FontWeight="Bold" Foreground="Red" VerticalAlignment="Bottom" HorizontalAlignment="Center" Visibility="{Binding Path=InvalidConfigurationFileLocation, Converter={StaticResource BoolToVisibleOrCollapsed}}">
+                        Invalid XML file. TODO -- corrective steps.
+                    </TextBlock>
+                </Grid>
+            </Grid>
+
+            <Grid x:Name="_tenantInfoGrid" Visibility="{Binding Path=ValidXML, Converter={StaticResource BoolToVisibleOrCollapsed}}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="5"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="1"/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="1" Grid.Column="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="90"/>
+                        <ColumnDefinition Width="325*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="26" />
+                        <RowDefinition Height="26"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Column="0" Grid.Row="0" FontWeight="Bold" VerticalAlignment="Center">Tenant name:</TextBlock>
+                    <TextBlock x:Name="_tenantNameTextBox" Text="{Binding TenantName, Mode=OneWay}" Grid.Column="1" Grid.Row="0"  Margin="0,5,0,0"></TextBlock>
+                    <TextBlock Grid.Column="0" Grid.Row="1" FontWeight="Bold" VerticalAlignment="Center">Tenant URL:</TextBlock>
+                    <TextBlock x:Name="_tenantURLTextBox" Text="{Binding TenantURL, Mode=OneWay}" Grid.Column="1" Grid.Row="1"  Margin="0,5,0,0"></TextBlock>
+                </Grid>
+            </Grid>
+
+        </StackPanel>
+    </Grid>
+</UserControl>

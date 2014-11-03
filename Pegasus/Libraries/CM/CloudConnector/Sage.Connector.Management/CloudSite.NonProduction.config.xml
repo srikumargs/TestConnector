@@ -1,0 +1,185 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<SiteGroups>
+  <SiteGroup siteId="Production" isDefault="false">
+    <ConnectorServiceUri>https://sdcCS.na.sage.com:443</ConnectorServiceUri>/>
+    <ClientId>WMbDy88vmWLF3rfWgxVfLkHsXoPusyje</ClientId>
+    <Scope>kmt6bhzz();</Scope>
+    <DataCloudWebPageDisplayName>Sage Mobile Sales</DataCloudWebPageDisplayName>
+    <DatacloudWebPageUri>https://sagemsales.na.sage.com</DatacloudWebPageUri>
+  </SiteGroup>
+  <SiteGroup siteId="MockCloud" isDefault="true">
+    <ConnectorServiceUri/>
+    <ClientId>BcIlX6A3tTuOgenQkocOSCe1I4DgsXgM</ClientId>
+    <Scope>kipgf40h();</Scope>
+    <DataCloudWebPageDisplayName>Sage Mobile Sales</DataCloudWebPageDisplayName>
+    <DatacloudWebPageUri>https://sagemsales.sagedatacloud.com</DatacloudWebPageUri>
+  </SiteGroup>
+  <SiteGroup siteId="AzureEmulator">
+    <ConnectorServiceUri>http://127.0.0.2:81</ConnectorServiceUri>
+    <ClientId>BcIlX6A3tTuOgenQkocOSCe1I4DgsXgM</ClientId>
+    <Scope>kipgf40h();</Scope>
+    <DataCloudWebPageDisplayName>Sage Mobile Sales</DataCloudWebPageDisplayName>
+    <DatacloudWebPageUri>https://sagemsales.sagedatacloud.com</DatacloudWebPageUri>
+  </SiteGroup>
+  <SiteGroup siteId="Ash">
+    <ConnectorServiceUri>https://Ashcs.sagedatacloud.com:443</ConnectorServiceUri>
+    <ClientId>uCKf6CUPGLhgW7Y8DcDvsjybGSAzTBVC</ClientId>
+    <Scope>k1mcudfb();</Scope>
+    <DataCloudWebPageDisplayName>Sage Mobile Sales</DataCloudWebPageDisplayName>
+    <DatacloudWebPageUri>https://Ashmsales.sagedatacloud.com</DatacloudWebPageUri>
+  </SiteGroup>
+  <SiteGroup siteId="Birch">
+    <ConnectorServiceUri>https://birchcs.sagedatacloud.com:443</ConnectorServiceUri>
+    <ClientId>l6lBvQ4KjuNyckFVcjvJyho2NLnjbUbK</ClientId>
+    <Scope>luuxtinu();</Scope>
+    <DataCloudWebPageDisplayName>Sage Mobile Sales</DataCloudWebPageDisplayName>
+    <DatacloudWebPageUri>https://birchmsales.sagedatacloud.com</DatacloudWebPageUri>
+  </SiteGroup>
+  <SiteGroup siteId="Cedar">
+    <ConnectorServiceUri>https://cedarcs.sagedatacloud.com:443</ConnectorServiceUri>
+    <ClientId>EpdTOnafaSCEg2fYn2WFre6BibxFGj5B</ClientId>
+    <Scope>skcg77fy();</Scope>
+    <DataCloudWebPageDisplayName>Sage Mobile Sales</DataCloudWebPageDisplayName>
+    <DatacloudWebPageUri>https://cedarmsales.sagedatacloud.com</DatacloudWebPageUri>
+  </SiteGroup>
+  <SiteGroup siteId="Dogwood">
+    <ConnectorServiceUri>https://dogwoodcs.sagedatacloud.com:443</ConnectorServiceUri>
+    <ClientId>eeqrJsQ7jb6HCk8lgilqwrhUfdEtZxZ4</ClientId>
+    <Scope>d6bsty1e();</Scope>
+    <DataCloudWebPageDisplayName>Sage Mobile Sales</DataCloudWebPageDisplayName>
+    <DatacloudWebPageUri>https://dogwoodmsales.sagedatacloud.com</DatacloudWebPageUri>
+  </SiteGroup>
+  <SiteGroup siteId="Elm">
+    <ConnectorServiceUri>https://elmcs.sagedatacloud.com:443</ConnectorServiceUri>
+    <ClientId>BCNViiKLPAjA1OAdYUnyvzH91y7XozLC</ClientId>
+    <Scope>elcv5viz();</Scope>
+    <DataCloudWebPageDisplayName>Sage Mobile Sales</DataCloudWebPageDisplayName>
+    <DatacloudWebPageUri>https://elmmsales.sagedatacloud.com</DatacloudWebPageUri>
+  </SiteGroup>
+  <SiteGroup siteId="Fir">
+    <ConnectorServiceUri>https://fircs.sagedatacloud.com:443</ConnectorServiceUri>
+    <ClientId>2CQ10sFaLZ8EuWuAzD9OeYOTgoQGi7BE</ClientId>
+    <Scope>ymnwvfuj();</Scope>
+    <DataCloudWebPageDisplayName>Sage Mobile Sales</DataCloudWebPageDisplayName>
+    <DatacloudWebPageUri>https://firmsales.sagedatacloud.com</DatacloudWebPageUri>
+  </SiteGroup>
+  <SiteGroup siteId="Gingko">
+    <ConnectorServiceUri>https://gingkocs.sagedatacloud.com:443</ConnectorServiceUri>
+    <ClientId>qj7s8Kzv2o52dX8n8TumzYCvzMaB0WAy</ClientId>
+    <Scope>drvv8fkg();</Scope>
+    <DataCloudWebPageDisplayName>Sage Mobile Sales</DataCloudWebPageDisplayName>
+    <DatacloudWebPageUri>https://gingkomsales.sagedatacloud.com</DatacloudWebPageUri>
+  </SiteGroup>
+  <SiteGroup siteId="Hickory">
+    <ConnectorServiceUri>https://hickorycs.sagedatacloud.com:443</ConnectorServiceUri>
+    <ClientId>0eBDWJCkjUniS3zCcvgHcV8DHs3EOkdd</ClientId>
+    <Scope>p2rrj0qk();</Scope>
+    <DataCloudWebPageDisplayName>Sage Mobile Sales</DataCloudWebPageDisplayName>
+    <DatacloudWebPageUri>https://hickorymsales.sagedatacloud.com</DatacloudWebPageUri>
+  </SiteGroup>
+  <SiteGroup siteId="Juniper">
+    <ConnectorServiceUri>https://junipercs.sagedatacloud.com:443</ConnectorServiceUri>
+    <ClientId>1Sj6LWfCqbMsolDJ1I6C0wJOMoB2S3IO</ClientId>
+    <Scope>sbrm2fi1();</Scope>
+    <DataCloudWebPageDisplayName>Sage Mobile Sales</DataCloudWebPageDisplayName>
+    <DatacloudWebPageUri>https://junipermsales.sagedatacloud.com</DatacloudWebPageUri>
+  </SiteGroup>
+  <SiteGroup siteId="Koa">
+    <ConnectorServiceUri>https://koacs.sagedatacloud.com:443</ConnectorServiceUri>
+    <ClientId>xXiB0kNfqlQ4XpOMLY7AMyQlfwdwt3Tn</ClientId>
+    <Scope>nxujsjnt();</Scope>
+    <DataCloudWebPageDisplayName>Sage Mobile Sales</DataCloudWebPageDisplayName>
+    <DatacloudWebPageUri>https://koamsales.sagedatacloud.com</DatacloudWebPageUri>
+  </SiteGroup>
+  <SiteGroup siteId="Larch">
+    <ConnectorServiceUri>https://larchcs.sagedatacloud.com:443</ConnectorServiceUri>
+    <ClientId>yj8qSmMNFzB5WbWVQi73GO36yUgeKkSQ</ClientId>
+    <Scope>zlrcw7qa();</Scope>
+    <DataCloudWebPageDisplayName>Sage Mobile Sales</DataCloudWebPageDisplayName>
+    <DatacloudWebPageUri>https://larchmsales.sagedatacloud.com</DatacloudWebPageUri>
+  </SiteGroup>
+  <SiteGroup siteId="Maple">
+    <ConnectorServiceUri>https://maplecs.sagedatacloud.com:443</ConnectorServiceUri>
+    <ClientId>XLaYnx8FcOI5WW7nzpFdVTLISDE2vaUA</ClientId>
+    <Scope>bmihcmhs();</Scope>
+    <DataCloudWebPageDisplayName>Sage Mobile Sales</DataCloudWebPageDisplayName>
+    <DatacloudWebPageUri>https://maplemsales.sagedatacloud.com</DatacloudWebPageUri>
+  </SiteGroup>
+  <SiteGroup siteId="Oak">
+    <ConnectorServiceUri>https://oakcs.sagedatacloud.com:443</ConnectorServiceUri>
+    <ClientId>AHTHvsPpWha4kLNWEZE6WvUBSqeZwzJq</ClientId>
+    <Scope>r0ykbmmq();</Scope>
+    <DataCloudWebPageDisplayName>Sage Mobile Sales</DataCloudWebPageDisplayName>
+    <DatacloudWebPageUri>https://oakmsales.sagedatacloud.com</DatacloudWebPageUri>
+  </SiteGroup>
+  <SiteGroup siteId="Pine">
+    <ConnectorServiceUri>https://pinecs.sagedatacloud.com:443</ConnectorServiceUri>
+    <ClientId>bpSPicPquA7BUaQcwllmul7tkvX3v0JJ</ClientId>
+    <Scope>8nflmy8l();</Scope>
+    <DataCloudWebPageDisplayName>Sage Mobile Sales</DataCloudWebPageDisplayName>
+    <DatacloudWebPageUri>https://pinemsales.sagedatacloud.com</DatacloudWebPageUri>
+  </SiteGroup>
+  <SiteGroup siteId="Quince">
+    <ConnectorServiceUri>https://quincecs.sagedatacloud.com:443</ConnectorServiceUri>
+    <ClientId>urfuNiNDqUuKIZwvYBmrtjHUEfBYuJbC</ClientId>
+    <Scope>llhv5aar();</Scope>
+    <DataCloudWebPageDisplayName>Sage Mobile Sales</DataCloudWebPageDisplayName>
+    <DatacloudWebPageUri>https://quincemsales.sagedatacloud.com</DatacloudWebPageUri>
+  </SiteGroup>
+  <SiteGroup siteId="Redwood">
+    <ConnectorServiceUri>https://redwoodcs.sagedatacloud.com:443</ConnectorServiceUri>
+    <ClientId>WJr7OdVKN6JPEajeZ6wE91bbzndzrzxK</ClientId>
+    <Scope>0o3k0tnf();</Scope>
+    <DataCloudWebPageDisplayName>Sage Mobile Sales</DataCloudWebPageDisplayName>
+    <DatacloudWebPageUri>https://redwoodmsales.sagedatacloud.com</DatacloudWebPageUri>
+  </SiteGroup>
+  <SiteGroup siteId="Sycamore">
+    <ConnectorServiceUri>https://sycamorecs.sagedatacloud.com:443</ConnectorServiceUri>
+    <ClientId>xpemi3EWpmCACI7ptSa4PkUjZzCDDtRP</ClientId>
+    <Scope>yqiuftb9();</Scope>
+    <DataCloudWebPageDisplayName>Sage Mobile Sales</DataCloudWebPageDisplayName>
+    <DatacloudWebPageUri>https://sycamoremsales.sagedatacloud.com</DatacloudWebPageUri>
+  </SiteGroup>
+  <SiteGroup siteId="Teak">
+    <ConnectorServiceUri>https://teakcs.sagedatacloud.com:443</ConnectorServiceUri>
+    <ClientId>8T2FFiY7WrsCrMy61KI0DK6AwGNLVn1E</ClientId>
+    <Scope>s99fetln();</Scope>
+    <DataCloudWebPageDisplayName>Sage Mobile Sales</DataCloudWebPageDisplayName>
+    <DatacloudWebPageUri>https://teakmsales.sagedatacloud.com</DatacloudWebPageUri>
+  </SiteGroup>
+  <SiteGroup siteId="Willow">
+    <ConnectorServiceUri>https://willowcs.sagedatacloud.com:443</ConnectorServiceUri>
+    <ClientId>fonp998EEWAYF5CSpf1ITdhIT2vK2pPS</ClientId>
+    <Scope>ie1nah68();</Scope>
+    <DataCloudWebPageDisplayName>Sage Mobile Sales</DataCloudWebPageDisplayName>
+    <DatacloudWebPageUri>https://willowmsales.sagedatacloud.com</DatacloudWebPageUri>
+  </SiteGroup>
+  <SiteGroup siteId="ZebraWood">
+    <ConnectorServiceUri>https://zebrawoodcs.sagedatacloud.com:443</ConnectorServiceUri>
+    <ClientId>A2U8c67c04kz0Q8Io7RpkhIgg9tfyxQJ</ClientId>
+    <Scope>sjrl2mkc();</Scope>
+    <DataCloudWebPageDisplayName>Sage Mobile Sales</DataCloudWebPageDisplayName>
+    <DatacloudWebPageUri>https://zebrawoodmsales.sagedatacloud.com</DatacloudWebPageUri>
+  </SiteGroup>
+  <SiteGroup siteId="DevPreview">
+    <ConnectorServiceUri>https://devpreviewcs.sagedatacloud.com:443</ConnectorServiceUri>
+    <ClientId>6BKFgLYhHrL5mTVOwMJX5hBHnUBYeCKc</ClientId>
+    <Scope>qggkgqmf();</Scope>
+    <DataCloudWebPageDisplayName>Sage Mobile Sales</DataCloudWebPageDisplayName>
+    <DatacloudWebPageUri>https://devpreviewmsales.sagedatacloud.com</DatacloudWebPageUri>
+  </SiteGroup>
+  <SiteGroup siteId="SageTeam">
+    <ConnectorServiceUri>https://sageteamcs.sagedatacloud.com:443</ConnectorServiceUri>
+    <ClientId>Sr0p0PKJJA3RXj0vPbDTsJkdWZRlE9qP</ClientId>
+    <Scope>m5ippsf7();</Scope>
+    <DataCloudWebPageDisplayName>Sage Mobile Sales</DataCloudWebPageDisplayName>
+    <DatacloudWebPageUri>https://sageteammsales.sagedatacloud.com</DatacloudWebPageUri>
+  </SiteGroup>
+  <SiteGroup siteId="Preview">
+    <ConnectorServiceUri>https://previewcs.sagedatacloud.com:443</ConnectorServiceUri>
+    <ClientId>oiSHgWkKpBH8kaBxfxFVyM1Ov0p5SYMy</ClientId>
+    <Scope>bgtvnjmd()</Scope>
+    <DataCloudWebPageDisplayName>Sage Mobile Sales</DataCloudWebPageDisplayName>
+    <DatacloudWebPageUri>https://previewmsales.sagedatacloud.com</DatacloudWebPageUri>
+  </SiteGroup>
+</SiteGroups>

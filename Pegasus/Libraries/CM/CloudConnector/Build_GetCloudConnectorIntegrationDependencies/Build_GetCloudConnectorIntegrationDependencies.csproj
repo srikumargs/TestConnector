@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{03D78E0A-1526-4A55-874F-D63F95342792}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Build_GetCloudConnectorIntegrationDependencies</RootNamespace>
+    <AssemblyName>Build_GetCloudConnectorIntegrationDependencies</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <SandboxDir>$([System.IO.Path]::GetFullPath('$(MSBuildProjectDirectory)\..\..\..\..'))</SandboxDir>
+    <LibraryDir>$(SandboxDir)\Libraries\CM\CloudConnector</LibraryDir>
+    <LibraryConfigFile>$(LibraryDir)\LibraryConfig-Library.xml</LibraryConfigFile>
+    <ToolsBinDir>$(SandboxDir)\Tools\Bin</ToolsBinDir>
+    <GetCloudDependenciesLogFile>$(LibraryDir)\CRE_CloudConnector.GetCloudConnectorIntegrationDependenciesLog.txt</GetCloudDependenciesLogFile>
+    <SkipCopyBuildProduct>true</SkipCopyBuildProduct>
+    <SourceDirectory>\\orbdevstebld1\Builds\CloudConnectorIntegration_vNextPegasus\CloudConnectorIntegration_vNextPegasus_20140123.1</SourceDirectory>
+    <!--<SourceDirectory>\\orbdevstebld1\Builds\CloudConnectorIntegration_Main\CloudConnectorIntegration_Main_20120427.1</SourceDirectory>-->
+    <!--<SourceDirectory>C:\tfs\cloud\CloudConnectorIntegration\Projects\Sage.CRE.CloudConnector.Integration.Interfaces\bin\Debug</SourceDirectory>-->
+    <DestinationDirectory>$(SandboxDir)\Assemblies</DestinationDirectory>
+    <RuntimeDirectory>$(SandboxDir)\Runtime Files\Program Files\CloudConnector (COMMON_STAGING)</RuntimeDirectory>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <SourceItem Include="$(SourceDirectory)\Sage.CRE.CloudConnector.Integration.Interfaces.dll" />
+    <SourceItem Include="$(SourceDirectory)\Sage.CRE.CloudConnector.Integration.Interfaces.pdb" />
+    <SourceItem Include="$(SourceDirectory)\Sage.CRE.CloudConnector.Integration.MockServicer.dll" />
+    <SourceItem Include="$(SourceDirectory)\Sage.CRE.CloudConnector.Integration.MockServicer.pdb" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.Common.targets" />
+  <Target Name="CreateManifestResourceNames" />
+  <Target Name="CoreCompile" />
+  <Target Name="Build" DependsOnTargets="$(BuildDependsOn)" Inputs="$(LibraryConfigFile)" Outputs="$(GetCloudDependenciesLogFile)">
+    <CallTarget Targets="StopHostingFxService" />
+    <CallTarget Targets="CopyFilesToDestinationDir" />
+    <WriteLinesToFile File="$(GetCloudDependenciesLogFile)" Lines="Success!" />
+    <OnError ExecuteTargets="DeleteOutputFiles" />
+  </Target>
+  <Target Name="StopHostingFxService">
+    <Message Importance="Normal" Text="Running StopHostingFxService action..." />
+    <MakeDir Directories="$(RuntimeDirectory)" Condition="!Exists('$(RuntimeDirectory)')" />
+    <Exec Command="&quot;$(RuntimeDirectory)\Sage.CRE.HostingFramework.Service.exe&quot; /silent /stop" WorkingDirectory="$(RuntimeDirectory)" IgnoreExitCode="true" />
+  </Target>
+  <Target Name="CopyFilesToDestinationDir" Inputs="@(SourceItem)" Outputs="$(DestinationDirectory)\%(Filename)%(Extension)">
+    <Message Importance="Normal" Text="Running CopyFilesToDestinationDir action..." />
+    <Copy SourceFiles="@(SourceItem)" DestinationFiles="@(SourceItem->'$(DestinationDirectory)\%(Filename)%(Extension)')" SkipUnchangedFiles="true" OverwriteReadOnlyFiles="true" />
+    <Copy SourceFiles="@(SourceItem)" DestinationFiles="@(SourceItem->'$(RuntimeDirectory)\%(Filename)%(Extension)')" SkipUnchangedFiles="true" OverwriteReadOnlyFiles="true" />
+  </Target>
+  <Target Name="DeleteOutputFiles">
+    <Delete Files="$(GetCloudDependenciesLogFile)" />
+    <Delete Files="@(SourceItem->'$(DestinationDirectory)\%(Filename)%(Extension)')" />
+    <Delete Files="@(SourceItem->'$(RuntimeDirectory)\%(Filename)%(Extension)')" />
+  </Target>
+  <Target Name="CoreClean" DependsOnTargets="$(CoreCleanDependsOn)">
+    <CallTarget Targets="DeleteOutputFiles" />
+  </Target>
+</Project>

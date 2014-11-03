@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<SiteGroups>
+  <SiteGroup siteId="Production" isDefault="true">
+    <ConnectorServiceUri>https://sdcCS.na.sage.com:443</ConnectorServiceUri>/>
+    <ClientId>WMbDy88vmWLF3rfWgxVfLkHsXoPusyje</ClientId>
+    <Scope>kmt6bhzz();</Scope>
+    <DataCloudWebPageDisplayName>Sage Mobile Sales</DataCloudWebPageDisplayName>
+    <DatacloudWebPageUri>https://sagemsales.na.sage.com</DatacloudWebPageUri>
+  </SiteGroup>
+</SiteGroups>

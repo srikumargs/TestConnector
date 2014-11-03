@@ -1,0 +1,147 @@
+
+-- --------------------------------------------------
+-- Entity Designer DDL Script for SQL Server Compact Edition
+-- --------------------------------------------------
+-- Date Created: 07/31/2014 16:45:26
+-- Generated from EDMX file: C:\tfs\Sage Cloud\CloudConnector\Dev\vNextConWip\Pegasus\Libraries\CM\CloudConnector\Sage.Connector.PremiseStore\LogStore\LogStoreModel.edmx
+-- --------------------------------------------------
+
+
+-- --------------------------------------------------
+-- Dropping existing FOREIGN KEY constraints
+-- NOTE: if the constraint does not exist, an ignorable error will be reported.
+-- --------------------------------------------------
+
+    ALTER TABLE [LogEntries] DROP CONSTRAINT [FK_ActivityEntryLogEntry];
+GO
+
+-- --------------------------------------------------
+-- Dropping existing tables
+-- NOTE: if the table does not exist, an ignorable error will be reported.
+-- --------------------------------------------------
+
+    DROP TABLE [LogEntries];
+GO
+    DROP TABLE [ActivityEntries];
+GO
+
+-- --------------------------------------------------
+-- Creating all tables
+-- --------------------------------------------------
+
+-- Creating table 'LogEntries'
+CREATE TABLE [LogEntries] (
+    [Id] uniqueidentifier  NOT NULL,
+    [Type] nvarchar(200)  NOT NULL,
+    [SourceTypeName] nvarchar(200)  NOT NULL,
+    [SourceMemberName] nvarchar(200)  NOT NULL,
+    [ProcessId] int  NOT NULL,
+    [AppDomainId] int  NOT NULL,
+    [ThreadId] int  NOT NULL,
+    [ObjectId] int  NOT NULL,
+    [User] nvarchar(200)  NOT NULL,
+    [Machine] nvarchar(200)  NOT NULL,
+    [DateTimeUtc] datetime  NOT NULL,
+    [CloudTenantId] nvarchar(1000)  NOT NULL,
+    [CloudRequestId] uniqueidentifier  NULL,
+    [Content] ntext  NOT NULL,
+    [ActivityEntry_Id] uniqueidentifier  NULL
+);
+GO
+
+-- Creating table 'ActivityEntries'
+CREATE TABLE [ActivityEntries] (
+    [Id] uniqueidentifier  NOT NULL,
+    [CloudTenantId] nvarchar(1000)  NOT NULL,
+    [CloudRequestId] uniqueidentifier  NOT NULL,
+    [CloudRequestType] nvarchar(200)  NOT NULL,
+    [CloudRequestInnerType] nvarchar(200)  NULL,
+    [CloudRequestCreatedTimestampUtc] datetime  NOT NULL,
+    [CloudProjectName] nvarchar(255)  NULL,
+    [CloudRequestRequestingUser] nvarchar(200)  NOT NULL,
+    [CloudRequestSummary] nvarchar(300)  NULL,
+    [CloudRequestRetryCount] bigint  NOT NULL,
+    [IsSystemRequest] bit  NOT NULL,
+    [Status] int  NOT NULL,
+    [State1DateTimeUtc] datetime  NULL,
+    [State2DateTimeUtc] datetime  NULL,
+    [State3DateTimeUtc] datetime  NULL,
+    [State4DateTimeUtc] datetime  NULL,
+    [State5DateTimeUtc] datetime  NULL,
+    [State6DateTimeUtc] datetime  NULL,
+    [State7DateTimeUtc] datetime  NULL,
+    [State8DateTimeUtc] datetime  NULL,
+    [State9DateTimeUtc] datetime  NULL,
+    [State10DateTimeUtc] datetime  NULL,
+    [State11DateTimeUtc] datetime  NULL,
+    [State12DateTimeUtc] datetime  NULL,
+    [State13DateTimeUtc] datetime  NULL,
+    [State14DateTimeUtc] datetime  NULL,
+    [State15DateTimeUtc] datetime  NULL,
+    [State16DateTimeUtc] datetime  NULL,
+    [State17DateTimeUtc] datetime  NULL,
+    [DateTimeUtc] datetime  NOT NULL
+);
+GO
+
+-- --------------------------------------------------
+-- Creating all PRIMARY KEY constraints
+-- --------------------------------------------------
+
+-- Creating primary key on [Id] in table 'LogEntries'
+ALTER TABLE [LogEntries]
+ADD CONSTRAINT [PK_LogEntries]
+    PRIMARY KEY ([Id] );
+GO
+
+-- Creating primary key on [Id] in table 'ActivityEntries'
+ALTER TABLE [ActivityEntries]
+ADD CONSTRAINT [PK_ActivityEntries]
+    PRIMARY KEY ([Id] );
+GO
+
+-- --------------------------------------------------
+-- Creating all FOREIGN KEY constraints
+-- --------------------------------------------------
+
+-- Creating foreign key on [ActivityEntry_Id] in table 'LogEntries'
+ALTER TABLE [LogEntries]
+ADD CONSTRAINT [FK_ActivityEntryLogEntry]
+    FOREIGN KEY ([ActivityEntry_Id])
+    REFERENCES [ActivityEntries]
+        ([Id])
+    ON DELETE CASCADE ON UPDATE NO ACTION;
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_ActivityEntryLogEntry'
+CREATE INDEX [IX_FK_ActivityEntryLogEntry]
+ON [LogEntries]
+    ([ActivityEntry_Id]);
+GO
+
+
+
+-- Creating index for table based on custom extensions --
+CREATE INDEX [IX_LogEntries_DateTimeUtc]
+ON [LogEntries]
+([DateTimeUtc]);
+GO
+
+CREATE INDEX [IX_LogEntries_CloudRequestId]
+ON [LogEntries]
+([CloudRequestId]);
+GO
+
+CREATE INDEX [IX_ActivityEntries_CloudRequestId]
+ON [ActivityEntries]
+([CloudRequestId]);
+GO
+
+CREATE INDEX [IX_ActivityEntries_DateTimeUtc]
+ON [ActivityEntries]
+([DateTimeUtc]);
+GO
+
+
+-- --------------------------------------------------
+-- Script has ended
+-- --------------------------------------------------

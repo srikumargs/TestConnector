@@ -1,0 +1,564 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ConnectorMain_ButtonClose" xml:space="preserve">
+    <value>&amp;Close</value>
+  </data>
+  <data name="ConnectorRequestList_ColumnRequestTypeTitle" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="ConnectorMain_ButtonDelete" xml:space="preserve">
+    <value>&amp;Delete</value>
+  </data>
+  <data name="ConnectorMain_BackofficeColumnHeader" xml:space="preserve">
+    <value>{0} company</value>
+    <comment>0-ConnectorRegistryUtilities.PluggedInProductName</comment>
+  </data>
+  <data name="ConnectorDetails_SaveFailedMessage" xml:space="preserve">
+    <value>Save failed with message: {0}{1}</value>
+    <comment>0-Newline 1-message</comment>
+  </data>
+  <data name="ConnectorDetails_ConnectionStatusOk" xml:space="preserve">
+    <value>Connection successful.</value>
+  </data>
+  <data name="ConnectorLogin_DialogTitle" xml:space="preserve">
+    <value>{0} Login</value>
+  </data>
+  <data name="ConnectorDetails_AreYouSureYouWantToUpdateCaption" xml:space="preserve">
+    <value>Verify Connection Change</value>
+  </data>
+  <data name="ConnectorRequestList_BackofficeCompanyNameLabel" xml:space="preserve">
+    <value>Back office company name:</value>
+  </data>
+  <data name="ConnectorDetails_LabelUserId" xml:space="preserve">
+    <value>User ID:</value>
+  </data>
+  <data name="ConnectorLogin_ConfirmDeleteMessage" xml:space="preserve">
+    <value>Are you sure you want to delete this connection?</value>
+  </data>
+  <data name="ConnectorRequestList_ColumnRequestStatusImageTitle" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="ConnectorAccountSelection_AccountSelectionErrorCaption" xml:space="preserve">
+    <value>Account Selection Error</value>
+  </data>
+  <data name="ConnectorMain_ButtonAdd" xml:space="preserve">
+    <value>&amp;Add</value>
+  </data>
+  <data name="ConnectorDetails_CompleteConnectionIssue_Message" xml:space="preserve">
+    <value>There are issues with this connection that will prevent it from functioning properly.  Do you want to save it anyway?{0}{1}{2}</value>
+    <comment>0 - newline 1 - back office connection issues, 2 - cloud connection issues</comment>
+  </data>
+  <data name="ConnectorMain_LabelConnectionLog" xml:space="preserve">
+    <value>Connection Log</value>
+  </data>
+  <data name="ConnectorDetails_LabelBackofficeCompanyName" xml:space="preserve">
+    <value>Company name:</value>
+  </data>
+  <data name="ConnectorDetails_ButtonTestConnection" xml:space="preserve">
+    <value>Test Connection</value>
+  </data>
+  <data name="ConnectorDetails_FormTitle" xml:space="preserve">
+    <value>{0} Connection Details</value>
+  </data>
+  <data name="ConnectorLogin_LoginErrorMessage" xml:space="preserve">
+    <value>Unable to login: {0}{1}</value>
+    <comment>0-Newline 1-Messages</comment>
+  </data>
+  <data name="ConnectorLogin_DeleteFailedMessage" xml:space="preserve">
+    <value>Deletion failed with message: {0}{1}</value>
+    <comment>0-Newline 1-message</comment>
+  </data>
+  <data name="ConnectorMain_LinkConnectorUpdateAvailable" xml:space="preserve">
+    <value>Connector update available</value>
+  </data>
+  <data name="ConnectorDetails_LabelConnectionKey" xml:space="preserve">
+    <value>Connection key:</value>
+  </data>
+  <data name="ConnectorDetails_PremiseConnectionStatusNotOk" xml:space="preserve">
+    <value>Back office connection was not successful.</value>
+  </data>
+  <data name="ConnectorRequestList_ColumnTimeRequestedTitle" xml:space="preserve">
+    <value>Started on</value>
+  </data>
+  <data name="ConnectorMain_GrpBoxLabelBackofficeConnectionDetails" xml:space="preserve">
+    <value>{0} connection details</value>
+    <comment>0 - plugged in product name</comment>
+  </data>
+  <data name="ConnectorAccountSelection_SelectionText" xml:space="preserve">
+    <value>Select the Windows account to use with the {0}.</value>
+    <comment>0-BriefProductName</comment>
+  </data>
+  <data name="ConnectorDetails_AreYouSureYouWantToUpdateMessage" xml:space="preserve">
+    <value>Making this change will significantly alter the existing connection between the back office and the Sage site.  You are creating a new link between this database and the site, which permanently removes the existing link. Are you sure you want to continue?</value>
+  </data>
+  <data name="ConnectorBackofficeUpdateRequired_Message" xml:space="preserve">
+    <value>The back office software is not current. Please update your back office software.</value>
+  </data>
+  <data name="ConnectorDetails_BackofficeDetailsHeader" xml:space="preserve">
+    <value>{0} connection details</value>
+    <comment>0-ConnectorRegistryUtilities.PluggedInProductName</comment>
+  </data>
+  <data name="ConnectorLogin_PasswordIncorrect" xml:space="preserve">
+    <value>User name or password is incorrect.</value>
+  </data>
+  <data name="ConnectorAccountSelectionForm_HelpLinkText" xml:space="preserve">
+    <value>Which option should I choose?</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="arrow32x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\arrow32x16.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ConnectorServiceNotReady_ConfigureErrorText" xml:space="preserve">
+    <value>There was a problem configuring the service.  Refer to the Windows Event Viewer for more information.</value>
+  </data>
+  <data name="ConnectorLogin_ConfirmDeleteCaption" xml:space="preserve">
+    <value>Confirmation</value>
+  </data>
+  <data name="ConnectorDetails_LabelEnpointAddress" xml:space="preserve">
+    <value>Gateway address:</value>
+  </data>
+  <data name="ConnectorServiceNotReady_ConfigureErrorCaption" xml:space="preserve">
+    <value>Configuration Error</value>
+  </data>
+  <data name="ConnectorDetails_SaveFailedCaption" xml:space="preserve">
+    <value>Save Error</value>
+  </data>
+  <data name="ConnectorSimpleConnectorUpdateRequired_Message" xml:space="preserve">
+    <value>An update for the Sage Connector is required. You must update your existing version to continue to use the connector.</value>
+  </data>
+  <data name="ConnectorUpdateFormUpdateAvailable_Message" xml:space="preserve">
+    <value>Version {0} was made available on {2}. {5}{3}</value>
+    <comment>0- ProductVersion,
+1- InterfaceVersion, 
+2 -PublicationDate, 
+3 - UpgradeDescription,
+4 - UpgradeUri,
+5 - Environment.NewLine</comment>
+  </data>
+  <data name="ConnectorRequestList_CloudCompanyNameLabel" xml:space="preserve">
+    <value>Company name: </value>
+  </data>
+  <data name="ConnectorSimpleConnectorUpdateAvailable_Message" xml:space="preserve">
+    <value>An update for the Sage Connector is available. You can continue to use your existing version and can choose to perform the update when it is convenient for you.</value>
+  </data>
+  <data name="ConnectorRequestList_Close" xml:space="preserve">
+    <value>&amp;Close</value>
+  </data>
+  <data name="ConnectorSimpleConnectorUpdateAvailable_Caption" xml:space="preserve">
+    <value>Connector Update Available</value>
+  </data>
+  <data name="ConnectorUpdateFormUpdateRequired_Message" xml:space="preserve">
+    <value>Version {0} was made available on {2}. {5}{3}</value>
+    <comment>0- ProductVersion,
+1- InterfaceVersion, 
+2 -PublicationDate, 
+3 - UpgradeDescription,
+4 - UpgradeUri,
+5 - Environment.NewLine</comment>
+  </data>
+  <data name="ConnectorDetails_TenantDetailsHeader" xml:space="preserve">
+    <value>{0} connection details</value>
+  </data>
+  <data name="ConnectorDetails_ErrorValidatingTenantId" xml:space="preserve">
+    <value>Error validating website identification.</value>
+  </data>
+  <data name="ConnectorMain_ErrorUpdatingActiveStatusCaption" xml:space="preserve">
+    <value>Error Updating Connection Status</value>
+  </data>
+  <data name="ConnectorLogin_LoginErrorCaption" xml:space="preserve">
+    <value>Login Error</value>
+  </data>
+  <data name="ConnectorMain_LabelConnectionEnabled" xml:space="preserve">
+    <value>Connection Enabled:</value>
+  </data>
+  <data name="ConnectorMain_ColumnHeaderActive" xml:space="preserve">
+    <value>Active</value>
+  </data>
+  <data name="ConnectorRequestList_ColumnRequestSummeryTitle" xml:space="preserve">
+    <value>Details</value>
+  </data>
+  <data name="ConnectorLogon_Instructions" xml:space="preserve">
+    <value>Type the User ID and Password for the {0} {1}.</value>
+    <comment>0-Sage Timberline Office 1-Application Administrator</comment>
+  </data>
+  <data name="ConnectorServiceNotReady_NotConfiguredText" xml:space="preserve">
+    <value>The {0} service is not currently configured and running on this computer.
+
+You must first complete this activity to begin using the {1}.</value>
+    <comment>0-ServiceDisplayName,
+1-BriefProductName</comment>
+  </data>
+  <data name="ConnectorMain_ButtonTestAllConnections" xml:space="preserve">
+    <value>&amp;Test All Connections</value>
+  </data>
+  <data name="ConnectorDetails_ErrorValidatingTenantConnection" xml:space="preserve">
+    <value>Error validating the active connection. {0}{1}</value>
+    <comment>0-Newline 1-message</comment>
+  </data>
+  <data name="ConnectorDetails_LabelTenantCompanyName" xml:space="preserve">
+    <value>Company Name:</value>
+  </data>
+  <data name="ConnectorRequestList_ColumnRequestedByTitle" xml:space="preserve">
+    <value>Requested by</value>
+  </data>
+  <data name="ConnectorMain_LinkConnectorUpdateRequired" xml:space="preserve">
+    <value>Connector update required</value>
+  </data>
+  <data name="ConnectorMain_FormName" xml:space="preserve">
+    <value>{0} Connector</value>
+  </data>
+  <data name="ConnectorMain_ButtonEdit" xml:space="preserve">
+    <value>&amp;Edit</value>
+  </data>
+  <data name="ConnectorMain_LabelSageSkyfireConnections" xml:space="preserve">
+    <value>Sage Connections</value>
+  </data>
+  <data name="ConnectorDetails_LabelEnableConnection" xml:space="preserve">
+    <value>Enable connection:</value>
+  </data>
+  <data name="ConnectorRequestList_ErrorMessageCaption" xml:space="preserve">
+    <value>Error occured:</value>
+  </data>
+  <data name="ConnectorServiceNotReady_NotRunningText" xml:space="preserve">
+    <value>The {0} service is not currently running on this computer.
+
+{1}Select Start to start the service using the current configuration.
+{1}Select Reconfigure if you want to change the configuration prior to 
+  starting the service (for example, to change account information).</value>
+    <comment>0-ServiceDisplayName
+1-Bullet</comment>
+  </data>
+  <data name="ConnectorCommon_ErrorCaption" xml:space="preserve">
+    <value>Error Occurred</value>
+  </data>
+  <data name="ConnectorMain_SystemMessageListBoxRow" xml:space="preserve">
+    <value>{0} - {3} [{1} {2}]</value>
+    <comment>0 - Subsystem, 1 - Date, 2- Time, 3 - Message</comment>
+  </data>
+  <data name="ConnectorMain_GrpBoxLabelTenantConnectionDetails" xml:space="preserve">
+    <value>Sage connection details</value>
+  </data>
+  <data name="ConnectorMain_LabelVersion" xml:space="preserve">
+    <value>Version:</value>
+  </data>
+  <data name="ConnectorMain_LabelSiteUrl" xml:space="preserve">
+    <value>Website:</value>
+  </data>
+  <data name="ConnectorRequestList_ConfirmDialogMessage" xml:space="preserve">
+    <value>Are you sure you want to cancel the {0} selected request(s)?</value>
+    <comment>0 - int number of selections</comment>
+  </data>
+  <data name="ConnectorDetails_LabelSiteURL" xml:space="preserve">
+    <value>Site address:</value>
+  </data>
+  <data name="ConnectorRequestList_DeleteButton" xml:space="preserve">
+    <value>Cance&amp;l request(s)</value>
+  </data>
+  <data name="ConnectorAccountSelection_PasswordsNotEqualText" xml:space="preserve">
+    <value>The passwords do not match.  Please re-enter the passwords.</value>
+  </data>
+  <data name="ConnectorDetails_ConfigurationErrorCaption" xml:space="preserve">
+    <value>Configuration Error</value>
+  </data>
+  <data name="ConnectorDetails_TenantConnectionStatusNotOk" xml:space="preserve">
+    <value>Connection to the website was not successful.</value>
+  </data>
+  <data name="ConnectorRequestList_ColumnProjectNameTitle" xml:space="preserve">
+    <value>Project name</value>
+  </data>
+  <data name="ConnectorMain_LabelLastConnection" xml:space="preserve">
+    <value>Last Successful Connection - Date/Time</value>
+  </data>
+  <data name="ConnectorAccountSelection_AccountSelectionErrorText" xml:space="preserve">
+    <value>The account or password is invalid.</value>
+  </data>
+  <data name="CancelInProgress_Caption" xml:space="preserve">
+    <value>In-Progress Request Cancellation</value>
+    <comment>0- ProductVersion,
+1- InterfaceVersion, 
+2 -PublicationDate, 
+3 - UpgradeDescription,
+4 - UpgradeUri,
+5 - Environment.NewLine</comment>
+  </data>
+  <data name="ConnectorRequestList_ErrorDeletingText" xml:space="preserve">
+    <value>Unable to cancel request(s) - {0}{1}</value>
+    <comment>0-newline 1-error.message</comment>
+  </data>
+  <data name="ConnectorLogin_NoResponseFromBackoffice" xml:space="preserve">
+    <value>No response received from the back office</value>
+  </data>
+  <data name="ConnectorRequestList_RefreshButton" xml:space="preserve">
+    <value>&amp;Refresh</value>
+  </data>
+  <data name="ConnectorRequestList_LastRefreshLabelText" xml:space="preserve">
+    <value>Latest refresh:  </value>
+  </data>
+  <data name="ConnectorMain_ErrorRefreshingConnectionList" xml:space="preserve">
+    <value>Error updating list of connections with message: {0}{1}</value>
+    <comment>0-Newline 1-message</comment>
+  </data>
+  <data name="ConnectorBackofficeUpdateRequired_Caption" xml:space="preserve">
+    <value>Update Required</value>
+  </data>
+  <data name="ConnectorDetails_ConnectionIssues_Caption" xml:space="preserve">
+    <value>Connection Issues</value>
+  </data>
+  <data name="ConnectorMain_LabelDatabasePath" xml:space="preserve">
+    <value>Data connection:</value>
+  </data>
+  <data name="ConnectorDetails_LabelPassword" xml:space="preserve">
+    <value>Password:</value>
+  </data>
+  <data name="ConnectorAccountSelection_MissingUserText" xml:space="preserve">
+    <value>Please enter a user name.</value>
+  </data>
+  <data name="ConnectorLogin_LogonFailed" xml:space="preserve">
+    <value>Login failed.</value>
+    <comment>General failure no specifics from back end.</comment>
+  </data>
+  <data name="ConnectorMain_LinkBackOfficeUpdateRequired" xml:space="preserve">
+    <value>{0} update required</value>
+    <comment>0 - plugged in product name</comment>
+  </data>
+  <data name="ConnectorRequestList_DialogCaption" xml:space="preserve">
+    <value>Sage In-Progress Requests</value>
+  </data>
+  <data name="Image_config_error" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\config-error.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ConnectorDetails_ConnectionStatusCaption" xml:space="preserve">
+    <value>Connection Status</value>
+  </data>
+  <data name="ConnectorAccountSelectionForm_StockAccountNotAvailableText" xml:space="preserve">
+    <value> (not available for this operating system)</value>
+    <comment>Intended to go after the existing label text for stock account option</comment>
+  </data>
+  <data name="ConnectorMain_CompanyColumnHeader" xml:space="preserve">
+    <value>{0} Company</value>
+    <comment>0 - Connector_ProductName</comment>
+  </data>
+  <data name="ConnectorRequestList_ErrorMessageText" xml:space="preserve">
+    <value>Unable to access request data</value>
+  </data>
+  <data name="Image_new_service" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\New_service.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ConnectorDetails_ButtonSave" xml:space="preserve">
+    <value>&amp;Save</value>
+  </data>
+  <data name="ConnectorDetails_LabelDatabasePath" xml:space="preserve">
+    <value>Data connection:</value>
+  </data>
+  <data name="Image_edit_configuration" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Edit_configuration.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CancelInProgress_Message" xml:space="preserve">
+    <value>The current in-progress request for this site will be removed. Your site contacts must make a new request if they want to complete it. Do you want to continue?</value>
+    <comment>0- ProductVersion,
+1- InterfaceVersion, 
+2 -PublicationDate, 
+3 - UpgradeDescription,
+4 - UpgradeUri,
+5 - Environment.NewLine</comment>
+  </data>
+  <data name="ConnectorRequestList_ColumnRequestStatusTitle" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="Installer" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\installer.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ConnectorCommon_ConfigurationDataProblem" xml:space="preserve">
+    <value>A data access problem has occurred.</value>
+  </data>
+  <data name="ConnectorRequestList_ConfirmDialogCaption" xml:space="preserve">
+    <value>Confirmation</value>
+  </data>
+  <data name="ConnectorDetails_ButtonCancel" xml:space="preserve">
+    <value>&amp;Cancel</value>
+  </data>
+  <data name="ConnectorSimpleConnectorUpdateRequired_Caption" xml:space="preserve">
+    <value>Connector Update Required</value>
+  </data>
+  <data name="ConnectorRequestList_ErrorDeleteingCaption" xml:space="preserve">
+    <value>Error Occured:</value>
+  </data>
+  <data name="ConnectorRequestList_ColumnRequestTimeElapsedTitle" xml:space="preserve">
+    <value>Elapsed time</value>
+  </data>
+  <data name="ConnectorMain_LabelCompanyName" xml:space="preserve">
+    <value>Company Name:</value>
+  </data>
+  <data name="ConnectorMain_ErrorUpdatingActiveStatusMessages" xml:space="preserve">
+    <value>Failed to update all connection statuses.{0}</value>
+    <comment>0 - NewLine</comment>
+  </data>
+  <data name="ConnectorMain_ServiceIsNotRunningErrorMessage" xml:space="preserve">
+    <value>Verify the {0} service is running and start {1} again.</value>
+  </data>
+  <data name="ConnectorDetails_ErrorInitializingForAddTenant" xml:space="preserve">
+    <value>Error initializing new connection:{0}{1}</value>
+    <comment>0-Newline 1-message</comment>
+  </data>
+  <data name="Image_service_stopped" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Service_stopped.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ConnectorLogin_DeleteFailedCaption" xml:space="preserve">
+    <value>Error Deleting</value>
+  </data>
+  <data name="selelection_up" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\selelection_up.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ConnectorAccountSelection_AccountSelectionAccessErrorText" xml:space="preserve">
+    <value>The selected account does not have the permissions needed for the service. Please modify the account to have the appropriate permissions, or select a different account. For more information regarding user account permissions, see Help.</value>
+  </data>
+  <data name="ConnectorAccountSelection_MissingPasswordText" xml:space="preserve">
+    <value>Please enter a password.</value>
+  </data>
+  <data name="ConnectorServiceNotReady_WaitForServiceErrorCaption" xml:space="preserve">
+    <value>Service Not Responding</value>
+  </data>
+  <data name="ConnectorServiceNotReady_WaitForServiceErrorText" xml:space="preserve">
+    <value>The service is taking longer than expected to start. Try starting the service again (by starting the {0} software or by reconfiguring the service account). If you continue to receive this message, please contact customer support.</value>
+    <comment>0-BriefProductName</comment>
+  </data>
+  <data name="ConnectorUpdateFormUpdateAvailableNoVersion_Message" xml:space="preserve">
+    <value>An update to the connector is available.{5}{3}</value>
+    <comment>0- ProductVersion,
+1- InterfaceVersion, 
+2 -PublicationDate, 
+3 - UpgradeDescription,
+4 - UpgradeUri,
+5 - Environment.NewLine</comment>
+  </data>
+  <data name="ConnectorUpdateFormUpdateRequiredNoVersion_Message" xml:space="preserve">
+    <value>An update to the connector is required.{5}{3}</value>
+    <comment>0- ProductVersion,
+1- InterfaceVersion, 
+2 -PublicationDate, 
+3 - UpgradeDescription,
+4 - UpgradeUri,
+5 - Environment.NewLine</comment>
+  </data>
+  <data name="ConnectorLogon_Instructions_PerCompanyAdministrator_AccountReadOnly" xml:space="preserve">
+    <value>Type the Password of the {0} {1} account for the company database you want to use.</value>
+    <comment>0-Sage 100 Contractor 1-Supervisor</comment>
+  </data>
+</root>
